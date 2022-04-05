@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useContext, useState, useEffect, useRef } from 'react';
+import React, { createContext, ReactNode, useContext, useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 
@@ -10,8 +10,6 @@ import { BottomDisclaimer, TopDisclaimer } from '../../../ui-config';
 
 import messages from './messages';
 import staticStyles from './style';
-
-import background from '../../../images/background.svg';
 
 export interface ScreensWrapperProps {
   children: ReactNode;
@@ -47,7 +45,6 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
   );
 
   const [scrollDir, setScrollDir] = useState('up');
-  const scrollElementRef = useRef();
   const threshold = 0;
   let lastScrollY = window.pageYOffset;
   let ticking = false;
@@ -79,7 +76,7 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
       <BottomDisclaimer />
 
       <TopDisclaimer />
-      <Menu title={title} active={scrollDir == 'up'} />
+      <Menu title={title} active={scrollDir === 'up'} />
       <main
         onScroll={(!sm && !md && onScroll) || (() => {})}
         className="ScreensWrapper__content"

@@ -5,7 +5,6 @@ import {
   ReservesDataHumanized,
   UserReserveDataHumanized,
 } from '@aave/contract-helpers';
-import web3 from 'web3';
 import { ChainId } from '../../../helpers/contract-helpers';
 import { usePolling } from '../../hooks/use-polling';
 import { getProvider } from '../../../helpers/config/markets-and-network-config';

@@ -17,7 +17,6 @@ import BorrowMobileCard from '../../components/BorrowAssetTable/BorrowMobileCard
 import DepositBorrowMainWrapper from '../../../../components/wrappers/DepositBorrowMainWrapper';
 import Card from '../../../../components/wrappers/DepositBorrowMainWrapper/components/Card';
 
-import defaultMessages from '../../../../defaultMessages';
 import messages from './messages';
 
 import { BorrowTableItem } from '../../components/BorrowAssetTable/types';

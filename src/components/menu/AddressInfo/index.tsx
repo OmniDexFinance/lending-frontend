@@ -18,6 +18,7 @@ import staticStyles from './style';
 import messages from './messages';
 import { getNetworkConfig } from '../../../helpers/config/markets-and-network-config';
 import useGetEnsName from '../../../libs/hooks/use-get-ens-name';
+
 export default function AddressInfo() {
   const intl = useIntl();
   const { currentTheme, sm, isCurrentThemeDark } = useThemeContext();
@@ -39,18 +40,7 @@ export default function AddressInfo() {
 
   const [visible, setVisible] = useState(false);
   const config = chainId ? getNetworkConfig(chainId) : null;
-  const networkName = config && config.name;
-  let longName = networkName;
-  let networkColor = '';
-  if (config?.isFork) {
-    networkColor = '#ff4a8d';
-    longName += ' fork';
-  } else if (config?.isTestnet) {
-    networkColor = '#7157ff';
-    longName += ' test';
-  } else {
-    networkColor = '#65c970';
-  }
+  const networkColor = '#7157ff';
 
   const borderColor = rgba(`${currentTheme.darkBlue.rgb}, 0.1`);
   const hoverColor = rgba(`${currentTheme.darkBlue.rgb}, 0.05`);

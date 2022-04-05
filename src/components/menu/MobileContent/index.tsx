@@ -11,7 +11,6 @@ import Submenu from '../Submenu';
 import Link from '../../basic/Link';
 import ConnectionModeSwitcher from '../ConnectionModeSwitcher';
 import LangSwitcher from '../../basic/LangSwitcher';
-import MarketSwitcher from '../../market/MarketSwitcher';
 import AddressInfo from '../AddressInfo';
 import DarkModeSwitcher from '../DarkModeSwitcher';
 
@@ -37,6 +36,7 @@ export default function MobileContent({ isActive, currentAccount }: MobileConten
     if (link.children) {
       visibilities[index] = false;
     }
+    return link;
   });
   const [submenusVisibility, setSubmenusVisibility] = useState(visibilities);
   const handleSubmenuVisibility = (index: number) => {

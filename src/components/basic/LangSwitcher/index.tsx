@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { rgba, useThemeContext, DropdownWrapper } from '@omnidex/omnidex-ui-kit';
+import { useThemeContext, DropdownWrapper } from '@omnidex/omnidex-ui-kit';
 
 import { useLanguageContext } from '../../../libs/language-provider';
 import CustomScroll from '../CustomScroll';
@@ -11,8 +11,6 @@ import { languages } from './languages';
 import messages from './messages';
 import staticStyles from './style';
 
-import arrows from './images/arrows.svg';
-
 interface LangSwitcherProps {
   inside?: boolean;
   className?: string;
@@ -21,7 +19,7 @@ interface LangSwitcherProps {
 export default function LangSwitcher({ inside, className }: LangSwitcherProps) {
   const intl = useIntl();
   const { currentLangSlug, changeLang } = useLanguageContext();
-  const { currentTheme, sm, md } = useThemeContext();
+  const { currentTheme } = useThemeContext();
 
   const [visible, setVisible] = useState(false);
 

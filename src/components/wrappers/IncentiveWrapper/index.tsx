@@ -6,11 +6,9 @@ import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import { ComputedReserveData, useDynamicPoolDataContext } from '../../../libs/pool-data-provider';
 import { useIncentivesDataContext } from '../../../libs/pool-data-provider/hooks/use-incentives-data-context';
 import IncentiveClaimItem from '../../IncentiveClaimItem';
-import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 
 import messages from './messages';
 import staticStyles from './style';
-import { ChainId } from '../../../helpers/contract-helpers';
 
 // Fetch reward token symbol from hard coded non-reserve tokens or from reserves array
 export function getRewardTokenSymbol(
@@ -43,7 +41,6 @@ export default function IncentiveWrapper() {
 
   const { user, reserves } = useDynamicPoolDataContext();
   const { userIncentives } = useIncentivesDataContext();
-  const { currentMarketData } = useProtocolDataContext();
 
   // Only display assets for which user has claimable rewards
   const userIncentivesFiltered = Object.fromEntries(

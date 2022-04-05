@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { valueToBigNumber, GasType, normalize } from '@aave/protocol-js';
 
 import { useStaticPoolDataContext } from '../../libs/pool-data-provider';
-import EditorModal, { GasEstimations, Gas, GasKeys } from './EditorModal';
+import { GasEstimations, Gas } from './EditorModal';
 import Summary from './Summary';
 
 import { EthTransactionData } from '../../helpers/send-ethereum-tx';
@@ -31,8 +31,6 @@ export default function TxEstimation({
   const [visible, setVisible] = useState(false);
 
   const [gasTxs, setGasTx] = useState({} as GasEstimations);
-  const [selected, setSelected] = useState<GasKeys>(GasKeys.manual);
-  const [manualPrice, setManualPrice] = useState<string | number>(0);
 
   const [gasEstimations, setGasEstimations] = useState<GasType[]>([]);
 

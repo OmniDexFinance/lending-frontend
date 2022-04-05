@@ -24,7 +24,7 @@ export default function ContentWrapperWithTopLine({
   titleComponent,
 }: ContentWrapperWithTopLineProps) {
   const intl = useIntl();
-  const { currentTheme, sm, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme, sm } = useThemeContext();
 
   const [visible, setVisible] = useState(false);
 

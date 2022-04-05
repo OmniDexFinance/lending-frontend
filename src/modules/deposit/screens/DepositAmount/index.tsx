@@ -15,7 +15,6 @@ import PaymentsPanel from '../../components/PaymentsPanel';
 import Link from '../../../../components/basic/Link';
 import InfoPanel from '../../../../components/InfoPanel';
 import InfoWrapper from '../../../../components/wrappers/InfoWrapper';
-import AMPLWarning from '../../../../components/AMPLWarning';
 import DepositCurrencyWrapper from '../../components/DepositCurrencyWrapper';
 import routeParamValidationHOC, {
   ValidationWrapperComponentProps,

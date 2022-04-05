@@ -78,7 +78,7 @@ function ReserveOverview({
       className="ReserveOverview"
       titleComponent={
         <p>
-          <img src={asset.icon} height={'24px'} />{' '}
+          <img src={asset.icon} height={'24px'} alt={asset.formattedName + ' token'} />{' '}
           <span>
             {intl.formatMessage(messages.pageTitle, { currencySymbol: asset.formattedName })}
           </span>
@@ -123,7 +123,11 @@ function ReserveOverview({
                 ),
               })}
             </p>
-            <img src={linkIcon} alt="" />
+            <img
+              src={linkIcon}
+              alt={intl.formatMessage(messages.here)}
+              title={intl.formatMessage(messages.here)}
+            />
           </div>
         )}
 

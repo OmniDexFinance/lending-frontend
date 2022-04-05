@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
 import { useThemeContext } from '@omnidex/omnidex-ui-kit';
-import GradientLine from '../basic/GradientLine';
 
 import staticStyles from './style';
 
@@ -13,7 +12,7 @@ interface DesktopPageTitleProps {
 }
 
 export default function DesktopPageTitle({ title, subTitle, wide = false }: DesktopPageTitleProps) {
-  const { currentTheme, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme } = useThemeContext();
   return (
     <div
       className={classNames('DesktopPageTitle', {

@@ -239,7 +239,7 @@
   "components.menu.DarkModeSwitcher.off": "Off",
   "components.menu.DarkModeSwitcher.on": "On",
   "components.menu.MoreButton.more": "More",
-  "components.menu.UserSettings.settings": "Settings",
+  "components.menu.UserSettings.settings": "SETTINGS",
   "components.menu.navigation.addLiquidity": "Add liquidity",
   "components.menu.navigation.analytics": "Analytics",
   "components.menu.navigation.borrow": "Borrow",

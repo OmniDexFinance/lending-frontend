@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { rgba, gradient, useThemeContext, LabeledSwitch } from '@omnidex/omnidex-ui-kit';
+import { gradient, useThemeContext, LabeledSwitch } from '@omnidex/omnidex-ui-kit';
 import staticStyles from './style';
 
 type LabeledSwitcherProps = {

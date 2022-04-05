@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { getAssetInfo } from '@omnidex/omnidex-ui-kit';
+import { useEffect, useState } from 'react';
 
 interface TokenPriceParams {
   symbol: string;

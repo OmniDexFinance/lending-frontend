@@ -2,8 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 import { DarkModeSwitcher } from '@omnidex/omnidex-ui-kit';
 
-import LangSwitcher from '../basic/LangSwitcher';
-
 import staticStyles from './style';
 
 interface FooterProps {

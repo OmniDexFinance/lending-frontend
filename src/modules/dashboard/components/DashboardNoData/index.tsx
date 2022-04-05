@@ -2,10 +2,8 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
-import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
 import ContentWrapper from '../../../../components/wrappers/ContentWrapper';
 import Caption from '../../../../components/basic/Caption';
-import MarketSelectButton from '../../../../components/market/MarketSelectButton';
 import Link from '../../../../components/basic/Link';
 import DefaultButton from '../../../../components/basic/DefaultButton';
 
@@ -15,7 +13,6 @@ import staticStyles from './style';
 export default function DashboardNoData() {
   const intl = useIntl();
   const { currentTheme, isCurrentThemeDark, sm } = useThemeContext();
-  const { currentMarket, setCurrentMarket } = useProtocolDataContext();
 
   return (
     <ContentWrapper className="DashboardNoData" withFullHeight={true} withBackButton={true}>

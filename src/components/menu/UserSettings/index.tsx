@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
-import { useWeb3React } from '@web3-react/core';
 import classNames from 'classnames';
 import { useThemeContext, BasicModal } from '@omnidex/omnidex-ui-kit';
 
-import { useMenuContext } from '../../../libs/menu';
 import ConnectionModeSwitcher from '../ConnectionModeSwitcher';
 
 import staticStyles from './style';
@@ -40,7 +38,7 @@ export default function UserSettings() {
         className={classNames('SettingsModal__modal')}
       >
         <div className="SettingsModal__modal-inner">
-          <p>SETTINGS</p>
+          <p>{intl.formatMessage(messages.settings)}</p>
           <ConnectionModeSwitcher />
         </div>
       </BasicModal>
@@ -52,6 +50,9 @@ export default function UserSettings() {
       </style>
       <style jsx={true} global={true}>{`
         .SettingsModal {
+          &__modal-inner {
+            text-transform: capitalize;
+          }
           &__modal {
             border: 1px solid ${currentTheme.border.hex} !important;
             border-radius: 15px !important;

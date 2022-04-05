@@ -1,24 +1,16 @@
-import React, { ReactNode } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { rgba, useThemeContext } from '@omnidex/omnidex-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
-import goToTop from '../../../helpers/goToTop';
-import Link from '../../basic/Link';
 import SubmenuLink from '../SubmenuLink';
-import MoreButton from '../MoreButton';
-import AddressInfo from '../AddressInfo';
-import MobileContent from '../MobileContent';
-import { LOGO } from '../../../ui-config';
 
 import { Navigation } from '../navigation';
 
 import staticStyles from './style';
-
-import backIcon from '../../../images/mobileBackArrow.svg';
 
 interface SubmenuProps {
   links: Navigation[];
@@ -28,7 +20,6 @@ interface SubmenuProps {
 }
 export default function Submenu({ links, index, classname, visible = false }: SubmenuProps) {
   const location = useLocation();
-  const history = useHistory();
   const intl = useIntl();
   const { currentTheme } = useThemeContext();
   const { currentAccount } = useUserWalletDataContext();
@@ -37,8 +28,6 @@ export default function Submenu({ links, index, classname, visible = false }: Su
   const isActive = (url: string) => {
     return `/${url.split('/')[1]}` === `/${location.pathname.split('/')[1]}`;
   };
-
-  const topLineColor = rgba(`${currentTheme.white.rgb}, 0.1`);
 
   return (
     <div
@@ -54,7 +43,7 @@ export default function Submenu({ links, index, classname, visible = false }: Su
                 Submenu__linkHidden:
                   (!currentAccount && link.hiddenWithoutWallet) ||
                   (link.isVisible && !link.isVisible(currentMarketData)),
-                Submenu__linkfirst: index == 0,
+                Submenu__linkfirst: index === 0,
               })}
               key={index}
             >

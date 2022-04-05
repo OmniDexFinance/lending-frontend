@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { rgba, useThemeContext } from '@omnidex/omnidex-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 import goToTop from '../../../helpers/goToTop';
 import Link from '../../basic/Link';
 import MenuLink from '../MenuLink';
-import MoreButton from '../MoreButton';
 import AddressInfo from '../AddressInfo';
 import TokenInfo from '../TokenPriceInfo';
 import MobileContent from '../MobileContent';
@@ -40,8 +39,6 @@ export default function Menu({ title, active }: MenuProps) {
   const isActive = (url: string) => {
     return `/${url.split('/')[1]}` === `/${location.pathname.split('/')[1]}`;
   };
-
-  const topLineColor = rgba(`${currentTheme.white.rgb}, 0.1`);
 
   return (
     <header
@@ -74,7 +71,7 @@ export default function Menu({ title, active }: MenuProps) {
                       Menu__linkHidden:
                         (!currentAccount && link.hiddenWithoutWallet) ||
                         (link.isVisible && !link.isVisible(currentMarketData)),
-                      Menu__linkfirst: index == 0,
+                      Menu__linkfirst: index === 0,
                     })}
                     key={index}
                   >
@@ -82,7 +79,7 @@ export default function Menu({ title, active }: MenuProps) {
                       to={link.link}
                       title={intl.formatMessage(link.title)}
                       absolute={link.absolute}
-                      isActive={index == navigation.length - 1}
+                      isActive={index === navigation.length - 1}
                       children={link.children}
                     />
                   </li>
@@ -128,14 +125,8 @@ export default function Menu({ title, active }: MenuProps) {
           display: none;
         }
         .Menu {
-          position: absolute;
-          width: 100%;
-          top: -70px;
           background: ${currentTheme.headerBg.hex}!important;
           border-bottom: 1px solid ${currentTheme.border.hex};
-          &__active {
-            top: 0px;
-          }
           &__icon {
             transition: 400ms all ease;
             fill: ${currentTheme.textDarkBlue.hex};

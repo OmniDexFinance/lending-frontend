@@ -26,7 +26,7 @@ export default function Preloader({
   withBackground,
 }: PreloaderProps) {
   const intl = useIntl();
-  const { currentTheme, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme } = useThemeContext();
 
   return (
     <div

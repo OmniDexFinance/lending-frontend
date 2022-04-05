@@ -18,7 +18,6 @@ import DepositMobileCard from '../../components/DepositAssetsTable/DepositMobile
 import DepositBorrowMainWrapper from '../../../../components/wrappers/DepositBorrowMainWrapper';
 import Card from '../../../../components/wrappers/DepositBorrowMainWrapper/components/Card';
 
-import defaultMessages from '../../../../defaultMessages';
 import messages from './messages';
 
 import { DepositTableItem } from '../../components/DepositAssetsTable/types';

@@ -6,10 +6,17 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .Menu {
+    width: 100%;
+    transform: translateY(-70px);
     padding: 10px 15px;
-    position: relative;
     z-index: 5;
+    transition: 400ms transform ease, 400ms opacity ease;
+    opacity: 0.4;
     height: 80px;
+    &__active {
+      transform: translateY(0px);
+      opacity: 1;
+    }
     @include respond-to(sm) {
       padding: 0;
       box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);

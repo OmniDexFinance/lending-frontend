@@ -4,11 +4,9 @@ import { RampInstantSDK } from '@ramp-network/ramp-instant-sdk';
 import NashRamp from '@nash-io/ramp-widget-sdk';
 
 import { useThemeContext } from '@omnidex/omnidex-ui-kit';
-import { useProtocolDataContext } from '../../libs/protocol-data-provider';
 
 import * as logos from './images';
 import { ENABLE_NASH, ONRAMP_API_KEY, TRANSAK_API_KEY } from '../config/onramp-config';
-import { ChainId } from '../../helpers/contract-helpers';
 
 enum PaymentName {
   nash = 'nash',
@@ -32,7 +30,6 @@ type Payments = {
 export function usePayments(): Payments {
   const { account } = useWeb3React();
   const { currentTheme, sm, lg } = useThemeContext();
-  const { currentMarketData } = useProtocolDataContext();
 
   const transakAvailableAssets = ['TLOS', 'USDT', 'USDC'];
 

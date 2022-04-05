@@ -13,18 +13,12 @@ import UnlockWalletWrapper from './components/ConnectWalletWrapper';
 import WalletCard from './components/WalletCard';
 import LedgerChecklist from './components/LedgerChecklist';
 import SelectPreferredNetwork from './components/SelectPreferredNetwork';
-import {
-  AUTHEREUM_API_KEY,
-  getFortmaticKeyByChainId,
-  PORTIS_DAPP_ID,
-} from '../../helpers/config/wallet-config';
 import { UnlockWalletExtraText } from '../../ui-config';
 
 import messages from './messages';
 import staticStyles from './style';
 
 import * as icons from './images';
-import { ChainId } from '../../helpers/contract-helpers';
 
 export interface Wallet {
   title: string;

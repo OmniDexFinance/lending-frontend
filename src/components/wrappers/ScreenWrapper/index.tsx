@@ -38,7 +38,7 @@ export default function ScreenWrapper({
   children,
 }: ScreenWrapperProps) {
   const { currentLangSlug } = useLanguageContext();
-  const { currentTheme, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme } = useThemeContext();
   const {
     networkConfig: { bridge, name },
   } = useProtocolDataContext();
