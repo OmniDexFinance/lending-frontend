@@ -5,6 +5,10 @@ const staticStyles = css.global`
   @import 'src/_mixins/vars';
   @import 'src/_mixins/screen-size';
 
+  .PercentBlock__no-value {
+    margin-top: 7px;
+    display: block;
+  }
   .PercentBlock__no-value,
   .PercentBlock__value .ValuePercent__value {
     font-size: $regular;

@@ -52,7 +52,6 @@ export async function sendEthTransaction(
     txReceipt: undefined,
     error: undefined,
   }));
-
   let extendedTxData: transactionType;
   try {
     extendedTxData = await txGetter();

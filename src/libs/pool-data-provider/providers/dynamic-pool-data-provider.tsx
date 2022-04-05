@@ -84,6 +84,7 @@ export function DynamicPoolDataProvider({ children }: PropsWithChildren<{}>) {
       ...computedUserData,
     };
   }
+
   return (
     <DynamicPoolDataContext.Provider
       value={{

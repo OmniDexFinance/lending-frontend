@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { useThemeContext, BasicModal, SpinLoader } from '@aave/aave-ui-kit';
+import { useThemeContext, BasicModal, SpinLoader } from '@omnidex/omnidex-ui-kit';
 
 import { TxStatusType } from '../../../helpers/send-ethereum-tx';
 import DefaultButton from '../../basic/DefaultButton';
@@ -175,6 +175,8 @@ export default function TxTopInfo({
 
           &__errorReport-text {
             background: ${currentTheme.mainBg.hex};
+            color: ${currentTheme.textDarkBlue.hex};
+            border-radius: 15px;
           }
         }
       `}</style>

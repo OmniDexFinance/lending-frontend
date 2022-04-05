@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import messages from './messages';
 import staticStyles from './style';
@@ -44,10 +44,8 @@ export default function TopPanelWrapper({
       <style jsx={true}>{staticStyles}</style>
       <style jsx={true}>{`
         .TopPanelWrapper {
-          background: ${currentTheme.darkBlue.hex};
-
           &__button {
-            color: ${currentTheme.white.hex};
+            color: ${currentTheme.textDarkBlue.hex};
             &:hover {
               color: ${currentTheme.secondary.hex};
               span {
@@ -60,7 +58,7 @@ export default function TopPanelWrapper({
             span {
               &:before,
               &:after {
-                background: ${currentTheme.white.hex};
+                background: ${currentTheme.textDarkBlue.hex};
               }
             }
           }

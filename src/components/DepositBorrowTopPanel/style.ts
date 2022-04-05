@@ -32,8 +32,10 @@ const staticStyles = css.global`
         font-size: $regular;
         display: flex;
         flex-direction: column;
-        border-top-right-radius: $borderRadius;
-        border-top-left-radius: $borderRadius;
+        border: 1px solid;
+        border-bottom: 0px;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
         @include respond-to(xl) {
           font-size: $small;
         }
@@ -89,8 +91,10 @@ const staticStyles = css.global`
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom-right-radius: $borderRadius;
-      border-bottom-left-radius: $borderRadius;
+      border-bottom-right-radius: 15px;
+      border-bottom-left-radius: 15px;
+      border: 1px solid;
+      border-top: 0px;
       transition: $transition;
       padding: 25px 20px;
       @include respond-to(lg) {

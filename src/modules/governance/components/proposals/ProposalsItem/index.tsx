@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import dayjs from 'dayjs';
 import classNames from 'classnames';
 import { ProposalState } from '@aave/protocol-js';
-import { useThemeContext, Timer } from '@aave/aave-ui-kit';
+import { useThemeContext, Timer } from '@omnidex/omnidex-ui-kit';
 
 import { ProposalItem } from '../../../../../libs/governance-provider/types';
 import Link from '../../../../../components/basic/Link';

@@ -5,6 +5,7 @@ import {
   valueToBigNumber,
   BigNumber,
 } from '@aave/protocol-js';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import { useTxBuilderContext } from '../../../../libs/tx-provider';
 import { getAtokenInfo } from '../../../../helpers/get-atoken-info';
@@ -37,6 +38,7 @@ function WithdrawConfirmation({
     withFormattedSymbol: true,
   });
 
+  const { currentTheme } = useThemeContext();
   const [isTxExecuted, setIsTxExecuted] = useState(false);
 
   if (!user) {
@@ -169,7 +171,16 @@ function WithdrawConfirmation({
       dangerousMessage={
         isHealthFactorDangerous
           ? intl.formatMessage(messages.healthFactorDangerousText, {
-              liquidation: <span>{intl.formatMessage(messages.liquidation)}</span>,
+              reduce: (
+                <strong style={{ color: `${currentTheme.red.hex}` }}>
+                  {intl.formatMessage(messages.reduce)}
+                </strong>
+              ),
+              liquidation: (
+                <strong style={{ color: `${currentTheme.red.hex}` }}>
+                  {intl.formatMessage(messages.liquidation)}
+                </strong>
+              ),
             })
           : ''
       }

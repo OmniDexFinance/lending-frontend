@@ -6,13 +6,17 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .LangSwitcher {
+    .DropdownWrapper__bottom {
+      .DropdownWrapper__content {
+        @include respond-to(sm) {
+          top: -230px;
+        }
+      }
+    }
+    .DropdownWrapper__content {
+      border-radius: 3px;
+    }
     &__button {
-      width: 26px;
-      height: 19px;
-      border-radius: $borderRadius;
-      box-shadow: $boxShadow;
-      border-style: solid;
-      border-width: 1px;
       @include respond-to(sm) {
         width: 61px;
         height: 46px;
@@ -26,26 +30,13 @@ const staticStyles = css.global`
     }
 
     &__content {
-      width: 240px;
+      width: 200px;
       position: relative;
       @include respond-to(xl) {
         width: 180px;
       }
       @include respond-to(sm) {
         width: 260px;
-      }
-      h4 {
-        padding: 14px 15px;
-        font-size: $large;
-        text-align: center;
-        font-weight: 300;
-        @include respond-to(xl) {
-          font-size: $medium;
-        }
-        @include respond-to(sm) {
-          font-size: $regular;
-          padding: 20px;
-        }
       }
     }
 
@@ -90,13 +81,16 @@ const staticStyles = css.global`
       @include respond-to(md) {
         height: 280px;
       }
+      @include respond-to(sm) {
+        height: 320px;
+      }
     }
     &__languages {
       padding: 5px 10px 15px 0;
     }
 
     &__language {
-      padding: 14px 20px;
+      padding: 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -118,8 +112,8 @@ const staticStyles = css.global`
         }
       }
       p {
-        font-size: $large;
-        font-weight: 300;
+        font-size: $regular;
+        font-weight: bold;
         transition: $transition;
         @include respond-to(xl) {
           font-size: $small;

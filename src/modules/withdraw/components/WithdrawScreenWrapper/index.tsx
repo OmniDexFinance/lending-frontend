@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import Row from '../../../../components/basic/Row';
 import ContentWrapper from '../../../../components/wrappers/ContentWrapper';
@@ -36,16 +36,19 @@ export default function WithdrawScreenWrapper({
   children,
 }: WithdrawScreenWrapperProps) {
   const intl = useIntl();
-  const { lg, md, sm } = useThemeContext();
-
+  const { lg, md, sm, isCurrentThemeDark, currentTheme } = useThemeContext();
   return (
     <>
       <RepayWithdrawWrapper className="WithdrawScreenWrapper" title={title}>
-        <Row title={intl.formatMessage(messages.balanceInAave)} color="white" weight="light">
+        <Row
+          title={intl.formatMessage(messages.balanceInAave)}
+          color={isCurrentThemeDark ? 'white' : 'dark'}
+          weight="light"
+        >
           <Value
             value={Number(balanceInProtocol)}
             subValue={Number(balanceInProtocolInUSD)}
-            color="white"
+            color={isCurrentThemeDark ? 'white' : 'dark'}
             symbol={currencySymbol}
             subSymbol="USD"
             maximumValueDecimals={isAssetStable(currencySymbol) ? 4 : 18}
@@ -57,7 +60,7 @@ export default function WithdrawScreenWrapper({
         <HealthFactor
           className={classNames({ WithdrawScreenWrapper__healthFactor: !sm })}
           value={healthFactor}
-          titleColor="white"
+          titleColor={isCurrentThemeDark ? 'white' : 'dark'}
           titleLightWeight={true}
           isColumn={!sm}
         />
@@ -65,15 +68,15 @@ export default function WithdrawScreenWrapper({
           title={
             <MaxLTVHelpModal
               text={intl.formatMessage(messages.loanToValue)}
-              color="white"
+              color={isCurrentThemeDark ? 'white' : 'dark'}
               lightWeight={true}
             />
           }
-          color="white"
+          color={isCurrentThemeDark ? 'white' : 'dark'}
           weight="light"
           isColumn={!sm}
         >
-          <ValuePercent value={loanToValue} color="white" />
+          <ValuePercent value={loanToValue} color={isCurrentThemeDark ? 'white' : 'dark'} />
         </Row>
 
         <CollateralCompositionBar isColumn={(lg && !md) || sm} />
@@ -85,6 +88,19 @@ export default function WithdrawScreenWrapper({
 
       <style jsx={true} global={true}>
         {staticStyles}
+      </style>
+
+      <style jsx={true} global={true}>
+        {`
+          .WithdrawScreenWrapper {
+            .CollateralCompositionBar {
+              color: ${currentTheme.textDarkBlue.hex};
+            }
+
+            border: 1px solid ${currentTheme.border.hex};
+            border-radius: 15px;
+          }
+        `}
       </style>
     </>
   );

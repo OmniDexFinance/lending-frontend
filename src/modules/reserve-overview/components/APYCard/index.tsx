@@ -1,21 +1,21 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import staticStyles from './style';
 
 interface APYCardProps {
   title: string;
-  color?: 'orange' | 'primary' | 'secondary';
+  colorHex?: string;
   children?: ReactNode;
 }
 
-export default function APYCard({ title, color = 'orange', children }: APYCardProps) {
+export default function APYCard({ title, colorHex = '#565055', children }: APYCardProps) {
   const { currentTheme } = useThemeContext();
 
   return (
-    <div className={classNames('APYCard', `APYCard__${color}`)}>
+    <div className={classNames('APYCard', `APYCard__${colorHex}`)}>
       <div className="APYCard__title">
         <p>{title}</p>
       </div>
@@ -24,30 +24,11 @@ export default function APYCard({ title, color = 'orange', children }: APYCardPr
       <style jsx={true}>{staticStyles}</style>
       <style jsx={true}>{`
         .APYCard {
+          border-color: ${colorHex};
           .APYCard__title {
+            background: ${colorHex};
             p {
               color: ${currentTheme.white.hex};
-            }
-          }
-
-          &__orange {
-            border-color: ${currentTheme.darkOrange.hex};
-            .APYCard__title {
-              background: ${currentTheme.darkOrange.hex};
-            }
-          }
-
-          &__primary {
-            border-color: ${currentTheme.primary.hex};
-            .APYCard__title {
-              background: ${currentTheme.primary.hex};
-            }
-          }
-
-          &__secondary {
-            border-color: ${currentTheme.secondary.hex};
-            .APYCard__title {
-              background: ${currentTheme.secondary.hex};
             }
           }
         }

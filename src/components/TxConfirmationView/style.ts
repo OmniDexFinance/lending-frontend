@@ -4,7 +4,11 @@ import css from 'styled-jsx/css';
 const staticStyles = css.global`
   @import 'src/_mixins/vars';
   @import 'src/_mixins/screen-size';
-
+  .TxConfirmationView.TxConfirmed {
+    .Caption h2 {
+      font-size: 32px !important;
+    }
+  }
   .TxConfirmationView {
     display: flex;
     align-items: center;
@@ -26,7 +30,6 @@ const staticStyles = css.global`
       width: 100%;
       max-width: 380px;
     }
-
     &__content-inner {
       margin-bottom: 20px;
       width: 100%;
@@ -47,6 +50,9 @@ const staticStyles = css.global`
       border-radius: $borderRadius;
     }
 
+    .Caption__primary h2 {
+      font-size: 24px !important;
+    }
     &__actions-inner {
       width: 100%;
     }

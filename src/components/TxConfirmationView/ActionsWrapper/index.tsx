@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 import { useIntl } from 'react-intl';
-import { gradient, useThemeContext } from '@aave/aave-ui-kit';
+import { gradient, useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import { EthTransactionData, TxStatusType } from '../../../helpers/send-ethereum-tx';
 import TxBottomStatusLine from '../TxBottomStatusLine';
@@ -152,13 +152,13 @@ export default function ActionsWrapper({
           border: 1px solid ${currentTheme.darkBlue.hex};
 
           &__submitted {
-            border: 1px solid ${currentTheme.orange.hex};
+            border: 2px solid ${currentTheme.orange.hex};
           }
           &__confirmed {
-            border: 1px solid ${currentTheme.green.hex};
+            border: 2px solid ${currentTheme.green.hex};
           }
           &__error {
-            border: 1px solid ${currentTheme.red.hex};
+            border: 2px solid ${currentTheme.red.hex};
           }
 
           &__button {

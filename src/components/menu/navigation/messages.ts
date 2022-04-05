@@ -1,11 +1,19 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  markets: 'Markets',
-  dashboard: 'My dashboard',
-  deposit: 'Deposit',
+  lending: 'Lending',
+  doc: 'Docs',
+  analytics: 'Analytics',
+  navigation: 'Navigation',
+  trade: 'Trade',
+  earn: 'Earn',
   borrow: 'Borrow',
+  deposit: 'Deposit',
+  markets: 'Markets',
+  dashboard: 'Dashboard',
+  farms: 'Farms',
+  staking: 'Staking',
+  karma: 'Karma',
   swap: 'Swap',
-  stake: 'Stake',
-  governance: 'Governance',
+  addLiquidity: 'Add liquidity',
 });

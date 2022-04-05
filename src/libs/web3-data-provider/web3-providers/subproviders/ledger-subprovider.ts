@@ -26,7 +26,7 @@ type SubproviderOptions = {
 };
 
 const defaultOptions = {
-  networkId: 1, // mainnet
+  networkId: 40, // mainnet
   paths: ["44'/60'/x'/0/0", "44'/60'/0'/x"], // ledger live derivation path
   askConfirm: false,
   accountsLength: 1,

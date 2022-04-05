@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import { ProposalState } from '@aave/protocol-js';
 import { useWeb3React } from '@web3-react/core';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import { useGovernanceDataContext } from '../../../../libs/governance-provider';
 import NoDataPanel from '../../../../components/NoDataPanel';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import Link from '../../../../basic/Link';
 import Value from '../../../../basic/Value';
@@ -53,7 +53,7 @@ export default function Card({ link, symbol, id, value, underlyingAsset }: CardP
             }
           }
           &__content {
-            border-bottom: 1px solid ${currentTheme.mainBg.hex};
+            border-bottom: 1px solid ${currentTheme.border.hex};
           }
         }
       `}</style>

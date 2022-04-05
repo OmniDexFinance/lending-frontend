@@ -1,6 +1,6 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import { CompactNumber } from '../../../../components/basic/CompactNumber';
 
@@ -13,28 +13,31 @@ interface TotalMarketsSizeProps {
 
 export default function TotalMarketsSize({ value }: TotalMarketsSizeProps) {
   const intl = useIntl();
-  const { currentTheme } = useThemeContext();
+  const { currentTheme, isCurrentThemeDark } = useThemeContext();
 
   return (
     <div className="TotalMarketsSize">
-      <p>{intl.formatMessage(messages.title)}</p>
-      <h2>
-        ${' '}
-        {value < 100000000000 ? (
-          intl.formatNumber(value, {
-            maximumFractionDigits: 2,
-            minimumFractionDigits: 2,
-          })
-        ) : (
-          <CompactNumber value={value} maximumFractionDigits={2} minimumFractionDigits={2} />
-        )}
-      </h2>
-
+      <p>
+        {intl.formatMessage(messages.title)}
+        <span className={'TotalMarketsSize__value'}>
+          ${' '}
+          {value < 100000000000 ? (
+            intl.formatNumber(value, {
+              maximumFractionDigits: 2,
+              minimumFractionDigits: 2,
+            })
+          ) : (
+            <CompactNumber value={value} maximumFractionDigits={2} minimumFractionDigits={2} />
+          )}
+        </span>
+      </p>
       <style jsx={true}>{staticStyles}</style>
       <style jsx={true}>{`
         .TotalMarketsSize {
-          color: ${currentTheme.white.hex};
-          background: ${currentTheme.darkBlue.hex};
+          border: 1px solid ${currentTheme.border.hex};
+          color: ${isCurrentThemeDark ? currentTheme.white.hex : currentTheme.textDarkBlue.hex};
+          background: ${isCurrentThemeDark ? currentTheme.darkBlue.hex : currentTheme.white.hex};
+          border: 1px solid ${currentTheme.border.hex};
         }
       `}</style>
     </div>

@@ -2,6 +2,8 @@ import aaveLogo from './aave.svg';
 import aaveActiveLogo from './aaveActive.svg';
 import aavev2Logo from './aavev2.svg';
 import aavev2ActiveLogo from './aavev2Active.svg';
+import telosLogo from './telos.png';
+import telosActiveLogo from './telosActive.svg';
 import ammLogo from './amm.svg';
 import ammActiveLogo from './ammActive.svg';
 import polygon from './polygon.svg';
@@ -14,6 +16,8 @@ export {
   ammLogo,
   ammActiveLogo,
   polygon,
+  telosActiveLogo,
+  telosLogo,
   aavev2Logo,
   aavev2ActiveLogo,
   arbitrium,

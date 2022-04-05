@@ -1,10 +1,11 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import staticStyles from './style';
 
 import animationCircle from '../../../images/animationCircle.svg';
+import animationCircleDark from '../../../images/animationCircleDark.svg';
 
 interface CaptionProps {
   title: string;
@@ -25,7 +26,7 @@ export default function Caption({
   withAnimationCircle,
   onWhiteBackground,
 }: CaptionProps) {
-  const { currentTheme } = useThemeContext();
+  const { currentTheme, isCurrentThemeDark } = useThemeContext();
 
   return (
     <div
@@ -33,7 +34,10 @@ export default function Caption({
       style={{ marginBottom: `${marginBottom}px` }}
     >
       <h2 className={classNames({ Caption__titleWithCircle: withAnimationCircle })}>
-        {title} {withAnimationCircle && <img src={animationCircle} alt="" />}
+        {title}{' '}
+        {withAnimationCircle && (
+          <img src={isCurrentThemeDark ? animationCircleDark : animationCircle} alt="" />
+        )}
       </h2>
       {description && <div className="Caption__description">{description}</div>}
 
@@ -67,7 +71,7 @@ export default function Caption({
           }
 
           &__description {
-            color: ${onWhiteBackground ? currentTheme.darkBlue.hex : currentTheme.textDarkBlue.hex};
+            color: ${currentTheme.textDarkBlue.hex};
           }
         }
       `}</style>

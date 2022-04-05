@@ -2,7 +2,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import { valueToBigNumber } from '@aave/protocol-js';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import ContentWrapper from '../../../../components/wrappers/ContentWrapper';
 import MaxLTVHelpModal from '../../../../components/HelpModal/MaxLTVHelpModal';
 import Value from '../../../../components/basic/Value';
@@ -15,6 +15,7 @@ import TextBlock from '../InformationBlock/TextBlock';
 import APYCard from '../APYCard';
 import APYLine from '../APYLine';
 import Link from '../../../../components/basic/Link';
+import { getAssetInfo } from '../../../../helpers/config/assets-config';
 
 import defaultMessages from '../../../../defaultMessages';
 import messages from './messages';
@@ -37,6 +38,7 @@ export default function ReserveInformation({
 }: ReserveInformationProps) {
   const intl = useIntl();
   const { currentTheme } = useThemeContext();
+  const asset = getAssetInfo(symbol);
   const totalLiquidityInUsd = valueToBigNumber(poolReserve.totalLiquidity)
     .multipliedBy(poolReserve.priceInMarketReferenceCurrency)
     .multipliedBy(marketRefPriceInUsd)
@@ -88,7 +90,7 @@ export default function ReserveInformation({
   return (
     <div className="ReserveInformation">
       <div className="ReserveInformation__inner">
-        <h3 className="ReserveInformation__title">{intl.formatMessage(messages.caption)}</h3>
+        <h2 className="ReserveInformation__title">{intl.formatMessage(messages.caption)}</h2>
 
         <ContentWrapper className="ReserveInformation__content">
           {poolLink && (
@@ -173,7 +175,7 @@ export default function ReserveInformation({
           </div>
 
           <div className="ReserveInformation__APY-info">
-            <APYCard title={intl.formatMessage(defaultMessages.deposit)}>
+            <APYCard title={intl.formatMessage(defaultMessages.deposit)} colorHex={asset.color}>
               <APYLine
                 title={intl.formatMessage(messages.depositAPY)}
                 value={reserveOverviewData.supplyAPY}
@@ -186,7 +188,7 @@ export default function ReserveInformation({
               />
             </APYCard>
 
-            <APYCard title={intl.formatMessage(messages.stableBorrowing)} color="primary">
+            <APYCard title={intl.formatMessage(messages.stableBorrowing)} colorHex={asset.color}>
               <APYLine
                 title={intl.formatMessage(messages.borrowAPY)}
                 value={reserveOverviewData.stableAPY}
@@ -213,7 +215,7 @@ export default function ReserveInformation({
               />
             </APYCard>
 
-            <APYCard title={intl.formatMessage(messages.variableBorrowing)} color="secondary">
+            <APYCard title={intl.formatMessage(messages.variableBorrowing)} colorHex={asset.color}>
               <APYLine
                 title={intl.formatMessage(messages.borrowAPY)}
                 value={reserveOverviewData.variableAPY}

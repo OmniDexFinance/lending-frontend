@@ -6,6 +6,9 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .ContentWrapper {
+    height: 100%;
+    border-width: 1px;
+    border-style: solid;
     position: relative;
     border-radius: $borderRadius;
     box-shadow: $boxShadow;

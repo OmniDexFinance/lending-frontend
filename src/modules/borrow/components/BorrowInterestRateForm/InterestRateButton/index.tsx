@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { gradient, rgba, useThemeContext } from '@aave/aave-ui-kit';
+import { gradient, rgba, useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import ValuePercent from '../../../../../components/basic/ValuePercent';
 

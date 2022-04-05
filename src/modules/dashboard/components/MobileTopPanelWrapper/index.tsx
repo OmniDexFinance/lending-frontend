@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import GradientPlusButton from '../../../../components/basic/GradientPlusButton';
 
 import staticStyles from './style';
@@ -19,7 +19,7 @@ export default function MobileTopPanelWrapper({
   buttonComponent,
   children,
 }: MobileTopPanelWrapperProps) {
-  const { currentTheme } = useThemeContext();
+  const { currentTheme, isCurrentThemeDark } = useThemeContext();
 
   return (
     <div className="MobileTopPanelWrapper">
@@ -47,7 +47,9 @@ export default function MobileTopPanelWrapper({
       </style>
       <style jsx={true}>{`
         .MobileTopPanelWrapper {
-          background: ${currentTheme.darkBlue.hex};
+          background: ${isCurrentThemeDark
+            ? currentTheme.darkBlue.hex
+            : currentTheme.lightGray.hex};
         }
       `}</style>
     </div>

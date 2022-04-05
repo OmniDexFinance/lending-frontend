@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useIntl } from 'react-intl';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import DefaultButton from '../basic/DefaultButton';
 
@@ -10,7 +10,6 @@ import staticStyles from './style';
 
 import errorImage from './images/errorImage.svg';
 import mobileErrorImage from './images/mobileErrorImage.svg';
-import backgroundDark from '../../images/backgroundDark.svg';
 import background from '../../images/background.svg';
 
 type ErrorPageProps = {
@@ -65,11 +64,7 @@ export default function ErrorPage({
         </div>
       </div>
 
-      <img
-        className="ErrorPage__background"
-        src={isCurrentThemeDark ? backgroundDark : background}
-        alt=""
-      />
+      {!isCurrentThemeDark && <img className="ErrorPage__background" src={background} alt="" />}
 
       <style jsx={true} global={true}>
         {staticStyles}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import TableItemWrapper from '../../../../components/BasicTable/TableItemWrapper';
 import TableColumn from '../../../../components/BasicTable/TableColumn';
 import Value from '../../../../components/basic/Value';
@@ -55,9 +56,8 @@ export default function MarketTableItem({
   isPriceInUSD,
 }: MarketTableItemProps) {
   const history = useHistory();
-
   const asset = getAssetInfo(currencySymbol);
-
+  const { currentTheme, isCurrentThemeDark } = useThemeContext();
   const handleClick = () => {
     history.push(`/reserve-overview/${underlyingAsset}-${id}`);
   };
@@ -155,6 +155,14 @@ export default function MarketTableItem({
       <style jsx={true} global={true}>
         {staticStyles}
       </style>
+
+      <style jsx={true} global={true}>{`
+        .MarketTableItem {
+          background: ${isCurrentThemeDark
+            ? currentTheme.whiteItem.hex
+            : currentTheme.lightGray.hex} !important;
+        }
+      `}</style>
     </TableItemWrapper>
   );
 }

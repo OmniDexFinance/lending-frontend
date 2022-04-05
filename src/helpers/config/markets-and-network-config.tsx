@@ -1,5 +1,4 @@
-import { ChainId } from '@aave/contract-helpers';
-
+import { ChainId } from '../contract-helpers';
 import { networkConfigs as _networkConfigs } from '../../ui-config/networks';
 import { CustomMarket, marketsData as _marketsData } from '../../ui-config/markets/index';
 import {

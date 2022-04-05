@@ -57,20 +57,13 @@ const staticStyles = css.global`
 
     .BasicField {
       input {
-        padding: 9px 0 9px 15px;
+        padding: 16px;
+        height: 40px;
         font-size: $medium;
         @include respond-to(xl) {
           font-size: $small;
-          padding: 8px 0 8px 15px;
-        }
-        @include respond-to(lg) {
-          padding: 7px 0 7px 15px;
-        }
-        @include respond-to(md) {
-          padding: 9px 0 9px 15px;
         }
         @include respond-to(sm) {
-          padding: 12px 0 12px 15px;
           font-size: $medium;
         }
       }

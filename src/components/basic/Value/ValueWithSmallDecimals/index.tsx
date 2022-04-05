@@ -2,7 +2,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import { valueToBigNumber } from '@aave/protocol-js';
 
-import { textCenterEllipsis, useThemeContext } from '@aave/aave-ui-kit';
+import { textCenterEllipsis, useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import staticStyles from './style';
 

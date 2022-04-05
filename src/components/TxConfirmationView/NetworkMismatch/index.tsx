@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import DefaultButton from '../../basic/DefaultButton';
 import AccessMaticMarketHelpModal from '../../HelpModal/AccessMaticMarketHelpModal';
@@ -13,7 +13,7 @@ import { getNetworkConfig } from '../../../helpers/config/markets-and-network-co
 
 import messages from './messages';
 import staticStyles from './style';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '../../../helpers/contract-helpers';
 import { useWeb3React } from '@web3-react/core';
 import { providers } from 'ethers';
 
@@ -29,44 +29,7 @@ const ADD_CONFIG: {
     explorerUrls: string[];
     nativeCurrency: { name: string; symbol: string; decimals: number };
   };
-} = {
-  [ChainId.polygon]: {
-    name: 'Polygon',
-    explorerUrls: ['https://explorer.matic.network'],
-    nativeCurrency: {
-      name: 'Matic',
-      symbol: 'MATIC',
-      decimals: 18,
-    },
-  },
-  [ChainId.mumbai]: {
-    name: 'Mumbai',
-    explorerUrls: ['https://explorer-mumbai.maticvigil.com'],
-    nativeCurrency: {
-      name: 'Matic',
-      symbol: 'MATIC',
-      decimals: 18,
-    },
-  },
-  [ChainId.avalanche]: {
-    name: 'Avalanche',
-    explorerUrls: ['https://cchain.explorer.avax.network'],
-    nativeCurrency: {
-      name: 'Avalanche',
-      symbol: 'AVAX',
-      decimals: 18,
-    },
-  },
-  [ChainId.fuji]: {
-    name: 'Avalanche Fuji',
-    explorerUrls: ['https://cchain.explorer.avax-test.network'],
-    nativeCurrency: {
-      name: 'Avalanche',
-      symbol: 'AVAX',
-      decimals: 18,
-    },
-  },
-};
+} = {};
 
 export default function NetworkMismatch({
   neededChainId,
@@ -91,9 +54,7 @@ export default function NetworkMismatch({
   // const isExternalNetworkUpdateNeeded =
   //   !isMetaMaskForMatic && ['browser', 'wallet-connect'].includes(currentProviderName);
   const isManualNetworkUpdateNeeded = ['torus', 'portis'].includes(currentProviderName);
-  const isNeededNetworkNotSupported =
-    neededChainId === ChainId.polygon &&
-    ['authereum', 'fortmatic', 'mew-wallet', 'ledger'].includes(currentProviderName);
+  const isNeededNetworkNotSupported = false;
 
   const neededNetworkConfig = getNetworkConfig(neededChainId);
   const currentNetworkConfig = getNetworkConfig(currentChainId);

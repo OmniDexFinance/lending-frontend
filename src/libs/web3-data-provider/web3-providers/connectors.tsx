@@ -22,7 +22,7 @@ import {
   getSupportedChainIds,
   getNetworkConfig,
 } from '../../../helpers/config/markets-and-network-config';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '../../../helpers/contract-helpers';
 
 export type AvailableWeb3Connectors =
   | 'browser'
@@ -125,7 +125,7 @@ export function getWeb3Connector(
         chainId,
         initOptions: {
           network: {
-            host: chainId === ChainId.polygon ? 'matic' : chainId,
+            host: chainId,
           },
           showTorusButton: false,
           enableLogging: false,

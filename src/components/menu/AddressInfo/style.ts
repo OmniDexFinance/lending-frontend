@@ -6,46 +6,40 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .AddressInfo {
-    margin-left: 10px;
-
+    margin-left: 13px;
+    @include respond-to(sm) {
+      margin: auto;
+    }
     &__button {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-end;
       text-align: right;
       min-width: 110px;
       padding: 5px;
       height: 32px;
-      border-radius: 1px;
+      line-height: 20px;
+      border-radius: 25px;
       font-size: $extraSmall;
-      border: 1px solid transparent;
       transition: $transition;
-
       @include respond-to(sm) {
-        width: 110px;
-        height: 54px;
-        font-size: $small;
-        align-items: center;
+        margin: auto;
+        position: relative;
       }
-
       p {
-        margin-bottom: 2px;
         text-transform: capitalize;
         white-space: nowrap;
-        @include respond-to(sm) {
-          margin-bottom: 5px;
-        }
       }
 
       span {
-        opacity: 0.5;
+        vertical-align: baseline;
+        font-family: 'Kanit';
+        font-weight: bold;
+        font-size: 16px;
       }
     }
 
     &__content {
       width: 160px;
-      border-radius: $borderRadius;
+      border-radius: 20px;
       @include respond-to(sm) {
         width: 260px;
       }
@@ -109,17 +103,18 @@ const staticStyles = css.global`
       font-weight: 300;
       text-transform: uppercase;
       font-size: $medium;
-      padding: 15px 5px;
+      padding: 15px 15px;
       width: 100%;
-      text-align: center;
+      text-align: left;
+      font-family: 'Kanit';
       backface-visibility: hidden;
       transform: translateZ(0);
       &:hover {
         border-bottom: 1px solid transparent;
       }
       @include respond-to(sm) {
-        padding: 18px 5px;
-        font-size: $extraLarge;
+        padding: 10px 15px;
+        font-size: $small;
       }
       &:last-child {
         border-bottom: none !important;

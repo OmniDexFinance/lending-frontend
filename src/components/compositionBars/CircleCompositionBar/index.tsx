@@ -1,4 +1,4 @@
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import ParentSize from '@visx/responsive/lib/components/ParentSizeModern';
 
 import staticStyles from './style';

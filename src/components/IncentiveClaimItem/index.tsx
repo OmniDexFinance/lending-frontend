@@ -1,6 +1,6 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { CustomTooltip, useThemeContext } from '@aave/aave-ui-kit';
+import { CustomTooltip, useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import Value from '../basic/Value';
 import Link from '../basic/Link';

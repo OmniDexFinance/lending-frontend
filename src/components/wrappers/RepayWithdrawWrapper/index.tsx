@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import GradientLine from '../../basic/GradientLine';
 
 import staticStyles from './style';
@@ -33,8 +33,8 @@ export default function RepayWithdrawWrapper({
       </style>
       <style jsx={true}>{`
         .RepayWithdrawWrapper {
-          color: ${currentTheme.white.hex};
-          background: ${currentTheme.darkBlue.hex};
+          color: ${currentTheme.textDarkBlue.hex};
+          background: ${currentTheme.whiteElement.hex};
         }
       `}</style>
     </div>

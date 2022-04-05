@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import TableCol from '../TableCol';
 import AMPLWarning from '../../../../../components/AMPLWarning';
@@ -47,6 +47,7 @@ export default function TableItem({ tokenSymbol, color, children, ...rest }: Tab
       </style>
       <style jsx={true} global={true}>{`
         .TableItem {
+          border: 1px solid ${currentTheme.border.hex};
           background: ${currentTheme.whiteElement.hex};
         }
       `}</style>

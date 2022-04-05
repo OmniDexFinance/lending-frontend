@@ -59,6 +59,9 @@ const staticStyles = css.global`
       padding: 20px;
       margin-bottom: 15px;
       position: relative;
+      border-width: 1px;
+      border-radius: 15px;
+      border-style: solid;
       box-shadow: $boxShadow;
       @include respond-to(xl) {
         padding: 15px;

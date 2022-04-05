@@ -1,4 +1,4 @@
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import classNames from 'classnames';
 import React, { ReactNode, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -19,6 +19,7 @@ interface ScreenWrapperProps {
   isTitleOnDesktop?: boolean;
   isTopLineSmall?: boolean;
   titleComponent?: ReactNode;
+  titleWide?: boolean;
   className?: string;
   withMobileGrayBg?: boolean;
   subTitle?: string | ReactNode;
@@ -30,6 +31,7 @@ export default function ScreenWrapper({
   isTitleOnDesktop,
   isTopLineSmall,
   titleComponent,
+  titleWide,
   className,
   withMobileGrayBg,
   subTitle,
@@ -67,6 +69,7 @@ export default function ScreenWrapper({
     >
       {isTitleOnDesktop && (pageTitle || titleComponent) && (
         <DesktopPageTitle
+          wide={titleWide}
           title={!!titleComponent ? titleComponent : pageTitle}
           subTitle={subTitle}
         />
@@ -95,11 +98,7 @@ export default function ScreenWrapper({
         @import 'src/_mixins/screen-size';
         .ScreenWrapper {
           @include respond-to(sm) {
-            background: ${withMobileGrayBg
-              ? currentTheme.mainBg.hex
-              : isCurrentThemeDark
-              ? currentTheme.mainBg.hex
-              : currentTheme.white.hex};
+            background: ${currentTheme.mainBg.hex};
           }
 
           &__mobileSubTitle {

@@ -23,7 +23,7 @@ import { isAssetStable } from '../../../../helpers/config/assets-config';
 
 import defaultMessages from '../../../../defaultMessages';
 import messages from './messages';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '../../../../helpers/contract-helpers';
 
 interface QueryParams {
   fromAsset?: string;
@@ -182,7 +182,7 @@ function RepayWithCollateralConfirmation({
       goToAfterSuccess="/dashboard/borrowings"
       warningMessage={warningMessage}
       dangerousMessage={intl.formatMessage(messages.dangerousMessage)}
-      allowedChainIds={[ChainId.mainnet, ChainId.kovan]}
+      allowedChainIds={[ChainId.mainnet, ChainId.testnet]}
     >
       <Row title={intl.formatMessage(messages.rowTitle)} withMargin={true}>
         <Value

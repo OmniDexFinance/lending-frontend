@@ -8,7 +8,7 @@ import routeParamValidationHOC, {
 import { getLPTokenPoolLink } from '../../../../helpers/lp-tokens';
 import { RATES_HISTORY_ENDPOINT } from '../../../../helpers/config/misc-config';
 import { useStaticPoolDataContext } from '../../../../libs/pool-data-provider';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import ScreenWrapper from '../../../../components/wrappers/ScreenWrapper';
 import ContentWrapper from '../../../../components/wrappers/ContentWrapper';
 import NoDataPanel from '../../../../components/NoDataPanel';
@@ -76,6 +76,15 @@ function ReserveOverview({
         !(!sm && !poolReserve.borrowingEnabled) || (!sm && !isReserveHistoryGraphsVisible)
       }
       className="ReserveOverview"
+      titleComponent={
+        <p>
+          <img src={asset.icon} height={'24px'} />{' '}
+          <span>
+            {intl.formatMessage(messages.pageTitle, { currencySymbol: asset.formattedName })}
+          </span>
+        </p>
+      }
+      titleWide={true}
       withMobileGrayBg={true}
     >
       <div className="ReserveOverview__content">
@@ -164,6 +173,9 @@ function ReserveOverview({
         {staticStyles}
       </style>
       <style jsx={true} global={true}>{`
+        .ContentWrapper.ReserveOverview__user-informationInner {
+          border: 0px;
+        }
         .ReserveOverview {
           &__information-title,
           &__poolLink-inner {
@@ -172,6 +184,10 @@ function ReserveOverview({
           &__noUser {
             background: ${currentTheme.whiteElement.hex} !important;
           }
+        }
+        .ReserveOverview .DesktopPageTitle img,
+        .ReserveOverview .DesktopPageTitle span {
+          vertical-align: middle;
         }
       `}</style>
     </ScreenWrapper>

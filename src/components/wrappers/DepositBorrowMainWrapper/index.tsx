@@ -1,10 +1,12 @@
 import React, { ReactNode } from 'react';
 import { useIntl } from 'react-intl';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
+import TopPanelWrapper from '../TopPanelWrapper';
+import ContentWrapper from '../ContentWrapper';
 import ContentWrapperWithTopLine from '../ContentWrapperWithTopLine';
 import AssetsFilterPanel from '../../AssetsFilterPanel';
-import MarketSwitcher from '../../market/MarketSwitcher';
+import DesktopPageTitle from '../../DesktopPageTitle';
 import Row from '../../basic/Row';
 import Value from '../../basic/Value';
 
@@ -14,7 +16,8 @@ import staticStyles from './style';
 interface DepositBorrowMainWrapperProps {
   children: ReactNode;
   items: ReactNode;
-  contentTitle: string;
+  pageTitle: string;
+  pageSubtitle?: string;
   itemsTitle: string;
   isShowRightPanel?: boolean;
   searchValue: string;
@@ -28,7 +31,7 @@ interface DepositBorrowMainWrapperProps {
 export default function DepositBorrowMainWrapper({
   children,
   items,
-  contentTitle,
+  pageTitle,
   itemsTitle,
   isShowRightPanel,
   searchValue,
@@ -37,84 +40,73 @@ export default function DepositBorrowMainWrapper({
   setShowOnlyStableCoins,
   withSwitchMarket,
   totalValue,
+  pageSubtitle,
 }: DepositBorrowMainWrapperProps) {
   const intl = useIntl();
   const { currentTheme, sm } = useThemeContext();
 
   return (
-    <div className="DepositBorrowMainWrapper">
-      <div className="DepositBorrowMainWrapper__left-inner">
-        {!sm && (
-          <ContentWrapperWithTopLine title={contentTitle} className="">
-            <AssetsFilterPanel
-              optionTitleLeft={intl.formatMessage(messages.optionTitleLeft)}
-              optionTitleRight={intl.formatMessage(messages.optionTitleRight)}
-              switchValue={showOnlyStableCoins}
-              switchOnToggle={setShowOnlyStableCoins}
-              searchValue={searchValue}
-              searchOnChange={setSearchValue}
-              darkOnDarkMode={true}
-            />
+    <>
+      <TopPanelWrapper
+        isCollapse={true}
+        withoutCollapseButton={true}
+        className={'DepositBorrowTopPanelWrapper'}
+      >
+        <DesktopPageTitle title={pageTitle} subTitle={pageSubtitle} />
+      </TopPanelWrapper>
+      <div className="DepositBorrowMainWrapper">
+        <div className="DepositBorrowMainWrapper__left-inner">
+          {!sm && (
+            <>
+              <AssetsFilterPanel
+                optionTitleLeft={intl.formatMessage(messages.optionTitleLeft)}
+                optionTitleRight={intl.formatMessage(messages.optionTitleRight)}
+                switchValue={showOnlyStableCoins}
+                switchOnToggle={setShowOnlyStableCoins}
+                searchValue={searchValue}
+                searchOnChange={setSearchValue}
+                darkOnDarkMode={true}
+              />
+              <ContentWrapper>
+                <div className="DepositBorrowMainWrapper__content">{children}</div>
+              </ContentWrapper>
+            </>
+          )}
 
-            <div className="DepositBorrowMainWrapper__content">{children}</div>
-          </ContentWrapperWithTopLine>
-        )}
+          {sm && <div className="DepositBorrowMainWrapper__mobile--content">{children}</div>}
+        </div>
 
-        {sm && <div className="DepositBorrowMainWrapper__mobile--content">{children}</div>}
-
-        {withSwitchMarket && !sm && (
-          <div className="DepositBorrowMainWrapper__changeMarket-inner">
-            {intl.formatMessage(messages.changeMarket, {
-              button: (
-                <MarketSwitcher
-                  className="DepositBorrowMainWrapper__changeMarket"
-                  toTop={true}
-                  textButton={true}
+        {isShowRightPanel && (
+          <div className="DepositBorrowMainWrapper__right-inner">
+            <ContentWrapperWithTopLine title={itemsTitle}>
+              <div className="DepositBorrowMainWrapper__items">{items}</div>
+              <Row
+                className="DepositBorrowMainWrapper__total"
+                title={intl.formatMessage(messages.total)}
+              >
+                <Value
+                  value={totalValue}
+                  tokenIcon={true}
+                  withoutSymbol={true}
+                  symbol="USD"
+                  maximumValueDecimals={2}
                 />
-              ),
-            })}
+              </Row>
+            </ContentWrapperWithTopLine>
           </div>
         )}
       </div>
-
-      {isShowRightPanel && (
-        <div className="DepositBorrowMainWrapper__right-inner">
-          <ContentWrapperWithTopLine title={itemsTitle}>
-            <div className="DepositBorrowMainWrapper__items">{items}</div>
-            <Row
-              className="DepositBorrowMainWrapper__total"
-              title={intl.formatMessage(messages.total)}
-            >
-              <Value
-                value={totalValue}
-                tokenIcon={true}
-                withoutSymbol={true}
-                symbol="USD"
-                maximumValueDecimals={2}
-              />
-            </Row>
-          </ContentWrapperWithTopLine>
-        </div>
-      )}
-
-      {withSwitchMarket && sm && (
-        <div className="DepositBorrowMainWrapper__changeMarket-inner">
-          {intl.formatMessage(messages.changeMarket, {
-            button: (
-              <MarketSwitcher
-                className="DepositBorrowMainWrapper__changeMarket"
-                toTop={true}
-                textButton={true}
-              />
-            ),
-          })}
-        </div>
-      )}
 
       <style jsx={true} global={true}>
         {staticStyles}
       </style>
       <style jsx={true} global={true}>{`
+        .ScreenWrapper > .Submenu {
+          margin-top: 60px;
+        }
+        .DepositBorrowMainWrapper h2 {
+          padding-left: 15px;
+        }
         .DepositBorrowMainWrapper {
           &__caption {
             color: ${currentTheme.textDarkBlue.hex};
@@ -124,6 +116,6 @@ export default function DepositBorrowMainWrapper({
           }
         }
       `}</style>
-    </div>
+    </>
   );
 }

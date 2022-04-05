@@ -4,10 +4,13 @@ import css from 'styled-jsx/css';
 const staticStyles = css.global`
   @import 'src/_mixins/vars';
   @import 'src/_mixins/screen-size';
-
   .MobileContent {
     z-index: 35;
-
+    &__submenu {
+      position: relative;
+      background: transparent;
+      border: none;
+    }
     &__overlay {
       opacity: 0;
       height: 0;
@@ -117,6 +120,7 @@ const staticStyles = css.global`
       right: -360px;
       top: 0;
       height: 100%;
+      border-radius: 0px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -163,9 +167,16 @@ const staticStyles = css.global`
     }
 
     &__link {
+      svg {
+        vertical-align: middle;
+        position: absolute;
+      }
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
       font-weight: 300;
       text-transform: uppercase;
-      font-size: $extraLarge;
+      font-size: $regular;
       width: 100%;
       text-align: center;
       padding: 10px 0;

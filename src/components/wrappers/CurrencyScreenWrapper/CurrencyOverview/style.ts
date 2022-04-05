@@ -6,6 +6,19 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .CurrencyOverview {
+    border-radius: 15px;
+    border-width: 1px;
+    border-style: solid;
+
+    .Row__white {
+      @include respond-to(sm) {
+        color: white;
+      }
+    }
+    @include respond-to(sm) {
+      background: transparent !important;
+      border: none !important;
+    }
     &__collapsed {
       .CurrencyOverview__content {
         padding: 10px;

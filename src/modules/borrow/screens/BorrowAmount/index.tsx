@@ -7,8 +7,6 @@ import NoDataPanel from '../../../../components/NoDataPanel';
 import BasicForm from '../../../../components/forms/BasicForm';
 import BorrowInterestRateForm from '../../components/BorrowInterestRateForm';
 import BorrowCurrencyWrapper from '../../components/BorrowCurrencyWrapper';
-import InfoWrapper from '../../../../components/wrappers/InfoWrapper';
-import AMPLWarning from '../../../../components/AMPLWarning';
 
 import { useTxBuilderContext } from '../../../../libs/tx-provider';
 import messages from './messages';
@@ -42,7 +40,6 @@ function BorrowAmount({
   const { lendingPool } = useTxBuilderContext();
 
   const asset = getAssetInfo(currencySymbol);
-
   const maxUserAmountToBorrow = valueToBigNumber(
     user?.availableBorrowsMarketReferenceCurrency || 0
   ).div(poolReserve.priceInMarketReferenceCurrency);
@@ -58,7 +55,6 @@ function BorrowAmount({
     maxAmountToBorrow = maxAmountToBorrow.multipliedBy('0.99');
   }
   const formattedMaxAmountToBorrow = maxAmountToBorrow.toString(10);
-
   const handleSetAmountSubmit = (amount: string) => {
     setAmountToBorrow(amount);
     setBorrowStep(BorrowStep.RateModeSelection);
@@ -143,8 +139,6 @@ function BorrowAmount({
           withConnectButton={!user}
         />
       )}
-
-      <InfoWrapper>{currencySymbol === 'AMPL' && <AMPLWarning withInfoPanel={true} />}</InfoWrapper>
     </BorrowCurrencyWrapper>
   );
 }

@@ -4,7 +4,7 @@ import TxConfirmationView, {
   TxConfirmationViewProps,
 } from '../../../../components/TxConfirmationView';
 import { useGovernanceDataContext } from '../../../../libs/governance-provider';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '../../../../helpers/contract-helpers';
 
 type GovernanceTxConfirmationViewProps = Omit<
   TxConfirmationViewProps,
@@ -21,7 +21,7 @@ function GovernanceTxConfirmationView({
     <TxConfirmationView
       {...props}
       txChainId={governanceConfig.chainId}
-      allowedChainIds={[ChainId.mainnet, ChainId.kovan]}
+      allowedChainIds={[ChainId.mainnet, ChainId.testnet]}
     />
   );
 }

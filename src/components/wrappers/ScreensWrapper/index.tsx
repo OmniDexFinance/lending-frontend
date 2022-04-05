@@ -1,7 +1,8 @@
-import React, { createContext, ReactNode, useContext, useState } from 'react';
+import React, { createContext, ReactNode, useContext, useState, useEffect, useRef } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import Footer from '../../Footer';
 import Menu from '../../menu/Menu';
@@ -11,7 +12,6 @@ import messages from './messages';
 import staticStyles from './style';
 
 import background from '../../../images/background.svg';
-import backgroundDark from '../../../images/backgroundDark.svg';
 
 export interface ScreensWrapperProps {
   children: ReactNode;
@@ -39,12 +39,36 @@ export function useWithDesktopTitle() {
 
 export default function ScreensWrapper({ children }: ScreensWrapperProps) {
   const intl = useIntl();
-  const { currentTheme, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme, isCurrentThemeDark, sm, md } = useThemeContext();
 
   const [title, setTitle] = useState(intl.formatMessage(messages.pageTitle));
   const [isTopPanelSmall, setTopPanelSmall] = useState(
     localStorage.getItem('isTopPanelSmall') === 'true' || false
   );
+
+  const [scrollDir, setScrollDir] = useState('up');
+  const scrollElementRef = useRef();
+  const threshold = 0;
+  let lastScrollY = window.pageYOffset;
+  let ticking = false;
+
+  const updateScrollDir = () => {
+    let el = document.getElementById('ScreensWrapper__content-wrapper');
+    const scrollY = el!.scrollTop || 0;
+    if (Math.abs(scrollY - lastScrollY) < threshold) {
+      ticking = false;
+      return;
+    }
+    setScrollDir(scrollY > lastScrollY ? 'down' : 'up');
+    lastScrollY = scrollY > 0 ? scrollY : 0;
+    ticking = false;
+  };
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateScrollDir);
+      ticking = true;
+    }
+  };
 
   return (
     <div
@@ -55,10 +79,19 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
       <BottomDisclaimer />
 
       <TopDisclaimer />
-      <Menu title={title} />
-
-      <main className="ScreensWrapper__content" id="ScreensWrapper__content-wrapper">
-        <div className="ScreensWrapper__top-contentWrapper" />
+      <Menu title={title} active={scrollDir == 'up'} />
+      <main
+        onScroll={(!sm && !md && onScroll) || (() => {})}
+        className="ScreensWrapper__content"
+        id="ScreensWrapper__content-wrapper"
+      >
+        <div
+          className={
+            isCurrentThemeDark
+              ? 'ScreensWrapper__top-contentWrapperDark'
+              : 'ScreensWrapper__top-contentWrapper'
+          }
+        />
 
         <TitleContext.Provider value={{ title, setTitle }}>
           <TopPanelSmallContext.Provider value={{ isTopPanelSmall, setTopPanelSmall }}>
@@ -69,12 +102,6 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
 
       <Footer inside={true} />
 
-      <img
-        className="ScreensWrapper__background"
-        src={isCurrentThemeDark ? backgroundDark : background}
-        alt=""
-      />
-
       <style jsx={true} global={true}>
         {staticStyles}
       </style>
@@ -82,12 +109,20 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
         @import 'src/_mixins/screen-size';
 
         .ScreensWrapper {
+          transition: 200ms background ease;
           background: ${currentTheme.mainBg.hex};
 
           &__top-contentWrapper {
-            background: ${currentTheme.headerBg.hex};
+            background: transparent;
             &:after {
-              background: ${currentTheme.headerBg.hex};
+              background: transparent;
+            }
+          }
+
+          &__top-contentWrapperDark {
+            background: transparent;
+            &:after {
+              background: transparent;
             }
           }
         }

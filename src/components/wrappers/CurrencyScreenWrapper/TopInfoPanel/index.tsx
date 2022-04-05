@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { valueToBigNumber } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { gradient, useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import Row from '../../../basic/Row';
 import Value from '../../../basic/Value';
@@ -30,10 +30,16 @@ export default function TopInfoPanel({
   type,
 }: TopInfoPanelProps) {
   const intl = useIntl();
-  const { currentTheme, xl, lg, sm, xs } = useThemeContext();
+  const { currentTheme, xl, lg, sm, xs, isCurrentThemeDark } = useThemeContext();
 
   const decimals = isAssetStable(currencySymbol) ? 4 : xs ? 5 : 8;
-
+  const gradientLine = gradient(
+    90,
+    `${currentTheme.secondary.rgb}, 1`,
+    0,
+    `${currentTheme.primary.rgb}, 1`,
+    100
+  );
   const isDeposit = type === 'deposit';
 
   const currentBorrows = userReserve ? valueToBigNumber(userReserve.totalBorrows).toString() : '0';
@@ -45,7 +51,7 @@ export default function TopInfoPanel({
           <Row
             className="TopInfoPanel__line"
             title={intl.formatMessage(messages.yourBalanceInAave)}
-            color="white"
+            color={(sm && 'white') || 'dark'}
             isColumn={sm}
           >
             {user && userReserve && Number(userReserve.underlyingBalance) > 0 ? (
@@ -54,7 +60,7 @@ export default function TopInfoPanel({
                 symbol={currencySymbol}
                 maximumValueDecimals={decimals}
                 minimumValueDecimals={decimals}
-                color="white"
+                color={(sm && 'white') || 'dark'}
               />
             ) : (
               <span className="TopInfoPanel__no-data">—</span>
@@ -64,7 +70,7 @@ export default function TopInfoPanel({
           <Row
             className="TopInfoPanel__line"
             title={intl.formatMessage(messages.yourWalletBalance)}
-            color="white"
+            color={(sm && 'white') || 'dark'}
             isColumn={sm}
           >
             {user && Number(walletBalance) > 0 ? (
@@ -73,7 +79,7 @@ export default function TopInfoPanel({
                 symbol={currencySymbol}
                 maximumValueDecimals={decimals}
                 minimumValueDecimals={decimals}
-                color="white"
+                color={(sm && 'white') || 'dark'}
               />
             ) : (
               <span className="TopInfoPanel__no-data">—</span>
@@ -85,7 +91,7 @@ export default function TopInfoPanel({
           <Row
             className="TopInfoPanel__line"
             title={intl.formatMessage(messages.youBorrowed)}
-            color="white"
+            color={(sm && 'white') || 'dark'}
             isColumn={sm}
           >
             {user && Number(currentBorrows) > 0 ? (
@@ -94,7 +100,7 @@ export default function TopInfoPanel({
                 symbol={currencySymbol}
                 maximumValueDecimals={decimals}
                 minimumValueDecimals={decimals}
-                color="white"
+                color={(sm && 'white') || 'dark'}
               />
             ) : (
               <span className="TopInfoPanel__no-data">—</span>
@@ -104,7 +110,7 @@ export default function TopInfoPanel({
           <Row
             className="TopInfoPanel__line"
             title={intl.formatMessage(messages.totalCollateral)}
-            color="white"
+            color={(sm && 'white') || 'dark'}
             isColumn={sm}
           >
             {user && Number(user?.totalCollateralUSD) > 0 ? (
@@ -113,7 +119,7 @@ export default function TopInfoPanel({
                 symbol="USD"
                 maximumValueDecimals={4}
                 minimumValueDecimals={4}
-                color="white"
+                color={(sm && 'white') || 'dark'}
               />
             ) : (
               <span className="TopInfoPanel__no-data">—</span>
@@ -123,11 +129,11 @@ export default function TopInfoPanel({
           <Row
             className="TopInfoPanel__line"
             title={intl.formatMessage(messages.loanToValue)}
-            color="white"
+            color={(sm && 'white') || 'dark'}
             isColumn={sm}
           >
             {user && Number(user?.currentLoanToValue) > 0 ? (
-              <ValuePercent value={user?.currentLoanToValue} color="white" />
+              <ValuePercent value={user?.currentLoanToValue} color={(sm && 'white') || 'dark'} />
             ) : (
               <span className="TopInfoPanel__no-data">—</span>
             )}
@@ -139,7 +145,7 @@ export default function TopInfoPanel({
         <HealthFactor
           className="TopInfoPanel__healthFactor"
           value={user?.healthFactor || '-1'}
-          titleColor="white"
+          titleColor={(sm && 'white') || 'dark'}
           helpIconSize={xl && !lg ? 12 : lg && !sm ? 10 : sm ? 12 : 14}
           isColumn={sm}
         />
@@ -149,8 +155,11 @@ export default function TopInfoPanel({
         {staticStyles}
       </style>
       <style jsx={true} global={true}>{`
+        .CurrencyOverview .GradientLine {
+          background: ${((!sm || isCurrentThemeDark) && gradientLine) || 'white'} !important;
+        }
         .TopInfoPanel {
-          color: ${currentTheme.white.hex};
+          color: ${currentTheme.whiteElement.hex};
         }
       `}</style>
     </div>

@@ -5,6 +5,9 @@ const staticStyles = css.global`
   @import 'src/_mixins/vars';
   @import 'src/_mixins/screen-size';
 
+  .ReserveInformation__content.ContentWrapper {
+    border-radius: 15px;
+  }
   .ReserveInformation {
     flex: 1;
     display: flex;
@@ -136,7 +139,7 @@ const staticStyles = css.global`
       justify-content: space-between;
       align-items: center;
       padding: 5px 10px;
-      border-radius: $borderRadius;
+      border-radius: 5px;
       margin: 0 15px;
       font-size: $regular;
       min-width: 300px;
@@ -184,6 +187,12 @@ const staticStyles = css.global`
     }
 
     &__bottom-info {
+      .ValuePercent__value {
+        margin-top: 7px;
+      }
+      .TextBlock {
+        margin-top: 7px;
+      }
       display: flex;
       flex-wrap: wrap;
       align-items: flex-start;

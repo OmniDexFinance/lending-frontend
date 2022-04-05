@@ -1,7 +1,7 @@
 import React, { ReactNode, useState } from 'react';
 import { useIntl } from 'react-intl';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import toggleLocalStorageClick from '../../../helpers/toggle-local-storage-click';
 import ScreenWrapper from '../ScreenWrapper';
 import TopPanelWrapper from '../TopPanelWrapper';
@@ -72,7 +72,6 @@ export default function CurrencyScreenWrapper({
           />
         </div>
       )}
-
       <TopPanelWrapper
         isCollapse={isCollapse}
         setIsCollapse={() =>
@@ -128,6 +127,10 @@ export default function CurrencyScreenWrapper({
         .CurrencyScreenWrapper {
           &__mobileInner {
             background: ${currentTheme.darkBlue.hex};
+          }
+          .Submenu {
+            margin-top: 20px;
+            margin-bottom: 30px;
           }
         }
       `}</style>

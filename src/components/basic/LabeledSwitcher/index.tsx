@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import { gradient, useThemeContext, LabeledSwitch } from '@aave/aave-ui-kit';
+import { rgba, gradient, useThemeContext, LabeledSwitch } from '@omnidex/omnidex-ui-kit';
+import staticStyles from './style';
 
 type LabeledSwitcherProps = {
   value: boolean;
@@ -31,11 +32,11 @@ export default function LabeledSwitcher({
 }: LabeledSwitcherProps) {
   const { currentTheme, xl, lg, md, isCurrentThemeDark } = useThemeContext();
 
-  const gradientText = gradient(
+  let gradientText = gradient(
     90,
-    `${currentTheme.secondary.rgb}, 1`,
+    `${(isCurrentThemeDark && currentTheme.whiteItem.rgb) || currentTheme.white.rgb}, 1`,
     0,
-    `${currentTheme.primary.rgb}, 1`,
+    `${(isCurrentThemeDark && currentTheme.whiteItem.rgb) || currentTheme.white.rgb}, 1`,
     100
   );
 
@@ -51,32 +52,36 @@ export default function LabeledSwitcher({
         rightOption={rightOption}
         onToggle={onToggle}
         disabled={disabled}
-        className={classNames({ LabeledSwitch__white: white }, className)}
+        className={classNames({ LabeledSwitch__white: !isCurrentThemeDark }, className)}
         width={width || baseWidth}
         height={height || baseHeight}
         fontSize={fontSize || baseFontSize}
       />
 
+      <style jsx={true} global={true}>
+        {staticStyles}
+      </style>
       <style jsx={true} global={true}>{`
         .LabeledSwitch {
+          padding: 5px;
           &__pointer {
             span {
-              background: ${currentTheme.white.hex};
+              border-radius: 15px;
+              background: ${currentTheme.primary.hex};
             }
           }
 
           &__inner {
-            background: ${isCurrentThemeDark && darkOnDarkMode
-              ? currentTheme.whiteItem.hex
-              : currentTheme.darkBlue.hex};
-            border-color: ${isCurrentThemeDark && darkOnDarkMode
+            border: none;
+            border-radius: 15px;
+            background: ${isCurrentThemeDark
               ? currentTheme.whiteItem.hex
               : currentTheme.darkBlue.hex};
           }
 
           button {
             span {
-              background: ${currentTheme.white.hex};
+              background: ${currentTheme.primary.hex};
             }
           }
 
@@ -89,19 +94,12 @@ export default function LabeledSwitcher({
 
         .LabeledSwitch__white {
           .LabeledSwitch__inner {
-            background: ${currentTheme.textDarkBlue.hex};
-            border-color: ${currentTheme.textDarkBlue.hex};
-          }
-
-          .LabeledSwitch__pointer {
-            span {
-              background: ${currentTheme.whiteElement.hex};
-            }
+            background: ${currentTheme.lightGray.hex};
           }
 
           button {
             span {
-              background: ${currentTheme.whiteElement.hex};
+              background: ${currentTheme.textDarkBlue.hex};
             }
           }
         }
@@ -109,7 +107,6 @@ export default function LabeledSwitcher({
         .LabeledSwitchDisabled {
           .LabeledSwitch__inner {
             background: ${currentTheme.disabledGray.hex};
-            border-color: ${currentTheme.disabledGray.hex};
           }
         }
       `}</style>

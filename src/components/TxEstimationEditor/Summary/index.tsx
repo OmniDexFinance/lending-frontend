@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { valueToBigNumber, normalize } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import Value from '../../basic/Value';
 
@@ -41,10 +41,9 @@ export default function Summary({
   return (
     <div className="TxEstimationEditor">
       <div className="TxEstimationEditor__title">{intl.formatMessage(messages.gasPrice)}</div>
-
       <div className="TxEstimationEditor__valuesWrapper">
         <div className="TxEstimationEditor__values">
-          <Value value={Number(estimationCost)} symbol="ETH" /> /
+          <Value value={Number(estimationCost)} symbol="TLOS" /> /
           <Value
             value={valueToBigNumber(estimationCost).multipliedBy(marketRefPriceInUsd).toNumber()}
             symbol="USD"
@@ -66,6 +65,9 @@ export default function Summary({
       </style>
       <style jsx={true} global={true}>{`
         .TxEstimationEditor {
+          &__action {
+            margin-left: 3px;
+          }
           color: ${currentTheme.primary.hex};
 
           button {

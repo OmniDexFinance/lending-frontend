@@ -15,7 +15,11 @@ export default function AssetSwapWrapper({ children }: AssetSwapWrapperProps) {
   const intl = useIntl();
 
   return (
-    <ScreenWrapper pageTitle={intl.formatMessage(defaultMessages.swap)} isTitleOnDesktop={true}>
+    <ScreenWrapper
+      pageTitle={intl.formatMessage(defaultMessages.swap)}
+      isTitleOnDesktop={true}
+      titleWide={true}
+    >
       <ContentWrapper
         className="AssetSwapWrapper__content"
         withFullHeight={true}

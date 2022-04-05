@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import { useLanguageContext } from '../../../../libs/language-provider';
 import DashboardTable from '../../../dashboard/components/DashboardTable';

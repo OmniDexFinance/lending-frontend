@@ -1,6 +1,6 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { useThemeContext, ThemeNames } from '@aave/aave-ui-kit';
+import { useThemeContext, ThemeNames } from '@omnidex/omnidex-ui-kit';
 
 import SwitcherWrapper from '../SwitcherWrapper';
 

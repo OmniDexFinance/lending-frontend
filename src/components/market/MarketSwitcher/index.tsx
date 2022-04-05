@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { rgba, useThemeContext, DropdownWrapper } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext, DropdownWrapper } from '@omnidex/omnidex-ui-kit';
 
 import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 import GradientText from '../../basic/GradientText';
@@ -112,7 +112,7 @@ export default function MarketSwitcher({ toTop, className, textButton }: MarketS
         )
       }
     >
-      <div className="MarketSwitcher__content">
+      <div className="MarketSwitcher__content" style={{ paddingBottom: '3px' }}>
         <p className="MarketSwitcher__title">{intl.formatMessage(messages.changeMarket)}</p>
         {availableMarkets.map((market) => {
           const marketData = marketsData[market];
@@ -140,8 +140,8 @@ export default function MarketSwitcher({ toTop, className, textButton }: MarketS
 
                   <GradientText
                     className="MarketSwitcher__marketText"
-                    colorStart={currentTheme.secondary.rgb}
-                    colorEnd={currentTheme.primary.rgb}
+                    colorStart={currentTheme.darkBlue.rgb}
+                    colorEnd={currentTheme.darkBlue.rgb}
                     title={intl.formatMessage(messages.market)}
                   />
                 </div>
@@ -161,6 +161,9 @@ export default function MarketSwitcher({ toTop, className, textButton }: MarketS
         {staticStyles}
       </style>
       <style jsx={true} global={true}>{`
+        .MarketSwitcher .DropdownWrapper__content {
+          border-radius: 2px 2px 5px 5px;
+        }
         .MarketSwitcher {
           &__text-button {
             color: ${currentTheme.primary.hex};

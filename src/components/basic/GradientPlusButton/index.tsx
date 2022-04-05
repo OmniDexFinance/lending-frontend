@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { gradient, useThemeContext } from '@aave/aave-ui-kit';
+import { gradient, useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import staticStyles from './style';
 

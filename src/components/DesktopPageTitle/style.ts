@@ -21,13 +21,19 @@ const staticStyles = css.global`
       display: none;
     }
     h2 {
-      font-weight: 400;
+      font-weight: bold;
       line-height: 1;
       margin-bottom: 10px;
-      font-size: $large;
+      font-family: 'Kanit';
+      font-size: $extraLarge;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
+      div {
+        @include respond-to(md) {
+          margin: auto;
+        }
+      }
       @include respond-to(xl) {
         font-size: $regular;
       }

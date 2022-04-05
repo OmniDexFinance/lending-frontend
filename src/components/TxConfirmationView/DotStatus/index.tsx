@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl, MessageDescriptor } from 'react-intl';
 import classNames from 'classnames';
-import { useThemeContext, SpinLoader } from '@aave/aave-ui-kit';
+import { useThemeContext, SpinLoader } from '@omnidex/omnidex-ui-kit';
 
 import messages from './messages';
 import staticStyles from './style';

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { ATokenInfo } from '../../helpers/get-atoken-info';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import { useProtocolDataContext } from '../../libs/protocol-data-provider';
 import { addERC20Token } from '../../helpers/add-erc20';
@@ -19,9 +19,7 @@ export default function AddATokenButton({ aTokenData }: AddATokenButtonProps) {
   const { currentMarketData } = useProtocolDataContext();
   const [isDisabled, setIsDisabled] = useState(false);
 
-  const symbol =
-    aTokenData.formattedSymbol ||
-    `${currentMarketData.aTokenPrefix.toLowerCase()}${aTokenData.symbol}`;
+  const symbol = `${currentMarketData.aTokenPrefix.toLowerCase()}${aTokenData.symbol}`;
 
   const handleAddAsset = async () => {
     setIsDisabled(true);

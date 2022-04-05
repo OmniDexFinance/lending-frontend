@@ -16,6 +16,7 @@ export default defineMessages({
   connectWallet: 'Please connect a wallet',
   connectWalletDescription: 'We couldn’t detect a wallet. Connect a wallet to withdraw.',
   healthFactorDangerousText:
-    'This action will reduce your Health Factor and could lead to {liquidation} of your collateral. Please be cautious and understand the risks.',
+    'This action will {reduce} your Health Factor and could lead to {liquidation} of your collateral. Please be cautious and understand the risks.',
   liquidation: 'liquidation',
+  reduce: 'reduce',
 });

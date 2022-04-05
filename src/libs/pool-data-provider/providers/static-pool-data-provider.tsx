@@ -7,7 +7,7 @@ import { useCachedProtocolData } from '../../caching-server-data-provider/hooks/
 import { useApolloConfigContext } from '../../apollo-config';
 import { ConnectionMode, useConnectionStatusContext } from '../../connection-status-provider';
 import { assetsOrder } from '../../../ui-config/assets';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '../../../helpers/contract-helpers';
 import { usePoolData } from '../hooks/use-pool-data';
 import { ReserveDataHumanized, UserReserveDataHumanized } from '@aave/contract-helpers';
 import { normalize } from '@aave/math-utils';
@@ -86,7 +86,6 @@ export function StaticPoolDataProvider({
   if ((isRPCActive && rpcDataLoading && !rpcData) || (!isRPCActive && cachedDataLoading)) {
     return loader;
   }
-
   if (!activeData || (isRPCActive && rpcDataError) || (!isRPCActive && cachedDataError)) {
     return errorPage;
   }
@@ -106,18 +105,6 @@ export function StaticPoolDataProvider({
           underlyingAsset: API_ETH_MOCK_ADDRESS.toLowerCase(),
         };
       }
-      if (
-        reserve.underlyingAsset.toLowerCase() ===
-        '0x50379f632ca68d36e50cfbc8f78fe16bd1499d1e'.toLowerCase()
-      ) {
-        reserve.symbol = 'GUNIDAIUSDC';
-      }
-      if (
-        reserve.underlyingAsset.toLowerCase() ===
-        '0xd2eec91055f07fe24c9ccb25828ecfefd4be0c41'.toLowerCase()
-      ) {
-        reserve.symbol = 'GUNIUSDCUSDT';
-      }
       return reserve;
     })
     .sort(
@@ -132,6 +119,7 @@ export function StaticPoolDataProvider({
       (reserve) =>
         reserve.underlyingAsset.toLowerCase() === userReserve.underlyingAsset.toLowerCase()
     );
+
     if (reserve) {
       const reserveWithBase: UserReserveDataExtended = {
         ...userReserve,
@@ -158,14 +146,13 @@ export function StaticPoolDataProvider({
   const isUserHasDeposits = userReserves.some(
     (userReserve) => userReserve.scaledATokenBalance !== '0'
   );
-
   if (!RPC_ONLY_MODE && isRPCActive && rpcData) {
     console.log('switched to RPC');
   }
 
   const marketRefPriceInUsd = activeData?.reserves?.baseCurrencyData
     ?.marketReferenceCurrencyPriceInUsd
-    ? activeData.reserves.baseCurrencyData?.marketReferenceCurrencyPriceInUsd
+    ? activeData.reserves.baseCurrencyData?.networkBaseTokenPriceInUsd
     : '0';
 
   const marketRefCurrencyDecimals = activeData?.reserves?.baseCurrencyData

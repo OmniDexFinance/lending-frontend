@@ -8,7 +8,7 @@ const staticStyles = css`
   .InfoPanel {
     width: 100%;
     padding: 10px;
-    border-radius: $borderRadius;
+    border-radius: 12px;
     position: relative;
 
     &__circle {
@@ -32,7 +32,7 @@ const staticStyles = css`
       @include respond-to(sm) {
         left: auto;
         top: -16px;
-        right: 3px;
+        right: -15px;
         width: 32px;
         height: 32px;
       }
@@ -42,7 +42,7 @@ const staticStyles = css`
       display: flex;
       align-items: flex-start;
     }
-    &__ghost {
+    &__omni {
       width: 21px;
       height: 30px;
       margin-right: 10px;

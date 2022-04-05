@@ -1,13 +1,13 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { gradient, rgba, useThemeContext } from '@aave/aave-ui-kit';
+import { gradient, rgba, useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import GradientText from '../../basic/GradientText';
 
 import messages from './messages';
 import staticStyles from './style';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '../../../helpers/contract-helpers';
 import { getNetworkConfig } from '../../../helpers/config/markets-and-network-config';
 
 interface MarketSelectButtonProps {
@@ -52,7 +52,6 @@ export default function MarketSelectButton({
     `${currentTheme.secondary.rgb}, 1`,
     100
   );
-
   return (
     <button
       onClick={onClick}
@@ -75,8 +74,8 @@ export default function MarketSelectButton({
 
           <GradientText
             className="MarketSelectButton__marketText"
-            colorStart={isDark ? currentTheme.white.rgb : currentTheme.secondary.rgb}
-            colorEnd={isDark ? currentTheme.white.rgb : currentTheme.primary.rgb}
+            colorStart={currentTheme.darkBlue.rgb}
+            colorEnd={currentTheme.darkBlue.rgb}
             title={intl.formatMessage(messages.market)}
           />
         </div>
@@ -99,7 +98,8 @@ export default function MarketSelectButton({
           &.MarketSelectButton__active,
           &:disabled {
             .MarketSelectButton__inner {
-              border: 2px solid ${currentTheme.darkBlue.hex} !important;
+              border: 2px solid ${currentTheme.primary.hex} !important;
+              background: ${currentTheme.white.hex};
             }
           }
 

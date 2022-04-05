@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import classNames from 'classnames';
-import { gradient, rgba, useThemeContext, Button } from '@aave/aave-ui-kit';
+import { gradient, rgba, useThemeContext, Button } from '@omnidex/omnidex-ui-kit';
 
 export interface DefaultButtonProps {
   onClick?: (event: any) => void;
@@ -66,8 +66,12 @@ export default function DefaultButton({
 
       <style jsx={true} global={true}>{`
         @import 'src/_mixins/screen-size';
-
+        .Button__medium {
+          width: 200px;
+        }
         .DefaultButton {
+          padding: 5px 20px;
+          border-radius: 20px;
           color: ${currentTheme.white.hex};
 
           &__primary {

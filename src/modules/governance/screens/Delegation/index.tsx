@@ -3,7 +3,7 @@ import { MessageDescriptor, useIntl } from 'react-intl';
 import { ethers } from 'ethers';
 import { useLocation, useHistory } from 'react-router-dom';
 import queryString from 'query-string';
-import { useThemeContext, canBeEnsAddress } from '@aave/aave-ui-kit';
+import { useThemeContext, canBeEnsAddress } from '@omnidex/omnidex-ui-kit';
 
 import { useStaticPoolDataContext } from '../../../../libs/pool-data-provider';
 import DefaultButton from '../../../../components/basic/DefaultButton';

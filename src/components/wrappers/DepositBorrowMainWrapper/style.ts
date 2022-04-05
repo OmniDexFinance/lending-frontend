@@ -4,9 +4,16 @@ import css from 'styled-jsx/css';
 const staticStyles = css.global`
   @import 'src/_mixins/vars';
   @import 'src/_mixins/screen-size';
-
+  .DepositBorrowTopPanelWrapper.TopPanelWrapper {
+    margin-top: 60px;
+    box-shadow: none;
+  }
+  .TokenIcon__name {
+    font-family: 'Kanit';
+  }
   .DepositBorrowMainWrapper {
     display: flex;
+    margin-top: 20px;
     flex: 1;
     @include respond-to(sm) {
       flex-direction: column;
@@ -21,11 +28,12 @@ const staticStyles = css.global`
         display: block;
         flex: unset;
       }
-
       .ContentWrapperWithTopLine,
       .ContentWrapperWithTopLine__content,
       .DepositBorrowMainWrapper__content {
         display: flex;
+        height: 100%;
+        padding: 20px;
         flex-direction: column;
         flex: 1;
       }

@@ -12,7 +12,8 @@ const staticStyles = css.global`
       margin-bottom: 20px;
     }
     @include respond-to(sm) {
-      margin-bottom: 30px;
+      margin-top: 30px;
+      margin-bottom: 10px;
       justify-content: center;
     }
 

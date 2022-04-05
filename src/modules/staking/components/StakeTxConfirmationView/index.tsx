@@ -4,7 +4,7 @@ import TxConfirmationView, {
   TxConfirmationViewProps,
 } from '../../../../components/TxConfirmationView';
 import { useStakeDataContext } from '../../../../libs/pool-data-provider/hooks/use-stake-data-context';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '../../../../helpers/contract-helpers';
 
 type StakeTxConfirmationViewProps = Omit<TxConfirmationViewProps, 'txChainId' | 'allowedChainIds'>;
 
@@ -21,7 +21,7 @@ function StakeTxConfirmationView({ onMainTxConfirmed, ...props }: StakeTxConfirm
     <TxConfirmationView
       {...props}
       txChainId={stakeConfig.chainId}
-      allowedChainIds={[ChainId.mainnet, ChainId.kovan]}
+      allowedChainIds={[ChainId.mainnet, ChainId.testnet]}
       onMainTxConfirmed={handleMainTxConfirmed}
     />
   );

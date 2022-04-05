@@ -21,7 +21,7 @@ import { calculateHFAfterSwap } from '../../helpers';
 import defaultMessages from '../../../../defaultMessages';
 import messages from './messages';
 import { getAtokenInfo } from '../../../../helpers/get-atoken-info';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '../../../../helpers/contract-helpers';
 
 interface QueryParams {
   fromAsset?: string;
@@ -201,7 +201,7 @@ export default function AssetSwapConfirmation() {
       approveDescription={intl.formatMessage(messages.approveDescription)}
       mainTxName={intl.formatMessage(defaultMessages.swap)}
       blockingError={error || blockingError}
-      allowedChainIds={[ChainId.mainnet, ChainId.polygon]}
+      allowedChainIds={[ChainId.mainnet]}
       aTokenData={aTokenData}
       warningMessage={intl.formatMessage(messages.warningMessage)}
     >

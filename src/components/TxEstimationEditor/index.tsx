@@ -84,23 +84,8 @@ export default function TxEstimation({
         customGasPrice={customGasPrice}
         defaultGasPrice={gasTxs.defaultGasPrice || '0'}
         marketRefPriceInUsd={marketRefPriceInUsd}
-        editDisabled={editDisabled}
+        editDisabled={true}
       />
-
-      {gasTxs && gasTxs.gas && (
-        <EditorModal
-          visible={visible}
-          setVisible={setVisible}
-          gasTxs={gasTxs}
-          customGasPrice={customGasPrice}
-          marketRefPriceInUsd={marketRefPriceInUsd}
-          setCustomGasPrice={setCustomGasPrice}
-          selectedOption={selected}
-          setSelectedOption={setSelected}
-          manualPriceValue={manualPrice}
-          setManualPriceValue={setManualPrice}
-        />
-      )}
     </>
   );
 }

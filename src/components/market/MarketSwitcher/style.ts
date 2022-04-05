@@ -97,11 +97,9 @@ const staticStyles = css.global`
       align-items: center;
 
       img {
-        width: 67px;
         max-height: 14px;
         margin: 0 auto;
         @include respond-to(sm) {
-          width: 125px;
           max-height: 25px;
         }
       }
@@ -227,10 +225,8 @@ const staticStyles = css.global`
       display: flex;
       align-items: center;
       img {
-        width: 65px;
         max-height: 16px;
         @include respond-to(sm) {
-          width: 104px;
           max-height: 25px;
         }
       }
@@ -251,9 +247,9 @@ const staticStyles = css.global`
       font-size: $extraSmall;
       letter-spacing: 3px;
       font-weight: 300;
+      margin-top: 4px;
       position: relative;
       left: 2px;
-      margin-top: 1px;
       @include respond-to(sm) {
         font-size: $small;
         letter-spacing: 8px;

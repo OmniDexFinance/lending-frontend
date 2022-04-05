@@ -17,49 +17,91 @@ export interface Navigation {
   hiddenWithoutWallet?: boolean;
   absolute?: boolean;
   onClick?: () => void;
+  children?: Navigation[];
   isVisible?: (data: MarketDataType) => boolean | undefined;
 }
 
 const navigation: Navigation[] = [
   {
+    link: 'https://omnidex.finance/',
+    absolute: true,
+    title: messages.navigation,
+  },
+  {
+    link: 'https://omnidex-1.gitbook.io/omnidex/',
+    absolute: true,
+    title: messages.doc,
+  },
+  {
+    link: 'https://www.analytics.omnidex.finance/home',
+    absolute: true,
+    title: messages.analytics,
+  },
+  {
+    link: 'https://omnidex.finance/swap',
+    absolute: true,
+    title: messages.trade,
+    children: [
+      {
+        link: 'https://omnidex.finance/swap',
+        absolute: true,
+        title: messages.swap,
+      },
+      {
+        link: 'https://omnidex.finance/liquidity',
+        absolute: true,
+        title: messages.addLiquidity,
+      },
+    ],
+  },
+  {
+    link: 'https://omnidex.finance/farms',
+    absolute: true,
+    title: messages.earn,
+    children: [
+      {
+        link: 'https://omnidex.finance/farms',
+        absolute: true,
+        title: messages.farms,
+      },
+      {
+        link: 'https://omnidex.finance/pools',
+        absolute: true,
+        title: messages.staking,
+      },
+      {
+        link: 'https://omnidex.finance/karmapool/',
+        absolute: true,
+        title: messages.karma,
+      },
+    ],
+  },
+  {
     link: '/markets',
-    title: messages.markets,
-  },
-  {
-    link: '/dashboard',
-    title: messages.dashboard,
-  },
-  {
-    link: '/deposit',
-    title: messages.deposit,
-  },
-  {
-    link: '/borrow',
-    title: messages.borrow,
-  },
-  {
-    link: '/asset-swap',
-    title: messages.swap,
-    isVisible: isFeatureEnabled.liquiditySwap,
-  },
-  {
-    link: '/staking',
-    title: messages.stake,
-    isVisible: () => !!stakeConfig,
-  },
-  {
-    link: '/governance',
-    title: messages.governance,
-    isVisible: () => !!governanceConfig,
+    title: messages.lending,
+    children: [
+      {
+        link: '/markets',
+        title: messages.markets,
+      },
+      {
+        link: '/dashboard',
+        title: messages.dashboard,
+      },
+      {
+        link: 'deposit',
+        title: messages.deposit,
+      },
+      {
+        link: 'borrow',
+        title: messages.borrow,
+      },
+    ],
   },
 ];
 
 export const moreNavigation: Navigation[] = [...moreMenuItems, ...moreMenuExtraItems];
 
-export const mobileNavigation: Navigation[] = [
-  ...navigation,
-  ...moreMenuItems,
-  ...moreMenuMobileOnlyItems,
-];
+export const mobileNavigation: Navigation[] = [...navigation, ...moreMenuMobileOnlyItems];
 
 export default navigation;

@@ -5,12 +5,12 @@ import { ReserveData, UserReserveData } from '@aave/protocol-js';
 
 import { IUiPoolDataProviderFactory } from '../contracts/IUiPoolDataProviderFactory';
 import { getProvider } from '../../../helpers/config/markets-and-network-config';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '../../../helpers/contract-helpers';
 
 // interval in which the rpc data is refreshed
-const POOLING_INTERVAL = 30 * 1000;
+const POOLING_INTERVAL = 1 * 4000;
 // decreased interval in case there was a network error for faster recovery
-const RECOVER_INTERVAL = 10 * 1000;
+const RECOVER_INTERVAL = 1 * 500;
 
 function formatObjectWithBNFields(obj: object): any {
   return Object.keys(obj).reduce((acc, key) => {
@@ -71,7 +71,6 @@ export function useProtocolDataWithRpc(
       const result = await helperContract.getReservesData(poolAddress, userAddress);
 
       const { 0: rawReservesData, 1: userReserves, 2: usdPriceEth, 3: rawRewardsData } = result;
-
       const rewardsData = {
         userUnclaimedRewards: rawRewardsData.userUnclaimedRewards.toString(),
         emissionEndTimestamp: rawRewardsData.emissionEndTimestamp.toNumber(),

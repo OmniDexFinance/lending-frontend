@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import dayjs from 'dayjs';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import TableItemWrapper from '../../../../components/BasicTable/TableItemWrapper';
 import { HistoryItemTypes } from '../../types';
 

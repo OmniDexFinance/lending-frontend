@@ -161,11 +161,7 @@ export default function History() {
     : [];
 
   return (
-    <ScreenWrapper
-      pageTitle={intl.formatMessage(messages.pageTitle)}
-      isTitleOnDesktop={true}
-      withMobileGrayBg={true}
-    >
+    <ScreenWrapper className={'History'}>
       {loading ? (
         <Preloader withText={true} />
       ) : !!historyFormattedData.length ? (
@@ -189,6 +185,17 @@ export default function History() {
           linkTo="/deposit"
         />
       )}
+      <style jsx={true} global={true}>{`
+        .History {
+          .NoDataPanelWithInfo {
+            margin-top: 100px;
+          }
+          .Submenu {
+            margin-top: 60px;
+            margin-bottom: 30px;
+          }
+        }
+      `}</style>
     </ScreenWrapper>
   );
 }

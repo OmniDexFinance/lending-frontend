@@ -28,6 +28,7 @@ const staticStyles = css.global`
         margin: 20px 0 10px;
       }
       @include respond-to(sm) {
+        border: none;
         margin: 40px 0;
         background: transparent !important;
         box-shadow: none !important;

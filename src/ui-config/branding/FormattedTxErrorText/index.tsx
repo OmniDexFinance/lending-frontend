@@ -22,8 +22,17 @@ export default function FormattedTxErrorText() {
         {intl.formatMessage(messages.errorDescriptionSecond, {
           discord: (
             <Link
-              to="https://aave.com/discord"
+              to="https://discord.gg/sNe6e8CENV"
               title="Discord"
+              absolute={true}
+              inNewWindow={true}
+              color="secondary"
+            />
+          ),
+          telegram: (
+            <Link
+              to="https://t.me/omnidex1"
+              title="Telegram"
               absolute={true}
               inNewWindow={true}
               color="secondary"

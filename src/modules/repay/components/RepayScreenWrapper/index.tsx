@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { useIntl } from 'react-intl';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import Row from '../../../../components/basic/Row';
 import ContentWrapper from '../../../../components/wrappers/ContentWrapper';
@@ -44,12 +45,16 @@ export default function RepayScreenWrapper({
 }: RepayScreenWrapperProps) {
   const intl = useIntl();
   const { networkConfig } = useProtocolDataContext();
-
+  const { currentTheme, isCurrentThemeDark } = useThemeContext();
   return (
     <>
       <RepayWithdrawWrapper className="RepayScreenWrapper" title={title}>
         <div className="RepayScreenWrapper__items-wrapper">
-          <Row title={intl.formatMessage(messages.youBorrowed)} color="white" weight="light">
+          <Row
+            title={intl.formatMessage(messages.youBorrowed)}
+            color={isCurrentThemeDark ? 'white' : 'dark'}
+            weight="light"
+          >
             <Value
               value={Number(currentBorrows)}
               subValue={Number(currentBorrowsInUSD)}
@@ -63,7 +68,11 @@ export default function RepayScreenWrapper({
             />
           </Row>
 
-          <Row title={intl.formatMessage(messages.walletBalance)} color="white" weight="light">
+          <Row
+            title={intl.formatMessage(messages.walletBalance)}
+            color={isCurrentThemeDark ? 'white' : 'dark'}
+            weight="light"
+          >
             <Value
               value={Number(walletBalance)}
               subValue={Number(walletBalanceInUSD)}
@@ -79,7 +88,11 @@ export default function RepayScreenWrapper({
         </div>
 
         <div className="RepayScreenWrapper__items-wrapper">
-          <Row title={intl.formatMessage(messages.yourCollateral)} color="white" weight="light">
+          <Row
+            title={intl.formatMessage(messages.yourCollateral)}
+            color={isCurrentThemeDark ? 'white' : 'dark'}
+            weight="light"
+          >
             <Value
               value={Number(totalCollateralUSD)}
               subValue={
@@ -89,7 +102,7 @@ export default function RepayScreenWrapper({
               }
               color="white"
               symbol="USD"
-              subSymbol="ETH"
+              subSymbol="TLOS"
               maximumValueDecimals={2}
               minimumValueDecimals={2}
               maximumSubValueDecimals={18}
@@ -106,14 +119,14 @@ export default function RepayScreenWrapper({
             title={
               <MaxLTVHelpModal
                 text={intl.formatMessage(messages.loanToValue)}
-                color="white"
+                color={isCurrentThemeDark ? 'white' : 'dark'}
                 lightWeight={true}
               />
             }
             color="white"
             weight="light"
           >
-            <ValuePercent value={loanToValue} color="white" />
+            <ValuePercent value={loanToValue} color={isCurrentThemeDark ? 'white' : 'dark'} />
           </Row>
         </div>
       </RepayWithdrawWrapper>
@@ -128,6 +141,15 @@ export default function RepayScreenWrapper({
 
       <style jsx={true} global={true}>
         {staticStyles}
+      </style>
+
+      <style jsx={true} global={true}>
+        {`
+          .RepayScreenWrapper {
+            border: 1px solid ${currentTheme.border.hex};
+            border-radius: 15px;
+          }
+        `}
       </style>
     </>
   );

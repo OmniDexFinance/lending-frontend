@@ -2,7 +2,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import queryString from 'query-string';
 import { valueToBigNumber } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import { useTxBuilderContext } from '../../../../libs/tx-provider';
 import { usePayments } from '../../../../helpers/payments';
@@ -86,7 +86,7 @@ function DepositAmount({
         <BasicForm
           title={intl.formatMessage(messages.title)}
           description={
-            currencySymbol === 'AAVE' && isFeatureEnabled.staking(currentMarketData)
+            currencySymbol === 'CHARM' && isFeatureEnabled.staking(currentMarketData)
               ? intl.formatMessage(messages.aaveDescription, {
                   stake: <strong>{intl.formatMessage(messages.stake)}</strong>,
                   link: (
@@ -173,9 +173,7 @@ function DepositAmount({
         )}
 
       <InfoWrapper>
-        {currencySymbol === 'AMPL' && <AMPLWarning withInfoPanel={true} />}
-
-        {currencySymbol === 'AAVE' && isFeatureEnabled.staking(currentMarketData) && (
+        {currencySymbol === 'CHARM' && isFeatureEnabled.staking(currentMarketData) && (
           <InfoPanel>
             {intl.formatMessage(messages.aaveWarning, {
               link: (
@@ -189,15 +187,6 @@ function DepositAmount({
             })}
           </InfoPanel>
         )}
-
-        {currencySymbol === 'SNX' && !maxAmountToDeposit.eq('0') && (
-          <InfoPanel>
-            {intl.formatMessage(messages.warningText, {
-              symbol: <strong>{currencySymbol}</strong>,
-            })}
-          </InfoPanel>
-        )}
-
         {user &&
           !sm &&
           payments.some(

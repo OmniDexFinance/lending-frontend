@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
-import { useIntl } from 'react-intl';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
+import { useIntl } from 'react-intl';
 import { useSwipeable } from 'react-swipeable';
-import { useThemeContext, DropdownWrapper, SocialIcons } from '@aave/aave-ui-kit';
+import { useThemeContext, DropdownWrapper, SocialIcons } from '@omnidex/omnidex-ui-kit';
 
 import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 import { useMenuContext } from '../../../libs/menu';
 import goToTop from '../../../helpers/goToTop';
+import Submenu from '../Submenu';
 import Link from '../../basic/Link';
 import ConnectionModeSwitcher from '../ConnectionModeSwitcher';
 import LangSwitcher from '../../basic/LangSwitcher';
@@ -26,18 +27,22 @@ interface MobileContentProps {
 
 export default function MobileContent({ isActive, currentAccount }: MobileContentProps) {
   const intl = useIntl();
-  const { currentTheme, md } = useThemeContext();
+  const { currentTheme, md, isCurrentThemeDark } = useThemeContext();
   const { openMobileMenu, closeMobileMenu, mobileMenuVisible, setMobileMenuVisible } =
     useMenuContext();
   const { currentMarketData } = useProtocolDataContext();
 
-  useEffect(() => {
-    if (mobileMenuVisible && !md) {
-      closeMobileMenu();
+  const visibilities: boolean[] = [];
+  mobileNavigation.map((link, index) => {
+    if (link.children) {
+      visibilities[index] = false;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [md]);
-
+  });
+  const [submenusVisibility, setSubmenusVisibility] = useState(visibilities);
+  const handleSubmenuVisibility = (index: number) => {
+    submenusVisibility[index] = submenusVisibility[index] ? false : true;
+    setSubmenusVisibility(submenusVisibility);
+  };
   const handleLinkClick = () => {
     goToTop();
     closeMobileMenu();
@@ -47,6 +52,12 @@ export default function MobileContent({ isActive, currentAccount }: MobileConten
     onSwipedRight: () => closeMobileMenu(),
   });
 
+  useEffect(() => {
+    if (mobileMenuVisible && !md) {
+      closeMobileMenu();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [md]);
   return (
     <div {...handlers}>
       <div
@@ -77,7 +88,6 @@ export default function MobileContent({ isActive, currentAccount }: MobileConten
       >
         <div className="MobileContent__content">
           <div className="MobileContent__top">
-            <MarketSwitcher />
             <AddressInfo />
           </div>
 
@@ -92,7 +102,7 @@ export default function MobileContent({ isActive, currentAccount }: MobileConten
                   })}
                   key={index}
                 >
-                  {!link.onClick ? (
+                  {!link.onClick && !link.children ? (
                     <Link
                       className={classNames('MobileContent__link', {
                         MobileContent__linkActive: isActive(link.link),
@@ -108,9 +118,30 @@ export default function MobileContent({ isActive, currentAccount }: MobileConten
                   ) : (
                     <div
                       className="MobileContent__link MobileContent__link-chat"
-                      onClick={link.onClick}
+                      onClick={() => handleSubmenuVisibility(index)}
                     >
-                      <span>{intl.formatMessage(link.title)}</span>
+                      <span>
+                        {intl.formatMessage(link.title)}{' '}
+                        <svg
+                          style={{
+                            fill: currentTheme.textDarkBlue.hex,
+                            transform: submenusVisibility[index] ? 'rotate(180deg)' : '',
+                          }}
+                          viewBox="0 0 24 24"
+                          color="text"
+                          width="24px"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M8.11997 9.29006L12 13.1701L15.88 9.29006C16.27 8.90006 16.9 8.90006 17.29 9.29006C17.68 9.68006 17.68 10.3101 17.29 10.7001L12.7 15.2901C12.31 15.6801 11.68 15.6801 11.29 15.2901L6.69997 10.7001C6.30997 10.3101 6.30997 9.68006 6.69997 9.29006C7.08997 8.91006 7.72997 8.90006 8.11997 9.29006Z"></path>
+                        </svg>
+                      </span>
+                      {link.children && (
+                        <Submenu
+                          visible={submenusVisibility[index]}
+                          links={link.children}
+                          classname={'MobileContent__submenu'}
+                        />
+                      )}
                     </div>
                   )}
                 </li>
@@ -133,7 +164,7 @@ export default function MobileContent({ isActive, currentAccount }: MobileConten
                     to={link.link}
                     absolute={link.absolute}
                     inNewWindow={link.absolute}
-                    color="white"
+                    color={isCurrentThemeDark ? 'white' : 'dark'}
                   >
                     <span>{intl.formatMessage(link.title)}</span>
                   </Link>
@@ -146,7 +177,7 @@ export default function MobileContent({ isActive, currentAccount }: MobileConten
               className="MobileContent__social-icons"
               iconHeight={40}
               iconWidth={40}
-              white={true}
+              white={isCurrentThemeDark}
             />
           </div>
         </div>
@@ -160,7 +191,7 @@ export default function MobileContent({ isActive, currentAccount }: MobileConten
           &__button-inner,
           &__button-inner:before,
           &__button-inner:after {
-            background: ${currentTheme.white.hex};
+            background: ${currentTheme.textDarkBlue.hex};
           }
 
           .MobileContent__content-wrapper.DropdownWrapper__content {
@@ -175,7 +206,7 @@ export default function MobileContent({ isActive, currentAccount }: MobileConten
           }
 
           .MobileContent__link {
-            color: ${currentTheme.white.hex};
+            color: ${currentTheme.textDarkBlue.hex};
           }
         }
       `}</style>

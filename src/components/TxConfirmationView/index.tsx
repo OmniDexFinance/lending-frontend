@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { EthereumTransactionTypeExtended } from '@aave/protocol-js';
 import { useWeb3React } from '@web3-react/core';
 import { providers } from 'ethers';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import {
   getDefaultChainId,
@@ -31,7 +31,7 @@ import NetworkMismatch from './NetworkMismatch';
 
 import messages from './messages';
 import staticStyles from './style';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '../../helpers/contract-helpers';
 
 export interface TxConfirmationViewProps {
   caption?: string;
@@ -230,7 +230,9 @@ export default function TxConfirmationView({
   const mainTxPending = actionTxData?.txStatus === TxStatusType.submitted;
 
   return (
-    <div className={classNames('TxConfirmationView', className)}>
+    <div
+      className={classNames('TxConfirmationView', mainTxConfirmed ? 'TxConfirmed' : '', className)}
+    >
       {!!caption && (
         <Caption
           title={!mainTxConfirmed ? caption : intl.formatMessage(messages.congratulations)}

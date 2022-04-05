@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import ContentWrapper from '../wrappers/ContentWrapper';
 import NoDataPanel, { NoDataPanelProps } from '../NoDataPanel';

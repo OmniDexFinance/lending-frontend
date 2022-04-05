@@ -11,7 +11,7 @@ const staticStyles = css`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: $borderRadius;
+    border-radius: 15px;
     box-shadow: $boxShadow;
     transition-property: box-shadow;
     transition-duration: 0.2s;

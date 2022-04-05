@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { valueToBigNumber, BigNumber } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import { PERMISSION } from '@aave/contract-helpers';
 
 import {
@@ -115,11 +115,7 @@ export default function BorrowMain() {
 
   return (
     <PermissionWarning requiredPermission={PERMISSION.BORROWER}>
-      <ScreenWrapper
-        pageTitle={intl.formatMessage(defaultMessages.borrow)}
-        isTitleOnDesktop={true}
-        withMobileGrayBg={true}
-      >
+      <ScreenWrapper withMobileGrayBg={true}>
         {sm && (
           <AssetsFilterPanel
             optionTitleLeft={intl.formatMessage(messages.optionTitleLeft)}
@@ -132,7 +128,8 @@ export default function BorrowMain() {
         )}
 
         <DepositBorrowMainWrapper
-          contentTitle={intl.formatMessage(messages.availableToBorrow)}
+          pageSubtitle={intl.formatMessage(messages.pageSubtitle)}
+          pageTitle={intl.formatMessage(messages.pageTitle)}
           itemsTitle={intl.formatMessage(messages.myBorrows)}
           items={listData(false).map((item, index) => (
             <React.Fragment key={index}>
@@ -152,7 +149,7 @@ export default function BorrowMain() {
           setSearchValue={setSearchValue}
           showOnlyStableCoins={showOnlyStableCoins}
           setShowOnlyStableCoins={setShowOnlyStableCoins}
-          withSwitchMarket={true}
+          withSwitchMarket={false}
           totalValue={listData(false).reduce((a, b) => a + (+b['currentBorrowsInUSD'] || 0), 0)}
         >
           {!!listData(true).length ? (

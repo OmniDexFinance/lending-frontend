@@ -28,7 +28,6 @@ export default function TableItem({
 }: TableItemProps) {
   const history = useHistory();
   const asset = getAssetInfo(symbol);
-
   return (
     <TableItemWrapper
       className={classNames('TableItem', {

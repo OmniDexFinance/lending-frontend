@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { CustomTooltip } from '@aave/aave-ui-kit';
+import { CustomTooltip } from '@omnidex/omnidex-ui-kit';
 
 import { useUserWalletDataContext } from '../../../libs/web3-data-provider';
 import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
@@ -18,20 +18,10 @@ import bell from './images/bell.svg';
 const marketToHALAaveVersionUrlParam = (market: CustomMarket): string | undefined => {
   const exhaustCases = (_: never) => undefined;
   switch (market) {
-    case CustomMarket.proto_matic:
-      return 'aavepolygon';
-    case CustomMarket.proto_avalanche:
-      return 'aaveavalanche';
-    case CustomMarket.proto_mainnet:
-      return 'aavev2';
-
-    case CustomMarket.proto_kovan:
-    case CustomMarket.proto_mumbai:
-    case CustomMarket.proto_fuji:
-    case CustomMarket.amm_kovan:
-    case CustomMarket.amm_mainnet:
+    case CustomMarket.proto_telos:
       return undefined;
-
+    case CustomMarket.proto_telos_mainnet:
+      return undefined;
     default:
       return exhaustCases(market);
   }

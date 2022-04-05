@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { rgba, useThemeContext } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import staticStyles from './style';
 

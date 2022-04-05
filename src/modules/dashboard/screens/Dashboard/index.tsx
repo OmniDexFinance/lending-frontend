@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useHistory } from 'react-router-dom';
 import { valueToBigNumber, InterestRate } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import classNames from 'classnames';
 
 import { useIncentivesDataContext } from '../../../../libs/pool-data-provider/hooks/use-incentives-data-context';
@@ -32,6 +32,7 @@ import ApproximateBalanceHelpModal from '../../../../components/HelpModal/Approx
 import IncentiveWrapper from '../../../../components/wrappers/IncentiveWrapper';
 import DashboardNoData from '../../components/DashboardNoData';
 
+import DesktopPageTitle from '../../../../components/DesktopPageTitle';
 import { DepositTableItem } from '../../../deposit/components/DepositDashboardTable/types';
 import { BorrowTableItem } from '../../../borrow/components/BorrowDashboardTable/types';
 import { DashboardLeftTopLine } from '../../../../ui-config';
@@ -39,7 +40,7 @@ import { getAssetColor } from '../../../../helpers/config/assets-config';
 
 import messages from './messages';
 import staticStyles from './style';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '../../../../helpers/contract-helpers';
 
 export default function Dashboard() {
   const intl = useIntl();
@@ -47,7 +48,7 @@ export default function Dashboard() {
   const { chainId } = useProtocolDataContext();
   const { user, reserves } = useDynamicPoolDataContext();
   const { reserveIncentives } = useIncentivesDataContext();
-  const { currentTheme, sm } = useThemeContext();
+  const { currentTheme, sm, isCurrentThemeDark } = useThemeContext();
 
   const [isLTVModalVisible, setLTVModalVisible] = useState(false);
   const [isBorrow, setIsBorrow] = useState(false);
@@ -73,7 +74,7 @@ export default function Dashboard() {
   const depositedPositions: DepositTableItem[] = [];
   const borrowedPositions: BorrowTableItem[] = [];
   user?.userReservesData.forEach((userReserve) => {
-    const poolReserve = reserves.find((res) => res.symbol === userReserve.reserve.symbol);
+    const poolReserve = reserves.find((res) => res.id === userReserve.reserve.id);
     if (!poolReserve) {
       throw new Error('data is inconsistent pool reserve is not available');
     }
@@ -189,6 +190,10 @@ export default function Dashboard() {
 
   return (
     <div className="Dashboard">
+      <DesktopPageTitle
+        title={intl.formatMessage(messages.pageTitle)}
+        subTitle={intl.formatMessage(messages.pageSubTitle)}
+      />
       <div
         className={classNames('Dashboard__mobileMigrate--inner', {
           Dashboard__mobileMigrateWithoutContent:
@@ -232,11 +237,11 @@ export default function Dashboard() {
               title={
                 <ApproximateBalanceHelpModal
                   text={intl.formatMessage(messages.approximateBalance)}
-                  color="white"
+                  color={isCurrentThemeDark ? 'white' : 'dark'}
                   lightWeight={true}
                 />
               }
-              color="white"
+              color={isCurrentThemeDark ? 'white' : 'dark'}
               weight="light"
             >
               {user && user.totalLiquidityUSD !== '0' ? (
@@ -247,11 +252,11 @@ export default function Dashboard() {
                   withSmallDecimals={true}
                   subValue={user.totalLiquidityMarketReferenceCurrency}
                   maximumSubValueDecimals={18}
-                  subSymbol="ETH"
-                  color="white"
+                  subSymbol="TLOS"
+                  color={isCurrentThemeDark ? 'white' : 'dark'}
                 />
               ) : (
-                <NoData />
+                <NoData color={isCurrentThemeDark ? 'white' : 'dark'} />
               )}
             </Row>
           }
@@ -268,7 +273,7 @@ export default function Dashboard() {
             <>
               <Row
                 title={intl.formatMessage(messages.youBorrowed)}
-                color="white"
+                color={isCurrentThemeDark ? 'white' : 'dark'}
                 weight="light"
                 withMargin={!isBorrowMobileInfoVisible}
               >
@@ -280,17 +285,17 @@ export default function Dashboard() {
                     minimumValueDecimals={2}
                     maximumValueDecimals={2}
                     subValue={user.totalBorrowsMarketReferenceCurrency}
-                    subSymbol="ETH"
-                    color="white"
+                    subSymbol="TLOS"
+                    color={isCurrentThemeDark ? 'white' : 'dark'}
                   />
                 ) : (
-                  <NoData />
+                  <NoData color={isCurrentThemeDark ? 'white' : 'dark'} />
                 )}
               </Row>
               {!isBorrowMobileInfoVisible && (
                 <HealthFactor
                   value={user?.healthFactor || '-1'}
-                  titleColor="white"
+                  titleColor={isCurrentThemeDark ? 'white' : 'dark'}
                   titleLightWeight={true}
                   withHALLink={true}
                 />
@@ -312,7 +317,7 @@ export default function Dashboard() {
                 minimumValueDecimals={2}
                 maximumValueDecimals={2}
                 subValue={user.totalCollateralMarketReferenceCurrency}
-                subSymbol="ETH"
+                subSymbol="TLOS"
                 color="white"
               />
             ) : (
@@ -407,7 +412,23 @@ export default function Dashboard() {
         {staticStyles}
       </style>
       <style jsx={true} global={true}>{`
+        @import 'src/_mixins/screen-size';
+        .Dashboard .DesktopPageTitle {
+          margin-top: 60px;
+        }
         .Dashboard {
+          .ValueWithSmallDecimals {
+            @include respond-to(sm) {
+              color: ${currentTheme.textDarkBlue.hex};
+            }
+          }
+          .DepositCompositionBar {
+            .Row__title {
+              @include respond-to(sm) {
+                color: ${currentTheme.textDarkBlue.hex};
+              }
+            }
+          }
           &__mobileMigrate--inner {
             background: ${currentTheme.whiteElement.hex};
           }

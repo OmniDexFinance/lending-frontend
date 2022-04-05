@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { valueToBigNumber, BigNumber } from '@aave/protocol-js';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import { useDynamicPoolDataContext } from '../../libs/pool-data-provider';
 import toggleLocalStorageClick from '../../helpers/toggle-local-storage-click';
 import GradientLine from '../basic/GradientLine';
@@ -28,7 +28,7 @@ import { getAssetInfo, getAssetColor } from '../../helpers/config/assets-config'
 
 export default function DepositBorrowTopPanel() {
   const intl = useIntl();
-  const { currentTheme } = useThemeContext();
+  const { currentTheme, isCurrentThemeDark } = useThemeContext();
   const { user, reserves } = useDynamicPoolDataContext();
 
   const [isCollapse, setIsCollapse] = useState(
@@ -180,11 +180,11 @@ export default function DepositBorrowTopPanel() {
                     title={
                       <ApproximateBalanceHelpModal
                         text={intl.formatMessage(messages.approximateBalance)}
-                        color="white"
+                        color={isCurrentThemeDark ? 'white' : 'dark'}
                         lightWeight={true}
                       />
                     }
-                    color="white"
+                    color={isCurrentThemeDark ? 'white' : 'dark'}
                     weight="light"
                     isColumn={true}
                   >
@@ -194,10 +194,10 @@ export default function DepositBorrowTopPanel() {
                         symbol="USD"
                         tokenIcon={true}
                         withSmallDecimals={true}
-                        color="white"
+                        color={isCurrentThemeDark ? 'white' : 'dark'}
                       />
                     ) : (
-                      <NoData />
+                      <NoData color={isCurrentThemeDark ? 'white' : 'dark'} />
                     )}
                   </Row>
                 </div>
@@ -227,7 +227,7 @@ export default function DepositBorrowTopPanel() {
                     >
                       <Row
                         title={intl.formatMessage(messages.youBorrowed)}
-                        color="white"
+                        color={isCurrentThemeDark ? 'white' : 'dark'}
                         weight="light"
                         isColumn={true}
                       >
@@ -238,17 +238,17 @@ export default function DepositBorrowTopPanel() {
                             tokenIcon={true}
                             minimumValueDecimals={2}
                             maximumValueDecimals={2}
-                            color="white"
+                            color={isCurrentThemeDark ? 'white' : 'dark'}
                           />
                         ) : (
-                          <NoData />
+                          <NoData color={isCurrentThemeDark ? 'white' : 'dark'} />
                         )}
                       </Row>
 
                       {isCollapse && (
                         <Row
                           title={intl.formatMessage(messages.yourCollateral)}
-                          color="white"
+                          color={isCurrentThemeDark ? 'white' : 'dark'}
                           weight="light"
                           isColumn={true}
                         >
@@ -259,10 +259,10 @@ export default function DepositBorrowTopPanel() {
                               tokenIcon={true}
                               minimumValueDecimals={2}
                               maximumValueDecimals={2}
-                              color="white"
+                              color={isCurrentThemeDark ? 'white' : 'dark'}
                             />
                           ) : (
-                            <NoData />
+                            <NoData color={isCurrentThemeDark ? 'white' : 'dark'} />
                           )}
                         </Row>
                       )}
@@ -270,7 +270,7 @@ export default function DepositBorrowTopPanel() {
                       <HealthFactor
                         value={user?.healthFactor || '-1'}
                         isColumn={true}
-                        titleColor="white"
+                        titleColor={isCurrentThemeDark ? 'white' : 'dark'}
                         titleLightWeight={true}
                         withHALLink={true}
                       />
@@ -284,7 +284,7 @@ export default function DepositBorrowTopPanel() {
                       {!isCollapse && (
                         <Row
                           title={intl.formatMessage(messages.yourCollateral)}
-                          color="white"
+                          color={isCurrentThemeDark ? 'white' : 'dark'}
                           weight="light"
                           isColumn={true}
                         >
@@ -295,10 +295,10 @@ export default function DepositBorrowTopPanel() {
                               tokenIcon={true}
                               minimumValueDecimals={2}
                               maximumValueDecimals={2}
-                              color="white"
+                              color={isCurrentThemeDark ? 'white' : 'dark'}
                             />
                           ) : (
-                            <NoData />
+                            <NoData color={isCurrentThemeDark ? 'white' : 'dark'} />
                           )}
                         </Row>
                       )}
@@ -306,14 +306,17 @@ export default function DepositBorrowTopPanel() {
                       {!isCollapse && (
                         <Row
                           title={intl.formatMessage(messages.borrowingPowerUsed)}
-                          color="white"
+                          color={isCurrentThemeDark ? 'white' : 'dark'}
                           weight="light"
                           isColumn={true}
                         >
                           {user && collateralUsagePercent !== '0' ? (
-                            <ValuePercent value={collateralUsagePercent} color="white" />
+                            <ValuePercent
+                              value={collateralUsagePercent}
+                              color={isCurrentThemeDark ? 'white' : 'dark'}
+                            />
                           ) : (
-                            <NoData />
+                            <NoData color={isCurrentThemeDark ? 'white' : 'dark'} />
                           )}
                         </Row>
                       )}
@@ -329,18 +332,21 @@ export default function DepositBorrowTopPanel() {
                           title={
                             <MaxLTVHelpModal
                               text={intl.formatMessage(messages.currentLTV)}
-                              color="white"
+                              color={isCurrentThemeDark ? 'white' : 'dark'}
                               lightWeight={true}
                             />
                           }
-                          color="white"
+                          color={isCurrentThemeDark ? 'white' : 'dark'}
                           weight="light"
                           isColumn={true}
                         >
                           {user && loanToValue !== '0' ? (
-                            <ValuePercent value={loanToValue} color="white" />
+                            <ValuePercent
+                              value={loanToValue}
+                              color={isCurrentThemeDark ? 'white' : 'dark'}
+                            />
                           ) : (
-                            <NoData />
+                            <NoData color={isCurrentThemeDark ? 'white' : 'dark'} />
                           )}
                         </Row>
                       )}
@@ -348,7 +354,7 @@ export default function DepositBorrowTopPanel() {
                       {loanToValue !== '0' && (
                         <DefaultButton
                           title={intl.formatMessage(messages.details)}
-                          color="white"
+                          color={isCurrentThemeDark ? 'white' : 'dark'}
                           transparent={true}
                           className={classNames('DepositBorrowTopPanel__button', {
                             DepositBorrowTopPanel__buttonCollapse: isCollapse,
@@ -389,18 +395,29 @@ export default function DepositBorrowTopPanel() {
       </style>
       <style jsx={true} global={true}>{`
         .DepositBorrowTopPanel {
+          .TopPanelWrapper__button {
+            color: ${currentTheme.textDarkBlue.hex} !important;
+          }
+          .ValueWithSmallDecimals {
+            color: ${currentTheme.textDarkBlue.hex} !important;
+          }
+          .DepositBorrowTopPanel__topPanel-bars text {
+            fill: ${currentTheme.textDarkBlue.hex} !important;
+          }
           &__topPanel-caption {
             p {
-              background: ${currentTheme.darkBlue.hex};
+              border-color: ${currentTheme.border.hex};
+              background: ${currentTheme.whiteElement.hex};
             }
           }
 
           &__topPanel-inner {
-            background: ${currentTheme.darkBlue.hex};
+            border-color: ${currentTheme.border.hex};
+            background: ${currentTheme.whiteElement.hex};
           }
 
           &__topPanel-captionWrapper {
-            color: ${currentTheme.white.hex};
+            color: ${currentTheme.textDarkBlue.hex};
           }
         }
       `}</style>

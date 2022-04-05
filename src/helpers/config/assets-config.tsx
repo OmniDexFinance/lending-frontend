@@ -3,10 +3,9 @@ import {
   getAssetInfoFactory,
   TokenIcon as DefaultTokenIcon,
   TokenIconProps,
-} from '@aave/aave-ui-kit';
+} from '@omnidex/omnidex-ui-kit';
 
 import { assetsList, stableAssets } from '../../ui-config/assets';
-
 export const getAssetInfo = getAssetInfoFactory(assetsList);
 
 export const getAssetColor = (assetSymbol: string) => {

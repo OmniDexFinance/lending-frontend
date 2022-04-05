@@ -21,7 +21,6 @@ const useGetGasPrices = (skip?: boolean, interval?: number) => {
   const { loading, setLoading } = useStateLoading();
   const [error, setError] = useState(false);
   const [data, setData] = useState<ResponseGasPrice | null>();
-
   const apiRequest = async () => {
     try {
       setLoading(LOADING_STATE.LOADING);

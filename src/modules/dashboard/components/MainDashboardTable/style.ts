@@ -90,6 +90,7 @@ const staticStyles = css.global`
         }
         @include respond-to(sm) {
           padding: 0 10px;
+          border: 0px;
         }
       }
     }

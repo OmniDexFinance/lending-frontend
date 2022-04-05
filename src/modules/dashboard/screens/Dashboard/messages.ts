@@ -1,6 +1,8 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
+  pageTitle: 'Dashboard',
+  pageSubTitle: 'View and manage all your deposits & borrows.',
   switchRightOption: 'Borrowings',
   switchLeftOption: 'Deposits',
 

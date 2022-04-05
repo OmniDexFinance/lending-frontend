@@ -1,25 +1,30 @@
 import React, { ReactNode } from 'react';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import staticStyles from './style';
 
 import animationCircle from '../../images/animationCircle.svg';
-import aaveGhost from '../../images/aaveGhost.svg';
+import animationCircleDark from '../../images/animationCircleDark.svg';
+import omni from '../../images/omni.svg';
 
 interface InfoPanelProps {
   children: ReactNode;
 }
 
 export default function InfoPanel({ children }: InfoPanelProps) {
-  const { currentTheme } = useThemeContext();
+  const { currentTheme, isCurrentThemeDark } = useThemeContext();
 
   return (
     <div className="InfoPanel">
-      <img className="InfoPanel__circle" src={animationCircle} alt="" />
+      <img
+        className="InfoPanel__circle"
+        src={isCurrentThemeDark ? animationCircleDark : animationCircle}
+        alt=""
+      />
 
       <div className="InfoPanel__content-inner">
-        <img className="InfoPanel__ghost" src={aaveGhost} alt="" />
+        <img className="InfoPanel__omni" src={omni} alt="" />
         <div className="InfoPanel__content">{children}</div>
       </div>
 

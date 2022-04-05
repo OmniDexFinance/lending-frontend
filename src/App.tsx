@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { useSwipeable } from 'react-swipeable';
 import css from 'styled-jsx/css';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import { useStaticPoolDataContext } from './libs/pool-data-provider';
 import { useMenuContext } from './libs/menu';
@@ -106,7 +106,7 @@ function ModulesWithMenu() {
 }
 
 const App: React.FC = () => {
-  const { md } = useThemeContext();
+  const { md, currentTheme } = useThemeContext();
   const { openMobileMenu } = useMenuContext();
 
   const handlers = useSwipeable({
@@ -124,6 +124,23 @@ const App: React.FC = () => {
       <style jsx={true} global={true}>
         {staticStyles}
       </style>
+
+      <style jsx={true} global={true}>{`
+        ::-webkit-scrollbar-thumb {
+          background: ${currentTheme.primary.hex};
+          border-radius: 8px;
+          z-index: 22;
+        }
+        ::-webkit-scrollbar-track {
+          box-shadow: rgb(55, 47, 71) 0px 0px 5px inset;
+          border-radius: 10px;
+          z-index: 22;
+        }
+        ::-webkit-scrollbar {
+          width: 8px;
+          z-index: 22;
+        }
+      `}</style>
     </div>
   );
 };

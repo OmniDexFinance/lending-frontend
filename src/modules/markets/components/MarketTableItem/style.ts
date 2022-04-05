@@ -7,6 +7,7 @@ const staticStyles = css.global`
 
   .MarketTableItem {
     min-height: 70px;
+    border-radius: 15px;
     @include respond-to(xl) {
       min-height: 60px;
     }

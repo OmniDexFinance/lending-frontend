@@ -6,19 +6,27 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .Menu {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
+    padding: 10px 15px;
     position: relative;
     z-index: 5;
-    height: 50px;
+    height: 80px;
     @include respond-to(sm) {
       padding: 0;
       box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
       border: none;
       height: auto;
       min-height: 50px;
+    }
+    &__container {
+      @include respond-to(sm) {
+        min-height: 50px;
+      }
+      width: 1600px;
+      max-width: 100%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     &:after {
       content: '';
@@ -34,8 +42,14 @@ const staticStyles = css.global`
 
     &__logo-inner {
       img {
-        width: 72px;
-        height: 20px;
+        height: 40px;
+        vertical-align: middle;
+      }
+      span {
+        color: white;
+        font-size: 20px;
+        font-weight: 400;
+        vertical-align: middle;
       }
       @include respond-to(sm) {
         display: none;
@@ -75,11 +89,12 @@ const staticStyles = css.global`
 
     &__navigation-inner {
       margin-right: 40px;
+      margin-left: -4px;
       @include respond-to(xl) {
-        margin-right: 30px;
+        margin-right: 40px;
       }
       @include respond-to(lg) {
-        margin-right: 20px;
+        margin-right: 40px;
       }
       @include respond-to(md) {
         display: none;
@@ -88,17 +103,19 @@ const staticStyles = css.global`
         display: flex;
         align-items: center;
         .Menu__link-inner {
-          margin-left: 40px;
-          @include respond-to(xl) {
-            margin-left: 30px;
-          }
+          height: 50px;
+          border-radius: 15px;
+          line-height: 50px;
+          padding: 0px 15px;
           @include respond-to(lg) {
-            margin-left: 20px;
+            padding: 0px 15px;
           }
         }
       }
     }
-
+    &__name {
+      font-family: 'roboto-font';
+    }
     &__linkHidden {
       display: none;
     }
@@ -115,7 +132,6 @@ const staticStyles = css.global`
         right: 0;
       }
     }
-
     &__buttons-inner {
       display: flex;
       align-items: center;

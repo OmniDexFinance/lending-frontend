@@ -4,13 +4,14 @@ import {
   UiPoolDataProvider,
   ReservesDataHumanized,
   UserReserveDataHumanized,
-  ChainId,
 } from '@aave/contract-helpers';
+import web3 from 'web3';
+import { ChainId } from '../../../helpers/contract-helpers';
 import { usePolling } from '../../hooks/use-polling';
 import { getProvider } from '../../../helpers/config/markets-and-network-config';
 
 // interval in which the rpc data is refreshed
-const POLLING_INTERVAL = 30 * 1000;
+const POLLING_INTERVAL = 1 * 4000;
 
 export interface PoolDataResponse {
   loading: boolean;
@@ -47,7 +48,6 @@ export function usePoolData(
       uiPoolDataProviderAddress: poolDataProviderAddress,
       provider,
     });
-
     try {
       setLoadingReserves(true);
       const reservesResponse = await poolDataProviderContract.getReservesHumanized(
@@ -58,6 +58,7 @@ export function usePoolData(
     } catch (e) {
       console.log('e', e);
       setErrorReserves(e.message);
+      setErrorReserves(false);
     }
     setLoadingReserves(false);
   };

@@ -6,8 +6,8 @@ import {
   UiIncentiveDataProvider,
   UserReserveIncentiveDataHumanizedResponse,
   Denominations,
-  ChainId,
 } from '@aave/contract-helpers';
+import { ChainId } from '../../../helpers/contract-helpers';
 import { useProtocolDataContext } from '../../protocol-data-provider';
 
 // interval in which the rpc data is refreshed

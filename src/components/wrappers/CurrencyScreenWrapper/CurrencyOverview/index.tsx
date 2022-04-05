@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { valueToBigNumber } from '@aave/protocol-js';
-import { rgba, useThemeContext } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import { useStaticPoolDataContext } from '../../../../libs/pool-data-provider';
 import { useLanguageContext } from '../../../../libs/language-provider';
@@ -46,7 +46,7 @@ export default function CurrencyOverview({
   isCollapse,
 }: CurrencyOverviewProps) {
   const intl = useIntl();
-  const { currentTheme, sm } = useThemeContext();
+  const { currentTheme, sm, isCurrentThemeDark } = useThemeContext();
   const { marketRefPriceInUsd } = useStaticPoolDataContext();
   const { currentLangSlug } = useLanguageContext();
   const asset = getAssetInfo(currencySymbol);
@@ -84,14 +84,14 @@ export default function CurrencyOverview({
         <Row
           className="CurrencyOverview__row"
           title={intl.formatMessage(messages.utilizationRate)}
-          color="white"
+          color={isCurrentThemeDark ? 'white' : 'dark'}
           weight="light"
           isColumn={isCollapse}
         >
           {overviewData.borrowingEnabled ? (
             <ValuePercent
               value={overviewData.utilizationRate ? overviewData.utilizationRate : '0'}
-              color="white"
+              color={isCurrentThemeDark || sm ? 'white' : 'dark'}
             />
           ) : (
             <span className="CurrencyOverview__noData">—</span>
@@ -101,11 +101,15 @@ export default function CurrencyOverview({
         <Row
           className="CurrencyOverview__row"
           title={intl.formatMessage(messages.availableLiquidity)}
-          color="white"
+          color={isCurrentThemeDark ? 'white' : 'dark'}
           weight="light"
           isColumn={isCollapse}
         >
-          <Value symbol={currencySymbol} value={overviewData.availableLiquidity} color="white" />
+          <Value
+            symbol={currencySymbol}
+            value={overviewData.availableLiquidity}
+            color={isCurrentThemeDark ? 'white' : 'dark'}
+          />
         </Row>
 
         {isDeposit ? (
@@ -118,18 +122,21 @@ export default function CurrencyOverview({
                   ? intl.formatMessage(messages.depositAPR)
                   : ''
               }
-              color="white"
+              color={isCurrentThemeDark ? 'white' : 'dark'}
               weight="light"
               isColumn={isCollapse}
             >
               <div className="CurrencyOverview__rowWithDoubleValue">
                 {overviewData.borrowingEnabled ? (
                   <>
-                    <ValuePercent value={overviewData.depositApy} color="white" />
+                    <ValuePercent
+                      value={overviewData.depositApy}
+                      color={isCurrentThemeDark || sm ? 'white' : 'dark'}
+                    />
                     {!!overviewData.avg30DaysLiquidityRate && !isCollapse && (
                       <ValuePercent
                         value={overviewData.avg30DaysLiquidityRate}
-                        color="white"
+                        color={isCurrentThemeDark || sm ? 'white' : 'dark'}
                         className="CurrencyOverview__thirtyDays"
                       />
                     )}
@@ -143,7 +150,7 @@ export default function CurrencyOverview({
             <Row
               className="CurrencyOverview__row"
               title={intl.formatMessage(messages.canBeUsedAsCollateral)}
-              color="white"
+              color={isCurrentThemeDark ? 'white' : 'dark'}
               weight="light"
               isColumn={isCollapse}
             >
@@ -165,7 +172,7 @@ export default function CurrencyOverview({
               <Row
                 className="CurrencyOverview__row"
                 title={intl.formatMessage(messages.assetPrice)}
-                color="white"
+                color={isCurrentThemeDark ? 'white' : 'dark'}
                 weight="light"
                 isColumn={isCollapse}
               >
@@ -174,7 +181,7 @@ export default function CurrencyOverview({
                   symbol="USD"
                   value={overviewData.priceInUsd}
                   maximumValueDecimals={2}
-                  color="white"
+                  color={isCurrentThemeDark ? 'white' : 'dark'}
                 />
               </Row>
             )}
@@ -204,7 +211,7 @@ export default function CurrencyOverview({
               <Row
                 className="CurrencyOverview__row"
                 title={intl.formatMessage(messages.assetPrice)}
-                color="white"
+                color={isCurrentThemeDark ? 'white' : 'dark'}
                 weight="light"
                 isColumn={isCollapse}
               >
@@ -213,7 +220,7 @@ export default function CurrencyOverview({
                   symbol="USD"
                   value={overviewData.priceInUsd}
                   maximumValueDecimals={2}
-                  color="white"
+                  color={isCurrentThemeDark || sm ? 'white' : 'dark'}
                 />
               </Row>
             )}
@@ -223,18 +230,21 @@ export default function CurrencyOverview({
               title={
                 <MaxLTVHelpModal
                   text={intl.formatMessage(messages.maximumLTV)}
-                  color="white"
+                  color={isCurrentThemeDark || sm ? 'white' : 'dark'}
                   lightWeight={true}
                 />
               }
-              color="white"
+              color={isCurrentThemeDark ? 'white' : 'dark'}
               weight="light"
               isColumn={isCollapse}
             >
               {overviewData.baseLTVasCollateral === 0 ? (
                 <span className="CurrencyOverview__no-data">—</span>
               ) : (
-                <ValuePercent value={overviewData.baseLTVasCollateral} color="white" />
+                <ValuePercent
+                  value={overviewData.baseLTVasCollateral}
+                  color={isCurrentThemeDark || sm ? 'white' : 'dark'}
+                />
               )}
             </Row>
 
@@ -244,18 +254,21 @@ export default function CurrencyOverview({
                 title={
                   <LiquidationThresholdHelpModal
                     text={intl.formatMessage(messages.liquidationThreshold)}
-                    color="white"
+                    color={isCurrentThemeDark ? 'white' : 'dark'}
                     lightWeight={true}
                   />
                 }
-                color="white"
+                color={isCurrentThemeDark ? 'white' : 'dark'}
                 weight="light"
                 isColumn={isCollapse}
               >
                 {overviewData.liquidationThreshold <= 0 ? (
                   <span className="CurrencyOverview__no-data">—</span>
                 ) : (
-                  <ValuePercent value={overviewData.liquidationThreshold} color="white" />
+                  <ValuePercent
+                    value={overviewData.liquidationThreshold}
+                    color={isCurrentThemeDark || sm ? 'white' : 'dark'}
+                  />
                 )}
               </Row>
             )}
@@ -266,18 +279,21 @@ export default function CurrencyOverview({
                 title={
                   <LiquidationBonusHelpModal
                     text={intl.formatMessage(messages.liquidationPenalty)}
-                    color="white"
+                    color={isCurrentThemeDark ? 'white' : 'dark'}
                     lightWeight={true}
                   />
                 }
-                color="white"
+                color={isCurrentThemeDark ? 'white' : 'dark'}
                 weight="light"
                 isColumn={isCollapse}
               >
                 {overviewData.liquidationBonus <= 0 ? (
                   <span className="CurrencyOverview__no-data">—</span>
                 ) : (
-                  <ValuePercent value={overviewData.liquidationBonus} color="white" />
+                  <ValuePercent
+                    value={overviewData.liquidationBonus}
+                    color={isCurrentThemeDark || sm ? 'white' : 'dark'}
+                  />
                 )}
               </Row>
             )}
@@ -287,12 +303,15 @@ export default function CurrencyOverview({
             <Row
               className="CurrencyOverview__row"
               title={intl.formatMessage(messages.stableAPY)}
-              color="white"
+              color={isCurrentThemeDark ? 'white' : 'dark'}
               weight="light"
               isColumn={isCollapse}
             >
               {overviewData.stableBorrowRateEnabled ? (
-                <ValuePercent value={overviewData.stableRate} color="white" />
+                <ValuePercent
+                  value={overviewData.stableRate}
+                  color={isCurrentThemeDark || sm ? 'white' : 'dark'}
+                />
               ) : (
                 <span className="CurrencyOverview__no-data">—</span>
               )}
@@ -300,16 +319,19 @@ export default function CurrencyOverview({
             <Row
               className="CurrencyOverview__row"
               title={intl.formatMessage(messages.variableAPY)}
-              color="white"
+              color={isCurrentThemeDark ? 'white' : 'dark'}
               weight="light"
               isColumn={isCollapse}
             >
               <div className="CurrencyOverview__rowWithDoubleValue">
-                <ValuePercent value={overviewData.variableRate} color="white" />
+                <ValuePercent
+                  value={overviewData.variableRate}
+                  color={isCurrentThemeDark || sm ? 'white' : 'dark'}
+                />
                 {!!overviewData.avg30DaysVariableRate && !isCollapse && (
                   <ValuePercent
                     value={overviewData.avg30DaysVariableRate}
-                    color="white"
+                    color={isCurrentThemeDark ? 'white' : 'dark'}
                     className="CurrencyOverview__thirtyDays"
                   />
                 )}
@@ -322,7 +344,7 @@ export default function CurrencyOverview({
           <Row
             className="CurrencyOverview__row"
             title={intl.formatMessage(messages.assetPrice)}
-            color="white"
+            color={isCurrentThemeDark ? 'white' : 'dark'}
             weight="light"
             isColumn={isCollapse}
           >
@@ -331,7 +353,7 @@ export default function CurrencyOverview({
               symbol="USD"
               value={overviewData.priceInUsd}
               maximumValueDecimals={2}
-              color="white"
+              color={isCurrentThemeDark ? 'white' : 'dark'}
             />
           </Row>
         )}
@@ -363,7 +385,7 @@ export default function CurrencyOverview({
         <Link
           to={`/reserve-overview/${poolReserve.underlyingAsset}${poolReserve.id}`}
           className="CurrencyOverview__captionLink"
-          color="white"
+          color={isCurrentThemeDark ? 'white' : 'dark'}
         >
           <TokenIcon tokenSymbol={currencySymbol} height={sm ? 30 : 20} width={sm ? 30 : 20} />
           <p>{intl.formatMessage(messages.caption, { symbol: asset && asset.name })}</p>
@@ -371,7 +393,7 @@ export default function CurrencyOverview({
         {title && <p className="CurrencyOverview__caption-title" />}
       </div>
 
-      <GradientLine height={sm ? 1 : 2} />
+      <GradientLine height={sm ? 1 : 2} white={!isCurrentThemeDark} />
 
       <div className="CurrencyOverview__content">
         <div className="CurrencyOverview__content-left">
@@ -420,10 +442,21 @@ export default function CurrencyOverview({
       </style>
       <style jsx={true} global={true}>{`
         @import 'src/_mixins/screen-size';
-
         .CurrencyOverview {
-          color: ${currentTheme.white.hex};
-
+          background: ${currentTheme.whiteElement.hex};
+          border-color: ${currentTheme.border.hex};
+          color: ${(!sm && currentTheme.textDarkBlue.hex) || 'white'} !important;
+          .Row__dark,
+          .Link__dark,
+          .TextWithModal__dark .TextWithModal__text,
+          .Value__dark .Value__value,
+          .ValuePercent__dark,
+          .ValuePercent__dark .ValuePercent__value,
+          .Value__dark .Value__value {
+            @include respond-to(sm) {
+              color: ${currentTheme.white.hex} !important;
+            }
+          }
           .CurrencyOverview__caption {
             .GradientLine {
               @include respond-to(sm) {

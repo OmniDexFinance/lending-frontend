@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { rgba, useThemeContext } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import Row from '../../basic/Row';
 import BasicField from '../BasicField';
@@ -123,6 +123,11 @@ export default function AmountField({
       </style>
       <style jsx={true} global={true}>{`
         .AmountField {
+          &__input {
+            input {
+              color: ${currentTheme.textDarkBlue.hex};
+            }
+          }
           &:hover,
           &__focus,
           &__error {
@@ -138,6 +143,7 @@ export default function AmountField({
           }
 
           &__wrapper {
+            border-radius: 25px;
             border: 1px solid
               ${isCurrentThemeDark
                 ? sm

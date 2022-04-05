@@ -6,8 +6,8 @@ const staticStyles = css`
   @import 'src/_mixins/screen-size';
 
   .APYCard {
-    border-radius: $borderRadius;
-    border-width: 1px;
+    border-radius: 5px;
+    border-width: 2px;
     border-style: solid;
     width: 260px;
     margin: 0 15px;

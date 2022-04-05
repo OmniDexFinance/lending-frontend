@@ -18,6 +18,9 @@ const staticStyles = css.global`
       .MarketSelectButton__border {
         animation: none;
       }
+      img {
+        filter: none;
+      }
       &:hover {
         .MarketSelectButton__inner {
           border: 1px solid transparent !important;
@@ -49,7 +52,7 @@ const staticStyles = css.global`
       }
 
       img {
-        width: 100px;
+        filter: grayscale(1);
         max-height: 20px;
         display: flex;
         align-items: center;
@@ -123,6 +126,7 @@ const staticStyles = css.global`
       font-size: 11px;
       letter-spacing: 7px;
       left: 4px;
+      margin-top: 3px;
       position: relative;
       font-weight: 300;
       @include respond-to(xl) {

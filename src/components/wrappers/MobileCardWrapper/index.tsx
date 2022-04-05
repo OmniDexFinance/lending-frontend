@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import goToTop from '../../../helpers/goToTop';
 import { getAssetInfo, TokenIcon } from '../../../helpers/config/assets-config';
@@ -51,7 +51,8 @@ export default function MobileCardWrapper({
       <style jsx={true} global={true}>{`
         .MobileCardWrapper {
           background: ${currentTheme.whiteElement.hex};
-
+          border: 1px solid ${currentTheme.border.hex};
+          border-radius: 15px;
           &__symbol--inner {
             border-bottom: 1px solid ${currentTheme.mainBg.hex};
           }

@@ -6,7 +6,7 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .RepayWithdrawWrapper {
-    border-radius: $borderRadius;
+    border-radius: 15px;
     box-shadow: $boxShadow;
     margin-bottom: 30px;
     margin-top: 50px;
@@ -22,10 +22,10 @@ const staticStyles = css.global`
     @include respond-to(sm) {
       margin-top: 0;
       margin-bottom: 40px;
-      border-radius: 0;
+      border-radius: 25px;
       position: relative;
-      left: -10px;
-      width: calc(100% + 20px);
+      width: calc(100%);
+      top: 20px;
     }
 
     &__caption {

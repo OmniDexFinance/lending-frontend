@@ -1,7 +1,7 @@
 import React, { ReactNode, useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { useThemeContext, BasicModal } from '@aave/aave-ui-kit';
+import { useThemeContext, BasicModal } from '@omnidex/omnidex-ui-kit';
 
 import DefaultButton from '../basic/DefaultButton';
 
@@ -9,6 +9,7 @@ import messages from './messages';
 import staticStyles from './style';
 
 import info from './images/info.svg';
+import infoDark from './images/infoDark.svg';
 import infoGray from './images/infoGray.svg';
 import infoGrayDark from './images/infoGrayDark.svg';
 
@@ -108,7 +109,15 @@ export default function TextWithModal({
           style={getIconContainerStyle(PRIMARY_ICON_POSTION)}
         >
           <img
-            src={withGrayIcon ? (isCurrentThemeDark ? infoGrayDark : infoGray) : info}
+            src={
+              withGrayIcon
+                ? isCurrentThemeDark
+                  ? infoGrayDark
+                  : infoGray
+                : isCurrentThemeDark
+                ? infoDark
+                : info
+            }
             alt={text}
             height={iconHeight}
             width={iconWidth}

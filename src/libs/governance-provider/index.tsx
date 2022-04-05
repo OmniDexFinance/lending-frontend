@@ -15,10 +15,10 @@ import {
 } from '../connection-status-provider';
 import { useMainnetCachedServerWsGraphCheck } from '../pool-data-provider/hooks/use-graph-check';
 import {
-  ChainId,
   AaveGovernanceService,
   GovernancePowerDelegationTokenService,
 } from '@aave/contract-helpers';
+import { ChainId } from '../../helpers/contract-helpers';
 import { useProtocolDataContext } from '../protocol-data-provider';
 import { IPFS_ENDPOINT } from './helper';
 

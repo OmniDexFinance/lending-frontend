@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { rgba, useThemeContext, Switcher } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext, Switcher } from '@omnidex/omnidex-ui-kit';
 
 type CustomSwitchProps = {
   onSwitch: (value: boolean) => void;

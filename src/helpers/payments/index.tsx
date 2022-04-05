@@ -3,12 +3,12 @@ import TransakSDK from '@transak/transak-sdk';
 import { RampInstantSDK } from '@ramp-network/ramp-instant-sdk';
 import NashRamp from '@nash-io/ramp-widget-sdk';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import { useProtocolDataContext } from '../../libs/protocol-data-provider';
 
 import * as logos from './images';
 import { ENABLE_NASH, ONRAMP_API_KEY, TRANSAK_API_KEY } from '../config/onramp-config';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '../../helpers/contract-helpers';
 
 enum PaymentName {
   nash = 'nash',
@@ -34,29 +34,25 @@ export function usePayments(): Payments {
   const { currentTheme, sm, lg } = useThemeContext();
   const { currentMarketData } = useProtocolDataContext();
 
-  const isPolygonNetwork =
-    currentMarketData.chainId === ChainId.polygon || currentMarketData.chainId === ChainId.mumbai;
-
-  const transakAvailableAssets = ['ETH', 'USDT', 'DAI', 'USDC', 'UNI', 'LINK', 'AAVE', 'MANA'];
-  const polygonTransakAvailableAssets = ['MATIC', 'USDT', 'DAI', 'USDC', 'AAVE', 'WBTC', 'WETH'];
+  const transakAvailableAssets = ['TLOS', 'USDT', 'USDC'];
 
   const payments: Payment[] = [
     {
       name: PaymentName.nash,
       logo: logos.nashLogo,
-      availableAssets: ['USDC', 'AAVE', 'ETH'],
+      availableAssets: ['USDC', 'TLOS'],
       initialized: ENABLE_NASH,
     },
     {
       name: PaymentName.transak,
       logo: logos.transakLogo,
-      availableAssets: isPolygonNetwork ? polygonTransakAvailableAssets : transakAvailableAssets,
+      availableAssets: transakAvailableAssets,
       initialized: !!TRANSAK_API_KEY,
     },
     {
       name: PaymentName.onRamp,
       logo: logos.onRampLogo,
-      availableAssets: isPolygonNetwork ? ['MATIC', 'DAI', 'USDC'] : ['ETH', 'DAI', 'USDC', 'USDT'],
+      availableAssets: ['TLOS', 'USDC', 'USDT'],
       initialized: !!ONRAMP_API_KEY,
     },
   ].filter((option) => option.initialized);
@@ -83,7 +79,7 @@ export function usePayments(): Payments {
           environment: 'PRODUCTION', // STAGING/PRODUCTION
           defaultCryptoCurrency: currencySymbol,
           walletAddress: account || '',
-          networks: isPolygonNetwork ? 'MATIC' : 'ETHEREUM',
+          networks: 'ETHEREUM',
           themeColor: currentTheme.primary.hex,
           hostURL: window.location.origin,
           widgetHeight: sm ? '550px' : lg ? '600px' : '680px',
@@ -97,20 +93,13 @@ export function usePayments(): Payments {
           hostApiKey: process.env.REACT_APP_ONRAMP_API_KEY,
           variant: 'auto',
           userAddress: account || '',
-          swapAsset: isPolygonNetwork
-            ? currencySymbol === 'MATIC'
-              ? currencySymbol
-              : `MATIC_${currencySymbol}`
-            : currencySymbol,
+          swapAsset: currencySymbol,
         }).show();
         break;
     }
   };
 
-  const isPaymentNashNotOnMainMarket = (name: PaymentName) =>
-    (currentMarketData.chainId === ChainId.polygon ||
-      currentMarketData.chainId === ChainId.mumbai) &&
-    name === PaymentName.nash;
+  const isPaymentNashNotOnMainMarket = (name: PaymentName) => false;
 
   return { payments, paymentClick, isPaymentNashNotOnMainMarket };
 }

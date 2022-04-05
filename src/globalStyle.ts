@@ -22,7 +22,12 @@ const staticStyles = css.global`
       box-sizing: border-box;
     }
   }
-
+  main {
+    margin-top: 70px;
+    @include respond-to(sm) {
+      margin-top: 50px;
+    }
+  }
   html {
     -webkit-text-size-adjust: none;
     position: relative;
@@ -31,11 +36,10 @@ const staticStyles = css.global`
   }
 
   body {
-    font-family: 'roboto-font', sans-serif;
+    font-family: 'Kanit', sans-serif;
     font-size: $regular;
     min-width: 365px;
   }
-
   input,
   textarea,
   select,

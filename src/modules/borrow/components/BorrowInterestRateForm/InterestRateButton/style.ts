@@ -31,8 +31,8 @@ const staticStyles = css.global`
       left: 0;
       right: 0;
       top: 0;
+      border-radius: 100%;
       bottom: 0;
-      border-radius: $borderRadius;
       background: rgba(#000, 0.1);
       filter: blur(5px);
     }
@@ -50,24 +50,24 @@ const staticStyles = css.global`
     &__inner {
       position: relative;
       z-index: 2;
-      border-radius: $borderRadius;
+      border-radius: 100%;
       width: 180px;
-      height: 160px;
+      height: 180px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       @include respond-to(xl) {
         width: 140px;
-        height: 130px;
+        height: 140px;
       }
       @include respond-to(lg) {
         width: 120px;
-        height: 115px;
+        height: 120px;
       }
       @include respond-to(md) {
         width: 140px;
-        height: 130px;
+        height: 140px;
       }
     }
     &__image-inner {

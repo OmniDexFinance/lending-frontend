@@ -1,9 +1,9 @@
 import {
-  assetsList as assetsListFromKit,
   Asset,
+  assetsList as assetsListFromKit,
   assetsOrder as assetsOrderFromKit,
   STABLE_ASSETS as stableAssetsFromKit,
-} from '@aave/aave-ui-kit';
+} from '@omnidex/omnidex-ui-kit';
 
 export const assetsList: Asset[] = assetsListFromKit;
 

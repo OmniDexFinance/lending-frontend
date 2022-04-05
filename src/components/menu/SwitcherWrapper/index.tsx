@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import LabeledSwitcher from '../../basic/LabeledSwitcher';
 
 import staticStyles from './style';
@@ -48,7 +48,7 @@ export default function SwitcherWrapper({
       <style jsx={true}>{`
         .SwitcherWrapper {
           &__title {
-            color: ${md ? currentTheme.white.hex : currentTheme.darkBlue.hex};
+            color: ${currentTheme.textDarkBlue.hex};
           }
         }
       `}</style>

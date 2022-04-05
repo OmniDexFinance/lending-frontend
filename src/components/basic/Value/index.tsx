@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import ReactTooltip from 'react-tooltip';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import { CompactNumber } from '../CompactNumber';
 import SubValue from './SubValue';
@@ -56,7 +56,6 @@ export default function Value({
 }: ValueProps) {
   const { currentTheme, xl } = useThemeContext();
   const intl = useIntl();
-
   const asset = symbol && getAssetInfo(symbol);
   const [newValue, setNewValue]: any = useState(value);
   const [newSubValue, setNewSubValue]: any = useState(subValue);

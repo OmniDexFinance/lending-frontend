@@ -39,7 +39,6 @@ export default function AssetsFilterPanel({
           <SearchField value={searchValue} onChange={searchOnChange} />
         </div>
       </div>
-
       <style jsx={true} global={true}>
         {staticStyles}
       </style>

@@ -13,7 +13,7 @@ export default function SwapConfirmationWrapper({
   children,
 }: RepayWithdrawWrapperProps) {
   return (
-    <ScreenWrapper pageTitle={pageTitle} isTitleOnDesktop={true}>
+    <ScreenWrapper pageTitle={pageTitle} titleWide={true} isTitleOnDesktop={true}>
       <ContentWrapper withFullHeight={true} withBackButton={true}>
         {children}
       </ContentWrapper>

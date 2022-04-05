@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { useThemeContext, AnimationArrow } from '@aave/aave-ui-kit';
+import { useThemeContext, AnimationArrow } from '@omnidex/omnidex-ui-kit';
 
 import messages from './messages';
 import staticStyles from './style';
@@ -12,6 +12,7 @@ interface ContentWrapperWithTopLineProps {
   topRightInfo?: ReactNode;
   children: ReactNode;
   withDropdown?: boolean;
+  titleComponent?: ReactNode;
 }
 
 export default function ContentWrapperWithTopLine({
@@ -20,6 +21,7 @@ export default function ContentWrapperWithTopLine({
   topRightInfo,
   children,
   withDropdown,
+  titleComponent,
 }: ContentWrapperWithTopLineProps) {
   const intl = useIntl();
   const { currentTheme, sm, isCurrentThemeDark } = useThemeContext();
@@ -47,7 +49,7 @@ export default function ContentWrapperWithTopLine({
         })}
         onClick={() => withDropdown && setVisible(!visible)}
       >
-        <p>{title}</p>
+        {(titleComponent && titleComponent) || <p>{title}</p>}
         {topRightInfo && (
           <div className="ContentWrapperWithTopLine__topRightInfo">{topRightInfo}</div>
         )}
@@ -78,11 +80,13 @@ export default function ContentWrapperWithTopLine({
       <style jsx={true}>{staticStyles}</style>
       <style jsx={true}>{`
         .ContentWrapperWithTopLine {
+          border: 1px solid ${currentTheme.border.hex};
+          border-radius: 15px;
           &__top-line {
-            color: ${currentTheme.white.hex};
-            background: ${isCurrentThemeDark
-              ? currentTheme.headerBg.hex
-              : currentTheme.darkBlue.hex};
+            color: ${currentTheme.textDarkBlue.hex};
+            transition: 0.3s ease color;
+            background: ${currentTheme.whiteElement.hex};
+            border-bottom: 1px solid ${currentTheme.border.hex};
           }
 
           &__content {

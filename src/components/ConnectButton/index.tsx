@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import { useUserWalletDataContext } from '../../libs/web3-data-provider';
 import { useMenuContext } from '../../libs/menu';
@@ -36,12 +36,6 @@ export default function ConnectButton({ className, size = 'normal' }: ConnectBut
       <style jsx={true}>{staticStyles}</style>
       <style jsx={true}>{`
         .ConnectButton {
-          &:hover {
-            .ConnectButton__inner {
-              border-color: ${currentTheme.white.hex};
-            }
-          }
-
           &:before,
           &:after {
             background: linear-gradient(
@@ -54,7 +48,7 @@ export default function ConnectButton({ className, size = 'normal' }: ConnectBut
           }
 
           &__inner {
-            background: ${currentTheme.darkBlue.hex};
+            background: ${currentTheme.primary.hex};
             color: ${currentTheme.white.hex};
           }
         }
@@ -70,7 +64,7 @@ export default function ConnectButton({ className, size = 'normal' }: ConnectBut
           .ConnectButton__inner {
             background: ${isCurrentThemeDark
               ? currentTheme.whiteItem.hex
-              : currentTheme.textDarkBlue.hex};
+              : currentTheme.primary.hex};
             color: ${currentTheme.white.hex};
           }
         }

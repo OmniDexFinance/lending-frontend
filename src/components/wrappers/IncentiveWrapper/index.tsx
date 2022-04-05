@@ -1,7 +1,7 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { normalize } from '@aave/math-utils';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import { ComputedReserveData, useDynamicPoolDataContext } from '../../../libs/pool-data-provider';
 import { useIncentivesDataContext } from '../../../libs/pool-data-provider/hooks/use-incentives-data-context';
@@ -10,7 +10,7 @@ import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 
 import messages from './messages';
 import staticStyles from './style';
-import { ChainId } from '@aave/contract-helpers';
+import { ChainId } from '../../../helpers/contract-helpers';
 
 // Fetch reward token symbol from hard coded non-reserve tokens or from reserves array
 export function getRewardTokenSymbol(
@@ -52,17 +52,8 @@ export default function IncentiveWrapper() {
 
   if (!user || Object.keys(userIncentivesFiltered).length === 0) return null;
 
-  //TODO: Remove when the reserve is topped up again
-  const isPolygonMarket =
-    currentMarketData.chainId === ChainId.polygon || currentMarketData.chainId === ChainId.mumbai;
-
   return (
     <div className="IncentiveWrapper">
-      {isPolygonMarket && (
-        <p className="IncentiveWrapper__title" style={{ fontStyle: 'italic' }}>
-          {intl.formatMessage(messages.polygonEmpty)}
-        </p>
-      )}
       <p className="IncentiveWrapper__title">{intl.formatMessage(messages.availableReward)}</p>
       <div className="IncentiveWrapper__incentives">
         {Object.entries(userIncentivesFiltered).map((incentive) => {

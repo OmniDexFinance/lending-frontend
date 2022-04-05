@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react';
 import classNames from 'classnames';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import staticStyles from './style';
 
@@ -59,9 +59,9 @@ export default function BasicField({
       <style jsx={true} global={true}>{`
         .BasicField {
           input {
-            color: ${currentTheme.textDarkBlue.hex};
+            color: ${currentTheme.white.hex};
             &::placeholder {
-              color: ${currentTheme.lightBlue.hex};
+              color: ${currentTheme.primary.hex};
             }
           }
         }

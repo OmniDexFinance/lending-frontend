@@ -6,9 +6,33 @@ const staticStyles = css`
   @import 'src/_mixins/screen-size';
 
   .TotalMarketsSize {
-    padding-right: 10px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    border-radius: 15px;
+    justify-content: space-between;
+    padding: 10px 30px;
+    position: relative;
+    z-index: 5;
+    height: 70px;
+    &__value {
+      font-size: $extraLarge;
+      margin-left: 20px;
+      font-family: 'roboto-font';
+      font-weight: bold;
+    }
     @include respond-to(md) {
-      padding-right: 0;
       margin-bottom: 10px;
     }
     @include respond-to(sm) {
@@ -24,7 +48,7 @@ const staticStyles = css`
       left: -10px;
     }
     p {
-      font-size: $large;
+      font-size: $regular;
       margin-bottom: 5px;
       @include respond-to(xl) {
         font-size: $regular;

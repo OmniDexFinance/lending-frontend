@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import ParentSize from '@visx/responsive/lib/components/ParentSize';
 import classNames from 'classnames';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import GradientLine from '../../../../components/basic/GradientLine';
 import GradientPlusButton from '../../../../components/basic/GradientPlusButton';
 import GraphLegend, { GraphLegendDot } from '../../../../components/graphs/GraphLegend';
@@ -39,7 +39,7 @@ export default function GraphInner({
   maxYaxis,
 }: GraphInnerProps & InterestRateGraphProps) {
   const intl = useIntl();
-  const { currentTheme, lg, md, sm } = useThemeContext();
+  const { currentTheme, lg, md, sm, isCurrentThemeDark } = useThemeContext();
 
   const [contentVisible, setContentVisibility] = useState(false);
   const toggleContent = () => setContentVisibility(!contentVisible);
@@ -134,11 +134,13 @@ export default function GraphInner({
       </style>
       <style jsx={true}>{`
         .ReserveGraphInner {
-          background: ${currentTheme.darkBlue.hex};
+          background: ${isCurrentThemeDark
+            ? currentTheme.darkBlue.hex
+            : currentTheme.lightGray.hex};
 
           &__top-line {
             p {
-              color: ${currentTheme.white.hex};
+              color: ${currentTheme.textDarkBlue.hex};
             }
           }
 
@@ -152,7 +154,7 @@ export default function GraphInner({
 
           &__noData {
             p {
-              color: ${currentTheme.white.hex};
+              color: ${currentTheme.textDarkBlue.hex};
             }
           }
         }

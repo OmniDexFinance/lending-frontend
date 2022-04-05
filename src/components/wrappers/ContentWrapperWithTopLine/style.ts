@@ -22,12 +22,13 @@ const staticStyles = css`
 
     &__top-line {
       padding: 15px 20px;
-      font-size: $regular;
+      font-size: $extraLarge;
+      font-weight: bold;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top-left-radius: 2px;
-      border-top-right-radius: 2px;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
       min-height: 49px;
       @include respond-to(xl) {
         padding: 10px 15px;
@@ -57,8 +58,8 @@ const staticStyles = css`
     }
 
     &__content {
-      border-bottom-left-radius: 2px;
-      border-bottom-right-radius: 2px;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
     }
   }
 `;

@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { valueToBigNumber, BigNumber } from '@aave/protocol-js';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import { toggleUseAsCollateral } from '../../../../helpers/toggle-use-as-collateral';
 import Row from '../../../../components/basic/Row';
 import Link from '../../../../components/basic/Link';
@@ -326,7 +326,12 @@ export default function UserInformation({
           }
 
           &__info-wrapper {
+            border-color: ${currentTheme.border.hex};
             background: ${currentTheme.whiteElement.hex};
+
+            @include respond-to(sm) {
+              border-color: transparent;
+            }
             &:after {
               background: ${currentTheme.white.hex};
             }

@@ -80,17 +80,17 @@ const staticStyles = css.global`
 
     &__error-text {
       position: absolute;
-      top: calc(100% + 20px);
+      top: calc(100%);
       width: 100%;
       text-align: center;
       font-size: $medium;
       @include respond-to(lg) {
         font-size: $small;
-        top: calc(100% + 18px);
+        top: calc(100%);
       }
       @include respond-to(md) {
         font-size: $medium;
-        top: calc(100% + 20px);
+        top: calc(100%);
       }
     }
 

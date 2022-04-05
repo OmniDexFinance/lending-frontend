@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { valueToBigNumber } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import {
   useDynamicPoolDataContext,
@@ -10,8 +10,8 @@ import {
 import toggleLocalStorageClick from '../../../../helpers/toggle-local-storage-click';
 import TopPanelWrapper from '../../../../components/wrappers/TopPanelWrapper';
 import ScreenWrapper from '../../../../components/wrappers/ScreenWrapper';
-import SelectMarketPanel from '../../components/SelectMarketPanel';
 import MarketTable from '../../components/MarketTable';
+import DesktopPageTitle from '../../../../components/DesktopPageTitle';
 import MarketTableItem from '../../components/MarketTableItem';
 import TotalMarketsSize from '../../components/TotalMarketsSize';
 import LabeledSwitcher from '../../../../components/basic/LabeledSwitcher';
@@ -107,48 +107,42 @@ export default function Markets() {
     >
       <TopPanelWrapper isCollapse={true} withoutCollapseButton={true}>
         <div className="Markets__top-content">
+          <DesktopPageTitle
+            title={intl.formatMessage(messages.pageTitle)}
+            subTitle={intl.formatMessage(messages.pageSubtitle)}
+          />
           <TotalMarketsSize value={totalLockedInUsd.toNumber()} />
-          <SelectMarketPanel />
         </div>
       </TopPanelWrapper>
 
-      <div className="Markets__size">
-        <TotalMarketsSize value={totalLockedInUsd.toNumber()} />
-      </div>
+      <div className="Markets__content">
+        <div className="Markets__price-switcher">
+          <LabeledSwitcher
+            value={!isPriceInUSD}
+            leftOption="USD"
+            rightOption={intl.formatMessage(messages.native)}
+            onToggle={() =>
+              toggleLocalStorageClick(isPriceInUSD, setIsPriceInUSD, 'marketsIsPriceInUSD')
+            }
+          />
+        </div>
 
-      <div className="Markets__price-switcher">
-        <LabeledSwitcher
-          value={!isPriceInUSD}
-          leftOption="USD"
-          rightOption={intl.formatMessage(messages.native)}
-          onToggle={() =>
-            toggleLocalStorageClick(isPriceInUSD, setIsPriceInUSD, 'marketsIsPriceInUSD')
-          }
-        />
-      </div>
+        <MarketTable
+          sortName={sortName}
+          setSortName={setSortName}
+          sortDesc={sortDesc}
+          setSortDesc={setSortDesc}
+        >
+          {sortedData.map((item, index) => (
+            <MarketTableItem {...item} isPriceInUSD={isPriceInUSD} key={index} />
+          ))}
+        </MarketTable>
 
-      <div className="Markets__market-switcher">
-        <p className="Markets__marketSwitcher--title">
-          {intl.formatMessage(messages.selectMarket)}
-        </p>
-        <SelectMarketPanel />
-      </div>
-
-      <MarketTable
-        sortName={sortName}
-        setSortName={setSortName}
-        sortDesc={sortDesc}
-        setSortDesc={setSortDesc}
-      >
-        {sortedData.map((item, index) => (
-          <MarketTableItem {...item} isPriceInUSD={isPriceInUSD} key={index} />
-        ))}
-      </MarketTable>
-
-      <div className="Markets__mobile--cards">
-        {sortedData.map((item, index) => (
-          <MarketMobileCard {...item} key={index} />
-        ))}
+        <div className="Markets__mobile--cards">
+          {sortedData.map((item, index) => (
+            <MarketMobileCard {...item} key={index} />
+          ))}
+        </div>
       </div>
 
       <style jsx={true} global={true}>
@@ -156,6 +150,10 @@ export default function Markets() {
       </style>
       <style jsx={true} global={true}>{`
         .Markets {
+          &__content {
+            background: ${currentTheme.whiteElement.hex};
+            border: 1px solid ${currentTheme.border.hex};
+          }
           &__top-content {
             color: ${currentTheme.white.hex};
           }

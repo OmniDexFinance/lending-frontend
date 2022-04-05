@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 import goToTop from '../../../helpers/goToTop';
 
@@ -23,7 +23,7 @@ export default function TableItemWrapper({
   withGoToTop,
   darkOnDarkMode,
 }: TableItemWrapperProps) {
-  const { currentTheme } = useThemeContext();
+  const { currentTheme, isCurrentThemeDark } = useThemeContext();
 
   return (
     <div
@@ -43,7 +43,9 @@ export default function TableItemWrapper({
       <style jsx={true}>{`
         .TableItemWrapper {
           background: ${darkOnDarkMode
-            ? currentTheme.whiteItem.hex
+            ? isCurrentThemeDark
+              ? currentTheme.whiteItem.hex
+              : currentTheme.lightGray.hex
             : currentTheme.whiteElement.hex};
           color: ${currentTheme.darkBlue.hex};
           &:hover {

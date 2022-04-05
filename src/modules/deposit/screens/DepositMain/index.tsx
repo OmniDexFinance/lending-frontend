@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { valueToBigNumber } from '@aave/protocol-js';
-import { useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@omnidex/omnidex-ui-kit';
 import { PERMISSION } from '@aave/contract-helpers';
 
 import {
@@ -125,11 +125,7 @@ export default function DepositsMain() {
 
   return (
     <PermissionWarning requiredPermission={PERMISSION.DEPOSITOR}>
-      <ScreenWrapper
-        pageTitle={intl.formatMessage(defaultMessages.deposit)}
-        isTitleOnDesktop={true}
-        withMobileGrayBg={true}
-      >
+      <ScreenWrapper withMobileGrayBg={true}>
         {sm && (
           <AssetsFilterPanel
             optionTitleLeft={intl.formatMessage(messages.optionTitleLeft)}
@@ -142,7 +138,8 @@ export default function DepositsMain() {
         )}
 
         <DepositBorrowMainWrapper
-          contentTitle={intl.formatMessage(messages.availableToDeposit)}
+          pageTitle={intl.formatMessage(messages.pageTitle)}
+          pageSubtitle={intl.formatMessage(messages.pageSubtitle)}
           itemsTitle={intl.formatMessage(messages.myDeposits)}
           items={listData(false).map((item, index) => (
             <React.Fragment key={index}>
@@ -162,7 +159,7 @@ export default function DepositsMain() {
           setSearchValue={setSearchValue}
           showOnlyStableCoins={showOnlyStableCoins}
           setShowOnlyStableCoins={setShowOnlyStableCoins}
-          withSwitchMarket={true}
+          withSwitchMarket={false}
           totalValue={listData(false).reduce((a, b) => a + (+b['underlyingBalanceInUSD'] || 0), 0)}
         >
           {!!listData(true).length ? (

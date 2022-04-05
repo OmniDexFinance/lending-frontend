@@ -1,11 +1,12 @@
 import React from 'react';
-import { gradient, useThemeContext } from '@aave/aave-ui-kit';
+import { gradient, useThemeContext } from '@omnidex/omnidex-ui-kit';
 
 interface GradientLineProps {
   height?: number;
+  white?: boolean;
 }
 
-export default function GradientLine({ height }: GradientLineProps) {
+export default function GradientLine({ height, white = false }: GradientLineProps) {
   const { currentTheme } = useThemeContext();
 
   const gradientBackground = gradient(
@@ -23,7 +24,7 @@ export default function GradientLine({ height }: GradientLineProps) {
           width: 100%;
           height: ${height || 1}px;
           display: block;
-          background: ${gradientBackground};
+          background: ${(white && 'white') || gradientBackground};
         }
       `}</style>
     </span>
