@@ -13,7 +13,7 @@
 
 # Omnidex protocol interface :ghost:
 
-An open source interface for the decentralized liquidity protocol Omnidex
+An open source interface for the decentralized liquidity protocol Omnidex, based on Aave
 
 Enabling users to:
 
