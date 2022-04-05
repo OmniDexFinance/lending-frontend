@@ -1,7 +1,7 @@
 
 ![omnidexLogo](https://user-images.githubusercontent.com/5913758/161757844-1185ee28-a5c1-4432-9215-fbeff09c29d7.jpg)
 
-# Omnidex protocol interface :ghost:
+# Omnidex lending protocol interface 💰
 
 An interface for the decentralized liquidity protocol Omnidex, based on Aave
 
