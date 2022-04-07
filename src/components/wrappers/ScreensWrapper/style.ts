@@ -16,6 +16,7 @@ const staticStyles = css.global`
       display: flex;
       flex-direction: column;
       flex: 1;
+      padding-bottom: 40px;
       @include respond-to(sm) {
         padding-bottom: 0px;
       }
