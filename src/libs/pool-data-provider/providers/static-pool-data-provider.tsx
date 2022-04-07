@@ -36,6 +36,7 @@ export interface StaticPoolDataContextData {
   rawUserReservesWithBase?: UserReserveDataExtended[];
   marketRefCurrencyDecimals: number;
   marketRefPriceInUsd: string;
+  marketETHPriceInUsd: string;
   WrappedBaseNetworkAssetAddress: string;
   refresh: () => Promise<void>;
 }
@@ -149,10 +150,19 @@ export function StaticPoolDataProvider({
   if (!RPC_ONLY_MODE && isRPCActive && rpcData) {
     console.log('switched to RPC');
   }
+  let price = '0';
+
+  activeData?.reserves?.reservesData.map((reserve) => {
+    if (reserve.symbol == 'WTLOS') {
+      price = reserve.priceInMarketReferenceCurrency;
+    }
+  });
+
+  const marketETHPriceInUsd = price;
 
   const marketRefPriceInUsd = activeData?.reserves?.baseCurrencyData
     ?.marketReferenceCurrencyPriceInUsd
-    ? activeData.reserves.baseCurrencyData?.networkBaseTokenPriceInUsd
+    ? activeData?.reserves?.baseCurrencyData?.marketReferenceCurrencyPriceInUsd
     : '0';
 
   const marketRefCurrencyDecimals = activeData?.reserves?.baseCurrencyData
@@ -174,6 +184,7 @@ export function StaticPoolDataProvider({
         rawReservesWithBase: reserves ? reserves : [],
         rawUserReservesWithBase: userReserves,
         marketRefPriceInUsd: normalize(marketRefPriceInUsd, 8),
+        marketETHPriceInUsd: normalize(marketETHPriceInUsd, 8),
         marketRefCurrencyDecimals,
         isUserHasDeposits,
       }}
