@@ -26,7 +26,7 @@ const staticStyles = css.global`
       display: flex;
       align-items: center;
       justify-content: center;
-      @include respond-to(sm) {
+      @include respond-to(md) {
         font-size: $small;
         padding: 10px 0;
       }
@@ -60,7 +60,7 @@ const staticStyles = css.global`
         height: 3px;
         transition: all 0.4s ease;
         border-radius: $borderRadius;
-        @include respond-to(sm) {
+        @include respond-to(md) {
           display: none;
         }
         &:after {

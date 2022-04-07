@@ -39,9 +39,11 @@ export default function MobileContent({ isActive, currentAccount }: MobileConten
     return link;
   });
   const [submenusVisibility, setSubmenusVisibility] = useState(visibilities);
+  const [submenusVisibile, setSubmenusVisibile] = useState(0);
   const handleSubmenuVisibility = (index: number) => {
-    submenusVisibility[index] = submenusVisibility[index] ? false : true;
+    submenusVisibility[index] = !submenusVisibility[index];
     setSubmenusVisibility(submenusVisibility);
+    setSubmenusVisibile(submenusVisibile + 1);
   };
   const handleLinkClick = () => {
     goToTop();
@@ -100,7 +102,7 @@ export default function MobileContent({ isActive, currentAccount }: MobileConten
                       (!currentAccount && link.hiddenWithoutWallet) ||
                       (link.isVisible && !link.isVisible(currentMarketData)),
                   })}
-                  key={index}
+                  key={'ml-' + index + ' ' + submenusVisibility[index]}
                 >
                   {!link.onClick && !link.children ? (
                     <Link

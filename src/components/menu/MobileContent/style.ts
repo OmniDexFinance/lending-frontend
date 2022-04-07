@@ -186,7 +186,7 @@ const staticStyles = css.global`
     }
 
     &__bottom {
-      padding: 30px 0 35px;
+      padding: 30px 0 75px;
       &:after {
         top: 0;
       }

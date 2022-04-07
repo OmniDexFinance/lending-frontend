@@ -24,7 +24,7 @@ const staticStyles = css.global`
     z-index: 5;
     height: 70px;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
-    @include respond-to(sm) {
+    @include respond-to(md) {
       padding: 0;
       background: transparent !important;
       box-shadow: none;
@@ -97,19 +97,19 @@ const staticStyles = css.global`
       ul {
         display: flex;
         align-items: center;
-        @include respond-to(sm) {
+        @include respond-to(md) {
           display: block;
           text-align: center;
         }
         .Submenu__link-inner.Submenu__linkfirst {
           margin: 0;
-          @include respond-to(sm) {
+          @include respond-to(md) {
             margin: 0px 20px;
           }
         }
         .Submenu__link-inner {
           margin-left: 40px;
-          @include respond-to(sm) {
+          @include respond-to(md) {
             margin: 0px 20px;
             display: inline-block;
           }
