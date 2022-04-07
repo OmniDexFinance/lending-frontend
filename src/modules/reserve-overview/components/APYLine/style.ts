@@ -20,10 +20,10 @@ const staticStyles = css.global`
     .APYLine__percent .ValuePercent__value {
       font-size: $regular;
       @include respond-to(xl) {
-        font-size: $small;
+        font-size: $medium;
       }
       @include respond-to(lg) {
-        font-size: $extraSmall;
+        font-size: $small;
       }
       @include respond-to(md) {
         font-size: $small;

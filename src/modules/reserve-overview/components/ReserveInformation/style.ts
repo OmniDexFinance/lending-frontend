@@ -35,9 +35,6 @@ const staticStyles = css.global`
       font-weight: 400;
       font-size: $large;
       margin-bottom: 10px;
-      @include respond-to(xl) {
-        font-size: $small;
-      }
       @include respond-to(sm) {
         font-size: $regular;
       }
@@ -84,7 +81,7 @@ const staticStyles = css.global`
       }
       .ReserveInformation__line {
         margin: 0;
-        font-size: $extraSmall;
+        font-size: $small;
         @include respond-to(sm) {
           font-size: $regular;
           padding: 10px;

@@ -15,7 +15,7 @@ const staticStyles = css`
       width: 200px;
     }
     @include respond-to(lg) {
-      width: 150px;
+      width: 180px;
       margin: 0 7px;
     }
     @include respond-to(md) {
@@ -33,7 +33,7 @@ const staticStyles = css`
       p {
         font-size: $medium;
         @include respond-to(xl) {
-          font-size: $extraSmall;
+          font-size: $small;
         }
         @include respond-to(sm) {
           font-size: $regular;

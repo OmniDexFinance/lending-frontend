@@ -19,7 +19,7 @@ const staticStyles = css`
       @include respond-to(lg) {
         font-size: $medium;
       }
-      @include respond-to(md) {
+      @include respond-to(sm) {
         font-size: $regular;
       }
       span {

@@ -92,11 +92,8 @@ const staticStyles = css.global`
       display: flex;
       align-items: center;
       font-weight: 300;
-      @include respond-to(xl) {
-        font-size: $small;
-      }
       @include respond-to(lg) {
-        font-size: $extraSmall;
+        font-size: $small;
       }
       @include respond-to(md) {
         font-size: $small;
