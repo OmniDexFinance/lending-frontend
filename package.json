@@ -1,5 +1,5 @@
 {
-  "name": "aave-ui",
+  "name": "omnidex-lending-ui",
   "version": "1.0.0",
   "private": false,
   "license": "BSD-3-Clause",
@@ -157,6 +157,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "homepage": "."
+  }
 }
