@@ -17,12 +17,6 @@ const staticStyles = css.global`
       display: flex;
       align-items: center;
       justify-content: center;
-      @include respond-to(xl) {
-        font-size: $medium;
-      }
-      @include respond-to(lg) {
-        font-size: $small;
-      }
       p {
         transition: $transition;
         position: relative;

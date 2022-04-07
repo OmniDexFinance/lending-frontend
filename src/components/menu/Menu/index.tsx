@@ -118,9 +118,6 @@ export default function Menu({ title, active }: MenuProps) {
         .Menu__container:after {
           background: ${currentTheme.headerBg.hex} !important;
         }
-        .Menu__logo-link {
-          margin-right: 30px;
-        }
         .Menu h1 {
           display: none;
         }
