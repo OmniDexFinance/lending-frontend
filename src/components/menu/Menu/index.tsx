@@ -127,6 +127,7 @@ export default function Menu({ title, active }: MenuProps) {
         .Menu {
           background: ${currentTheme.headerBg.hex}!important;
           border-bottom: 1px solid ${currentTheme.border.hex};
+          transition: 400ms transform ease;
           &__icon {
             transition: 400ms all ease;
             fill: ${currentTheme.textDarkBlue.hex};
