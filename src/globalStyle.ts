@@ -23,9 +23,9 @@ const staticStyles = css.global`
     }
   }
   main {
-    margin-top: 70px;
+    padding-top: 70px;
     @include respond-to(sm) {
-      margin-top: 50px;
+      padding-top: 50px;
     }
   }
   html {

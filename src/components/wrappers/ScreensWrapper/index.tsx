@@ -96,7 +96,6 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
           </TopPanelSmallContext.Provider>
         </TitleContext.Provider>
       </main>
-
       <Footer inside={true} />
 
       <style jsx={true} global={true}>

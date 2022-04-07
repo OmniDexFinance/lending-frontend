@@ -172,6 +172,9 @@ export default function AddressInfo() {
               font-size: 20px;
               border-radius: 25px;
               background: ${currentTheme.primary.hex};
+              width: auto;
+              min-height: 44px;
+              padding: 0 20px;
               span {
                 font-size: 16px !important;
                 font-weight: bold;

@@ -10,6 +10,7 @@ const staticStyles = css.global`
     transform: translateY(-70px);
     padding: 10px 15px;
     z-index: 5;
+    position: absolute;
     transition: 400ms transform ease, 400ms opacity ease;
     opacity: 0.4;
     height: 80px;

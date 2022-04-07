@@ -25,7 +25,7 @@ const staticStyles = css.global`
       z-index: 34;
     }
     &__overlayActive {
-      height: 100%;
+      height: 10000%;
       opacity: 0.5;
     }
 
@@ -119,7 +119,7 @@ const staticStyles = css.global`
       left: auto;
       right: -360px;
       top: 0;
-      height: 100%;
+      height: auto;
       border-radius: 0px;
       display: flex;
       flex-direction: column;

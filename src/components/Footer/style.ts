@@ -6,8 +6,10 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .Footer {
-    position: relative;
+    position: absolute;
     z-index: 2;
+    right: 10px;
+    bottom: 5px;
     padding: 10px 15px 10px;
     display: flex;
     align-items: center;

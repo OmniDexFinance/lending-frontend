@@ -16,6 +16,9 @@ const staticStyles = css.global`
       display: flex;
       flex-direction: column;
       flex: 1;
+      @include respond-to(sm) {
+        padding-bottom: 0px;
+      }
       overflow: auto;
       overflow-x: hidden;
       position: relative;
