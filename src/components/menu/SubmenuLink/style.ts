@@ -26,10 +26,6 @@ const staticStyles = css.global`
       display: flex;
       align-items: center;
       justify-content: center;
-      @include respond-to(lg) {
-        font-size: $medium;
-        padding: 18px 0;
-      }
       @include respond-to(sm) {
         font-size: $small;
         padding: 10px 0;
