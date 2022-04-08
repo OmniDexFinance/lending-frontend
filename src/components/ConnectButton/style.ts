@@ -24,7 +24,7 @@ const staticStyles = css`
     &:before {
       content: '';
       position: absolute;
-      border-radius: $borderRadius;
+      border-radius: 20px;
       transition: all 0.3s ease;
       background-size: 300% !important;
       animation: animate 4.5s infinite;
@@ -49,7 +49,7 @@ const staticStyles = css`
       align-items: center;
       justify-content: center;
       border: 1px solid transparent;
-      border-radius: $borderRadius;
+      border-radius: 20px;
       position: relative;
       z-index: 2;
       @include respond-to(sm) {
