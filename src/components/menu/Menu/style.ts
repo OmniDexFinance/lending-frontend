@@ -18,6 +18,11 @@ const staticStyles = css.global`
       transform: translateY(0px);
       opacity: 1;
     }
+    &__icon {
+      @include respond-to(sm) {
+        margin: 0;
+      }
+    }
     .Menu__logo-link {
       margin-right: 30px;
       @include respond-to(lg) {

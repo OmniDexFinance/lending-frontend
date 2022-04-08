@@ -9,6 +9,7 @@ import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 import goToTop from '../../../helpers/goToTop';
 import Link from '../../basic/Link';
 import MenuLink from '../MenuLink';
+import MoreButton from '../MoreButton';
 import AddressInfo from '../AddressInfo';
 import TokenInfo from '../TokenPriceInfo';
 import MobileContent from '../MobileContent';
@@ -35,7 +36,6 @@ export default function Menu({ title, active }: MenuProps) {
   const { currentTheme, isCurrentThemeDark, md } = useThemeContext();
   const { currentAccount } = useUserWalletDataContext();
   const { currentMarketData } = useProtocolDataContext();
-
   const isActive = (url: string) => {
     return `/${url.split('/')[1]}` === `/${location.pathname.split('/')[1]}`;
   };
@@ -84,6 +84,10 @@ export default function Menu({ title, active }: MenuProps) {
                     />
                   </li>
                 ))}
+
+                <li>
+                  <MoreButton />
+                </li>
               </ul>
             </nav>
           </div>
@@ -117,6 +121,9 @@ export default function Menu({ title, active }: MenuProps) {
       <style jsx={true} global={true}>{`
         .Menu__container:after {
           background: ${currentTheme.headerBg.hex} !important;
+        }
+        .Menu__navigation-inner ul li:last-child {
+          padding-left: 15px;
         }
         .Menu h1 {
           display: none;

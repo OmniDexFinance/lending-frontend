@@ -15,7 +15,7 @@ import AddressInfo from '../AddressInfo';
 import DarkModeSwitcher from '../DarkModeSwitcher';
 
 import { mobileNavigation } from '../navigation';
-import { moreMenuExtraItems, socialIcons } from '../../../ui-config';
+import { moreMenuExtraItems, moreMenuItems, socialIcons } from '../../../ui-config';
 
 import staticStyles from './style';
 
@@ -159,8 +159,15 @@ export default function MobileContent({ isActive, currentAccount }: MobileConten
             </div>
 
             <ul className="MobileContent__bottom-links">
-              {moreMenuExtraItems.map((link, index) => (
-                <li className="MobileContent__bottom-linkInner" key={index}>
+              {moreMenuItems.map((link, index) => (
+                <li
+                  className={classNames('MobileContent__link-wrapper', {
+                    MobileContent__linkHidden:
+                      (!currentAccount && link.hiddenWithoutWallet) ||
+                      (link.isVisible && !link.isVisible(currentMarketData)),
+                  })}
+                  key={index}
+                >
                   <Link
                     className="MobileContent__link"
                     to={link.link}
@@ -190,6 +197,9 @@ export default function MobileContent({ isActive, currentAccount }: MobileConten
       </style>
       <style jsx={true} global={true}>{`
         .MobileContent {
+          .MobileContent__linkHidden {
+            display: none;
+          }
           &__button-inner,
           &__button-inner:before,
           &__button-inner:after {

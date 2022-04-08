@@ -4,13 +4,8 @@ import { isFeatureEnabled } from '../../helpers/config/markets-and-network-confi
 
 export const moreMenuItems: Navigation[] = [
   {
-    link: 'https://omnidex.finance/swap',
-    title: messages.swap,
-    absolute: true,
-  },
-  {
-    link: 'https://omnidex.finance/farms',
-    title: messages.farm,
+    link: 'https://analytics.omnidex.finance',
+    title: messages.analytics,
     absolute: true,
   },
   {

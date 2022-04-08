@@ -16,21 +16,6 @@ export interface Navigation {
 
 const navigation: Navigation[] = [
   {
-    link: 'https://omnidex.finance/',
-    absolute: true,
-    title: messages.navigation,
-  },
-  {
-    link: 'https://omnidex-1.gitbook.io/omnidex/',
-    absolute: true,
-    title: messages.doc,
-  },
-  {
-    link: 'https://www.analytics.omnidex.finance/home',
-    absolute: true,
-    title: messages.analytics,
-  },
-  {
     link: 'https://omnidex.finance/swap',
     absolute: true,
     title: messages.trade,

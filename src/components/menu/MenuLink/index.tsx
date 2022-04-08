@@ -53,9 +53,6 @@ export default function MenuLink({
         {staticStyles}
       </style>
       <style jsx={true} global={true}>{`
-        .Menu__linkfirst .MenuLink__title p b {
-          font-weight: bold;
-        }
         .Menu__link-inner:hover {
           transition: 400ms background ease;
           background: ${(isCurrentThemeDark && currentTheme.darkBlue.hex) ||

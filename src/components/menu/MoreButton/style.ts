@@ -5,10 +5,14 @@ const staticStyles = css.global`
   @import 'src/_mixins/vars';
   @import 'src/_mixins/screen-size';
 
+  .MoreButton.DropdownWrapper__right .DropdownWrapper__content {
+    right: -100px;
+  }
   .MoreButton {
     .DropdownWrapper__contentVisible.DropdownWrapper__content {
       top: 100%;
     }
+
     &__button {
       font-size: $regular;
       position: relative;
