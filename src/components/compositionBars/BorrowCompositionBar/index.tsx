@@ -11,7 +11,10 @@ import { getAssetColor, getAssetInfo } from '../../../helpers/config/assets-conf
 import messages from './messages';
 import staticStyles from './style';
 
-export default function BorrowCompositionBar() {
+interface BorrowCompositionBarProps {
+  colorTitle?: 'white' | 'dark' | 'lightBlue';
+}
+export default function BorrowCompositionBar({ colorTitle = 'white' }: BorrowCompositionBarProps) {
   const intl = useIntl();
   const { user } = useDynamicPoolDataContext();
 
@@ -45,7 +48,7 @@ export default function BorrowCompositionBar() {
       title={intl.formatMessage(messages.title)}
       className="BorrowCompositionBar"
       weight="light"
-      color="white"
+      color={colorTitle}
       isColumn={true}
     >
       <CompositionBar dataset={borrowComposition} />

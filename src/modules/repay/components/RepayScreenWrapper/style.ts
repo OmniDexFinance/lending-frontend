@@ -7,6 +7,10 @@ const staticStyles = css.global`
 
   .RepayScreenWrapper {
     &__items-wrapper {
+      .Row,
+      .Value {
+        font-size: 17px;
+      }
       width: 400px;
       display: flex;
       flex-direction: column;
@@ -14,9 +18,23 @@ const staticStyles = css.global`
       align-self: stretch;
       @include respond-to(xl) {
         width: 370px;
+        .Row,
+        .Value {
+          font-size: 16px;
+        }
       }
       @include respond-to(lg) {
+        .Row,
+        .Value {
+          font-size: 14px;
+        }
         width: 260px;
+      }
+      @include respond-to(sm) {
+        .Row,
+        .Value {
+          font-size: 16px;
+        }
       }
       &:nth-of-type(1) {
         @include respond-to(md) {

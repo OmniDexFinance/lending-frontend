@@ -305,7 +305,7 @@ export default function Dashboard() {
         >
           <Row
             title={intl.formatMessage(messages.yourCollateral)}
-            color="white"
+            color={isCurrentThemeDark ? 'white' : 'dark'}
             weight="light"
             withMargin={true}
           >
@@ -318,7 +318,7 @@ export default function Dashboard() {
                 maximumValueDecimals={2}
                 subValue={user.totalCollateralMarketReferenceCurrency}
                 subSymbol="TLOS"
-                color="white"
+                color={isCurrentThemeDark ? 'white' : 'dark'}
               />
             ) : (
               <NoData />
@@ -327,7 +327,7 @@ export default function Dashboard() {
 
           <HealthFactor
             value={user?.healthFactor || '-1'}
-            titleColor="white"
+            titleColor={isCurrentThemeDark ? 'white' : 'dark'}
             titleLightWeight={true}
             withHALLink={true}
           />
@@ -336,21 +336,21 @@ export default function Dashboard() {
             title={
               <MaxLTVHelpModal
                 text={intl.formatMessage(messages.currentLTV)}
-                color="white"
+                color={isCurrentThemeDark ? 'white' : 'dark'}
                 lightWeight={true}
               />
             }
-            color="white"
+            color={isCurrentThemeDark ? 'white' : 'dark'}
             weight="light"
             withMargin={true}
             className="Dashboard__mobileRow-center"
           >
             {user && loanToValue !== '0' ? (
               <div className="Dashboard__mobileRow-content">
-                <ValuePercent value={loanToValue} color="white" />
+                <ValuePercent value={loanToValue} color={isCurrentThemeDark ? 'white' : 'dark'} />
                 <DefaultButton
                   title={intl.formatMessage(messages.details)}
-                  color="white"
+                  color={isCurrentThemeDark ? 'white' : 'dark'}
                   transparent={true}
                   className="Dashboard__mobileButton"
                   size="small"
@@ -364,19 +364,22 @@ export default function Dashboard() {
 
           <Row
             title={intl.formatMessage(messages.borrowingPowerUsed)}
-            color="white"
+            color={isCurrentThemeDark ? 'white' : 'dark'}
             weight="light"
             withMargin={true}
           >
             {user && collateralUsagePercent !== '0' ? (
-              <ValuePercent value={collateralUsagePercent} color="white" />
+              <ValuePercent
+                value={collateralUsagePercent}
+                color={isCurrentThemeDark ? 'white' : 'dark'}
+              />
             ) : (
               <NoData />
             )}
           </Row>
 
-          <BorrowCompositionBar />
-          <CollateralCompositionBar />
+          <BorrowCompositionBar colorTitle={isCurrentThemeDark ? 'white' : 'dark'} />
+          <CollateralCompositionBar colorTitle={isCurrentThemeDark ? 'white' : 'dark'} />
         </MobileTopPanelWrapper>
       )}
 
