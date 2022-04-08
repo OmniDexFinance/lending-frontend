@@ -251,6 +251,7 @@
   "components.menu.navigation.karma": "Karma",
   "components.menu.navigation.lending": "Emprunter",
   "components.menu.navigation.markets": "Marchés",
+  "components.menu.navigation.more": "",
   "components.menu.navigation.navigation": "",
   "components.menu.navigation.staking": "",
   "components.menu.navigation.swap": "Swap",

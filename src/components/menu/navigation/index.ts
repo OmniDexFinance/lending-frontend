@@ -76,23 +76,6 @@ const navigation: Navigation[] = [
       },
     ],
   },
-  {
-    link: 'https://www.analytics.omnidex.finance/home',
-    absolute: true,
-    title: messages.more,
-    children: [
-      {
-        link: 'https://www.analytics.omnidex.finance/home',
-        absolute: true,
-        title: messages.analytics,
-      },
-      {
-        link: 'https://omnidex-1.gitbook.io/omnidex/',
-        absolute: true,
-        title: messages.doc,
-      },
-    ],
-  },
 ];
 
 export const moreNavigation: Navigation[] = [...moreMenuItems, ...moreMenuExtraItems];

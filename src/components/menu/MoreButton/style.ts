@@ -14,10 +14,14 @@ const staticStyles = css.global`
     }
 
     &__button {
-      font-size: $regular;
+      font-size: $medium;
       position: relative;
-      text-transform: uppercase;
+
       padding: 15px 0;
+
+      @include respond-to(sm) {
+        text-transform: uppercase;
+      }
       @include respond-to(xl) {
         font-size: $medium;
       }
@@ -82,8 +86,10 @@ const staticStyles = css.global`
 
     &__link {
       font-weight: 300;
-      text-transform: uppercase;
-      font-size: $medium;
+      @include respond-to(sm) {
+        text-transform: uppercase;
+      }
+      font-size: $regular;
       padding: 18px 5px 15px;
       width: 100%;
       backface-visibility: hidden;

@@ -71,6 +71,7 @@ export default function MoreButton({ isVisible = false }: MoreButtonProps) {
 
             <li className="MoreButton__link-inner">
               <SocialIcons
+                white={isCurrentThemeDark}
                 icons={socialIcons}
                 iconHeight={20}
                 iconWidth={20}
