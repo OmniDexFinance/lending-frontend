@@ -33,10 +33,18 @@ const staticStyles = css.global`
       font-size: $medium;
       margin-bottom: 10px;
       font-weight: 600;
+      @include respond-to(sm) {
+        font-size: $regular;
+      }
       span {
         font-weight: 400;
         font-size: $small;
         margin-left: 5px;
+      }
+    }
+    .ValuePercent__value {
+      @include respond-to(sm) {
+        font-size: $regular;
       }
     }
   }

@@ -153,7 +153,7 @@ export function StaticPoolDataProvider({
   let price = '0';
 
   activeData?.reserves?.reservesData.map((reserve) => {
-    if (reserve.symbol == 'WTLOS') {
+    if (reserve.symbol.toUpperCase() === `W${networkConfig.baseAsset}`) {
       price = reserve.priceInMarketReferenceCurrency;
     }
   });

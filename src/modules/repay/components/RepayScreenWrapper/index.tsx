@@ -58,7 +58,7 @@ export default function RepayScreenWrapper({
             <Value
               value={Number(currentBorrows)}
               subValue={Number(currentBorrowsInUSD)}
-              color="white"
+              color={isCurrentThemeDark ? 'white' : 'dark'}
               symbol={currencySymbol}
               subSymbol="USD"
               maximumValueDecimals={isAssetStable(currencySymbol) ? 4 : 18}
@@ -76,7 +76,7 @@ export default function RepayScreenWrapper({
             <Value
               value={Number(walletBalance)}
               subValue={Number(walletBalanceInUSD)}
-              color="white"
+              color={isCurrentThemeDark ? 'white' : 'dark'}
               symbol={currencySymbol}
               subSymbol="USD"
               maximumValueDecimals={isAssetStable(currencySymbol) ? 4 : 18}
@@ -100,7 +100,7 @@ export default function RepayScreenWrapper({
                   ? Number(totalCollateralMarketReferenceCurrency)
                   : undefined
               }
-              color="white"
+              color={isCurrentThemeDark ? 'white' : 'dark'}
               symbol="USD"
               subSymbol="TLOS"
               maximumValueDecimals={2}
@@ -110,11 +110,18 @@ export default function RepayScreenWrapper({
             />
           </Row>
 
-          <CollateralCompositionBar isColumn={true} />
+          <CollateralCompositionBar
+            isColumn={true}
+            colorTitle={isCurrentThemeDark ? 'white' : 'dark'}
+          />
         </div>
 
         <div className="RepayScreenWrapper__items-wrapper">
-          <HealthFactor value={healthFactor} titleColor="white" titleLightWeight={true} />
+          <HealthFactor
+            value={healthFactor}
+            titleColor={isCurrentThemeDark ? 'white' : 'dark'}
+            titleLightWeight={true}
+          />
           <Row
             title={
               <MaxLTVHelpModal
@@ -123,7 +130,7 @@ export default function RepayScreenWrapper({
                 lightWeight={true}
               />
             }
-            color="white"
+            color={isCurrentThemeDark ? 'white' : 'dark'}
             weight="light"
           >
             <ValuePercent value={loanToValue} color={isCurrentThemeDark ? 'white' : 'dark'} />

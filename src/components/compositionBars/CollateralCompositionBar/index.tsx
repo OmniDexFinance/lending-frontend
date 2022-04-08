@@ -14,11 +14,13 @@ import staticStyles from './style';
 interface CollateralCompositionBarProps {
   className?: string;
   isColumn?: boolean;
+  colorTitle?: 'white' | 'dark' | 'lightBlue';
 }
 
 export default function CollateralCompositionBar({
   className,
   isColumn,
+  colorTitle = 'white',
 }: CollateralCompositionBarProps) {
   const { user, reserves } = useDynamicPoolDataContext();
   const intl = useIntl();
@@ -53,7 +55,7 @@ export default function CollateralCompositionBar({
     <Row
       className={classNames('CollateralCompositionBar', className)}
       title={intl.formatMessage(messages.collateralComposition)}
-      color="white"
+      color={colorTitle}
       weight="light"
       isColumn={isColumn}
     >
