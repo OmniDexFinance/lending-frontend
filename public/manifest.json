@@ -1,8 +1,9 @@
 {
-  "short_name": "OmniLending",
-  "name": "OmniLending",
-  "description": "Non-custodial liquidity protocol to earn interest on deposits and borrow",
+  "short_name": "Omnidex Lending",
+  "name": "Omnidex Lending",
+  "description": "Non-custodial lending protocol to earn interest on deposits and borrow",
   "iconPath": "omni.svg",
+  "default_locale": "en",
   "icons": [
     {
       "src": "favicon32.png",
@@ -13,5 +14,6 @@
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "manifest_version": 2
 }
