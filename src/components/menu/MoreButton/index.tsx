@@ -41,7 +41,7 @@ export default function MoreButton({ isVisible = false }: MoreButtonProps) {
             className={classNames('MoreButton__button', { MoreButton__buttonActive: visible })}
             type="button"
           >
-            <span>...</span>
+            <b>...</b>
             <strong>...</strong>
           </button>
         }
@@ -97,6 +97,11 @@ export default function MoreButton({ isVisible = false }: MoreButtonProps) {
               border: 1px solid ${currentTheme.border.hex};
             }
             &__button {
+              b,
+              strong {
+                font-weight: bold;
+                font-size: 18px;
+              }
               color: ${currentTheme.textDarkBlue.hex} !important;
             }
 
