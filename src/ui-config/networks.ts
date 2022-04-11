@@ -6,8 +6,8 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     name: 'Telos EVM Mainnet',
     publicJsonRPCUrl: ['https://mainnet.telos.net/evm'],
     addresses: {
-      walletBalanceProvider: '0x2bF48dfedE9D5203cd133b594E0274494d9a5565',
-      uiPoolDataProvider: '0xd9Fd10945d69053Eadd365B786977B6290fea088',
+      walletBalanceProvider: '0xc08E9c9d6b97da936abaf40b925a448F0778e123',
+      uiPoolDataProvider: '0x3c4a38019e6EE5158d3c009B22f566Ae1A5Eb4ed',
       uiIncentiveDataProvider: '',
       chainlinkFeedRegistry: '',
     },
@@ -27,8 +27,8 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     name: 'Telos EVM Testnet',
     publicJsonRPCUrl: ['https://testnet.telos.net/evm'],
     addresses: {
-      walletBalanceProvider: '0xF09Ead50dB5498abACC3751E99c247D2d8C8FfEE',
-      uiPoolDataProvider: '0xd9Fd10945d69053Eadd365B786977B6290fea088',
+      walletBalanceProvider: '0xc08E9c9d6b97da936abaf40b925a448F0778e123',
+      uiPoolDataProvider: '0x3c4a38019e6EE5158d3c009B22f566Ae1A5Eb4ed',
       uiIncentiveDataProvider: '',
       chainlinkFeedRegistry: '',
     },
