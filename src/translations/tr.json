@@ -4,7 +4,7 @@
   "components.AMPLWarning.amplFaq": "",
   "components.AMPLWarning.amplWarning": "",
   "components.AMPLWarning.documentation": "",
-  "components.AddATokenButton.title": "",
+  "components.AddATokenButton.title": "Cüzdanınıza {asset} ekleyin",
   "components.AddressModal.addressesCaption": "Kullanmak istediğiniz adresi seçin",
   "components.AddressModal.selectButtonText": "seç",
   "components.AddressModal.selectCaption": "HD türetme yolunu seçin",

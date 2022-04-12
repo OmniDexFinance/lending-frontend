@@ -22,7 +22,7 @@ export default function DepositDashboardTable({ listData }: DepositDashboardTabl
   const { currentLangSlug } = useLanguageContext();
   const { lg, sm } = useThemeContext();
 
-  const head = [
+  let head = [
     intl.formatMessage(messages.yourDeposits),
     intl.formatMessage(messages.secondTableColumnTitle),
     intl.formatMessage(messages.apyRowTitle),
@@ -30,7 +30,7 @@ export default function DepositDashboardTable({ listData }: DepositDashboardTabl
   ];
   const colWidth = [lg ? 250 : 160, '100%', '100%', 180];
 
-  const Header = useCallback(() => {
+  let Header = useCallback(() => {
     return <TableHeader head={head} colWidth={colWidth} isDeposit={true} />;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentLangSlug]);

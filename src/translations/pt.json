@@ -4,7 +4,7 @@
   "components.AMPLWarning.amplFaq": "",
   "components.AMPLWarning.amplWarning": "",
   "components.AMPLWarning.documentation": "",
-  "components.AddATokenButton.title": "",
+  "components.AddATokenButton.title": "Adicione {asset} à sua carteira",
   "components.AddressModal.addressesCaption": "Selecione o endereço que gostaria de utilizar",
   "components.AddressModal.selectButtonText": "Selecionar",
   "components.AddressModal.selectCaption": "Selecionar caminho de derivação HD",
