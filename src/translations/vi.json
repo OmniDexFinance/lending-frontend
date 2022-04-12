@@ -293,7 +293,7 @@
   "components.wrappers.DepositBorrowMainWrapper.changeMarket": "",
   "components.wrappers.DepositBorrowMainWrapper.optionTitleLeft": "",
   "components.wrappers.DepositBorrowMainWrapper.optionTitleRight": "",
-  "components.wrappers.DepositBorrowMainWrapper.total": "",
+  "components.wrappers.DepositBorrowMainWrapper.total": "Toàn bộ",
   "components.wrappers.IncentiveWrapper.availableReward": "",
   "components.wrappers.IncentiveWrapper.polygonEmpty": "",
   "components.wrappers.ScreensWrapper.pageTitle": "Các thị trường",
