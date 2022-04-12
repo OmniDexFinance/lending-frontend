@@ -160,7 +160,7 @@
   "components.TxConfirmationView.successfullyExecuted": "操作已成功执行",
   "components.TxConfirmationView.transactionDetails": "这些是你的交易详细信息。请在提交之前务必检查是否正确。",
   "components.TxConfirmationView.txFailReason": "交易失败，原因如下： {reason}",
-  "components.TxEstimation.approximate": "",
+  "components.TxEstimation.approximate": "大概的交易成本",
   "components.TxEstimationEditor.EditorModal.caption": "",
   "components.TxEstimationEditor.EditorModal.confirm": "",
   "components.TxEstimationEditor.EditorModal.description": "",

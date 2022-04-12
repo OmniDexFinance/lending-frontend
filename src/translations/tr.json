@@ -160,7 +160,7 @@
   "components.TxConfirmationView.successfullyExecuted": "Eyleminiz başarıyla gerçekleştirildi",
   "components.TxConfirmationView.transactionDetails": "Bunlar işlem ayrıntılarınızdır. Göndermeden önce bunun doğru olup olmadığını kontrol ettiğinizden emin olun.",
   "components.TxConfirmationView.txFailReason": "İşlem şu nedenle başarısız oldu: {reason}",
-  "components.TxEstimation.approximate": "",
+  "components.TxEstimation.approximate": "Yaklaşık işlem maliyeti",
   "components.TxEstimationEditor.EditorModal.caption": "",
   "components.TxEstimationEditor.EditorModal.confirm": "",
   "components.TxEstimationEditor.EditorModal.description": "",

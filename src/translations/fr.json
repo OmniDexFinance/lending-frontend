@@ -160,7 +160,7 @@
   "components.TxConfirmationView.successfullyExecuted": "Votre action a été exécutée avec succès",
   "components.TxConfirmationView.transactionDetails": "Voici les détails de votre transaction. Veuillez vérifier que tout est correct avant de valider.",
   "components.TxConfirmationView.txFailReason": "La transaction a échoué pour la raison suivante : {motif}",
-  "components.TxEstimation.approximate": "",
+  "components.TxEstimation.approximate": "Coût approximatif",
   "components.TxEstimationEditor.EditorModal.caption": "",
   "components.TxEstimationEditor.EditorModal.confirm": "",
   "components.TxEstimationEditor.EditorModal.description": "",
