@@ -1,6 +1,6 @@
 {
-  "short_name": "Omnidex Lending",
-  "name": "Omnidex Lending",
+  "short_name": "OmniLend",
+  "name": "OmniLend",
   "description": "Non-custodial lending protocol to earn interest on deposits and borrow",
   "iconPath": "omni.svg",
   "default_locale": "en",

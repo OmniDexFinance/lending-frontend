@@ -688,7 +688,7 @@
   "modules.markets.components.SelectMarketPanel.pleaseSelectAMarket": "Please select a market",
   "modules.markets.components.TotalMarketsSize.title": "Total market size",
   "modules.markets.screens.Markets.native": "Native",
-  "modules.markets.screens.Markets.pageSubtitle": "All tokens available to deposit and borrow on Omnidex Lending",
+  "modules.markets.screens.Markets.pageSubtitle": "All tokens available to deposit and borrow on OmniLend",
   "modules.markets.screens.Markets.pageTitle": "Markets",
   "modules.markets.screens.Markets.rewardsInformation": "Rewards information",
   "modules.markets.screens.Markets.selectMarket": "Select a market",
