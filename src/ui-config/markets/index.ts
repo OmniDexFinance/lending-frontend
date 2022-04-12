@@ -21,8 +21,8 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
     },
     addresses: {
       LENDING_POOL_ADDRESS_PROVIDER: '0x87F27B0DEE1Fd97A60dD5e5436c8068b805770E4'.toLowerCase(),
-      LENDING_POOL: '0x6eC35d6B345DF1FAdBD3E3B2A8C4c4CAe84A5E26',
-      WETH_GATEWAY: '0x68413e6bb7B9cb0ab9cc3C62946eF44f0A4A198D',
+      LENDING_POOL: '0x6eC35d6B345DF1FAdBD3E3B2A8C4c4CAe84A5E26'.toLowerCase(),
+      WETH_GATEWAY: '0x68413e6bb7B9cb0ab9cc3C62946eF44f0A4A198D'.toLowerCase(),
       FAUCET: '',
     },
   },
