@@ -139,7 +139,7 @@
   "components.TxConfirmationView.TextStatus.dashboard": "Kontrol Paneli",
   "components.TxConfirmationView.TextStatus.failed": "Başarısız İşlem(ler)",
   "components.TxConfirmationView.TextStatus.pending": "Beklemedeki İşlem(ler)",
-  "components.TxConfirmationView.TxBottomStatusLine.explorer": "",
+  "components.TxConfirmationView.TxBottomStatusLine.explorer": "Kaşif",
   "components.TxConfirmationView.TxTopInfo.copied": "",
   "components.TxConfirmationView.TxTopInfo.copyError": "",
   "components.TxConfirmationView.TxTopInfo.copyErrorAndClose": "",

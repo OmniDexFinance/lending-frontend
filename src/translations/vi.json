@@ -654,7 +654,7 @@
   "modules.history.components.HistoryModal.borrowedDescription": "Bạn đã vay tài sản này",
   "modules.history.components.HistoryModal.date": "Ngày",
   "modules.history.components.HistoryModal.depositDescription": "Bạn đã nạp tài sản này",
-  "modules.history.components.HistoryModal.explorer": "",
+  "modules.history.components.HistoryModal.explorer": "Nhà thám hiểm",
   "modules.history.components.HistoryModal.liquidationAmount": "Khoản nợ được bảo hiểm",
   "modules.history.components.HistoryModal.liquidationDescription": "Vị thế của bạn đã được thanh lý",
   "modules.history.components.HistoryModal.repaidDescription": "Bạn đã hoàn trả",

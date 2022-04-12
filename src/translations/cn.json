@@ -654,7 +654,7 @@
   "modules.history.components.HistoryModal.borrowedDescription": "你已借入此资产",
   "modules.history.components.HistoryModal.date": "日期",
   "modules.history.components.HistoryModal.depositDescription": "你已存入此资产",
-  "modules.history.components.HistoryModal.explorer": "",
+  "modules.history.components.HistoryModal.explorer": "探险家",
   "modules.history.components.HistoryModal.liquidationAmount": "债务已被支付",
   "modules.history.components.HistoryModal.liquidationDescription": "你的头寸已清算",
   "modules.history.components.HistoryModal.repaidDescription": "你完成了一次还款",

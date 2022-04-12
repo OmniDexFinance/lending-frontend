@@ -139,7 +139,7 @@
   "components.TxConfirmationView.TextStatus.dashboard": "Panel de control",
   "components.TxConfirmationView.TextStatus.failed": "Transacción(es) fallida(s)",
   "components.TxConfirmationView.TextStatus.pending": "Transacción(es) pendiente(s)",
-  "components.TxConfirmationView.TxBottomStatusLine.explorer": "",
+  "components.TxConfirmationView.TxBottomStatusLine.explorer": "Explorador",
   "components.TxConfirmationView.TxTopInfo.copied": "",
   "components.TxConfirmationView.TxTopInfo.copyError": "",
   "components.TxConfirmationView.TxTopInfo.copyErrorAndClose": "",

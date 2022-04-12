@@ -139,7 +139,7 @@
   "components.TxConfirmationView.TextStatus.dashboard": "Tableau de bord",
   "components.TxConfirmationView.TextStatus.failed": "Échec(s) de transaction(s)",
   "components.TxConfirmationView.TextStatus.pending": "Transaction(s) en attente",
-  "components.TxConfirmationView.TxBottomStatusLine.explorer": "",
+  "components.TxConfirmationView.TxBottomStatusLine.explorer": "Exploreur",
   "components.TxConfirmationView.TxTopInfo.copied": "Copié",
   "components.TxConfirmationView.TxTopInfo.copyError": "Copier",
   "components.TxConfirmationView.TxTopInfo.copyErrorAndClose": "Copier & fermer",

@@ -654,7 +654,7 @@
   "modules.history.components.HistoryModal.borrowedDescription": "Hai preso in prestito questo asset",
   "modules.history.components.HistoryModal.date": "Data",
   "modules.history.components.HistoryModal.depositDescription": "Hai depositato questo asset",
-  "modules.history.components.HistoryModal.explorer": "",
+  "modules.history.components.HistoryModal.explorer": "Esploratore",
   "modules.history.components.HistoryModal.liquidationAmount": "Debito sanato",
   "modules.history.components.HistoryModal.liquidationDescription": "La tua posizione è stata liquidata",
   "modules.history.components.HistoryModal.repaidDescription": "Hai effettuato un rimborso",
