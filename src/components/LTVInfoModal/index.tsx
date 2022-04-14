@@ -215,9 +215,6 @@ export default function LTVInfoModal({ visible, setVisible }: LTVInfoModalProps)
       </style>
       <style jsx={true} global={true}>{`
         .LTVInfoModal {
-          &__content {
-            border: 1px solid ${currentTheme.darkBlue.hex};
-          }
           &__subTitle {
             color: ${currentTheme.secondary.hex};
           }

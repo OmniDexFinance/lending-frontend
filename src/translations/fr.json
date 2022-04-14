@@ -33,7 +33,7 @@
   "components.ConnectWalletModal.readOurFAQ": "",
   "components.ConnectWalletModal.titleBrowserWallet": "",
   "components.CurrencySwitcherMobile.showInCurrency": "Afficher en devise",
-  "components.DepositBorrowTopPanel.approximateBalance": "",
+  "components.DepositBorrowTopPanel.approximateBalance": "Solde approximatif",
   "components.DepositBorrowTopPanel.borrowComposition": "Composition de l'emprunt",
   "components.DepositBorrowTopPanel.borrowInformation": "Informations sur les emprunts",
   "components.DepositBorrowTopPanel.borrowingPowerAvailable": "",
