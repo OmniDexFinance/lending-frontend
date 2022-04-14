@@ -3143,10 +3143,10 @@
     "mkdirp" "^1.0.4"
     "rimraf" "^3.0.2"
 
-"@omnidex/omnidex-ui-kit@^0.2.0":
-  "integrity" "sha512-KqMTG3IYF/hnt6u1W2Vi32S8+hD1RDyoLudVP5Dt+4XuQYZS4va7DjY07nfO7TVeEogbujD2e0zIuDUFBgBARg=="
-  "resolved" "https://registry.npmjs.org/@omnidex/omnidex-ui-kit/-/omnidex-ui-kit-0.2.8.tgz"
-  "version" "0.2.8"
+"@omnidex/omnidex-ui-kit@^0.3.0":
+  "integrity" "sha512-IT5HDwlg2rsBN6i/EMVtB2Him/8iePcRibsjHqNCYU04OkKrFiMKXpLXrPAtizVstBqYhG9qBSNS8B0WJFOEMw=="
+  "resolved" "https://registry.npmjs.org/@omnidex/omnidex-ui-kit/-/omnidex-ui-kit-0.3.0.tgz"
+  "version" "0.3.0"
   dependencies:
     "@react-hook/window-size" "^3.0.7"
     "@types/react-modal" "^3.10.6"
