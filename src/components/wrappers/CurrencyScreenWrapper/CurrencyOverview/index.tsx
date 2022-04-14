@@ -219,7 +219,7 @@ export default function CurrencyOverview({
                   tokenIcon={true}
                   symbol="USD"
                   value={overviewData.priceInUsd}
-                  maximumValueDecimals={2}
+                  maximumValueDecimals={3}
                   color={isCurrentThemeDark || sm ? 'white' : 'dark'}
                 />
               </Row>
