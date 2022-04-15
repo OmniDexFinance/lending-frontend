@@ -1,5 +1,5 @@
 {
-  "borrow": "",
+  "borrow": "Vay",
   "claim": "",
   "components.AMPLWarning.amplFaq": "",
   "components.AMPLWarning.amplWarning": "",
@@ -925,7 +925,7 @@
   "modules.swap.SwapUsageAsCollateralModeConfirmation.boxDescriptionNotUse": "Vui lòng không sử dụng {currencySymbol} làm tài sản thế chấp",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.boxDescriptionUse": "Vui lòng sử dụng {currencySymbol} làm tài sản thế chấp",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.boxTitle": "Sử dụng làm tài sản thế chấp",
-  "modules.swap.SwapUsageAsCollateralModeConfirmation.buttonTitle": "",
+  "modules.swap.SwapUsageAsCollateralModeConfirmation.buttonTitle": "Gửi đi",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.connectWallet": "Vui lòng kết nối với ví",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.connectWalletDescription": "Chúng tôi không thể tìm thấy ví.",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.currentHealthFactor": "Chỉ số an toàn hiện tại:",

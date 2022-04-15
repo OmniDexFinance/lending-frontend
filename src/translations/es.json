@@ -925,7 +925,7 @@
   "modules.swap.SwapUsageAsCollateralModeConfirmation.boxDescriptionNotUse": "Envíe para no usar {currencySymbol} como garantía",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.boxDescriptionUse": "Envíe para usar {currencySymbol} como garantía",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.boxTitle": "Uso como garantía",
-  "modules.swap.SwapUsageAsCollateralModeConfirmation.buttonTitle": "",
+  "modules.swap.SwapUsageAsCollateralModeConfirmation.buttonTitle": "Entregar",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.connectWallet": "Por favor conecta una cartera",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.connectWalletDescription": "No podemos detectar tu cartera.",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.currentHealthFactor": "Factor de salud actual:",

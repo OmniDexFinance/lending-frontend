@@ -1,5 +1,5 @@
 {
-  "borrow": "",
+  "borrow": "빌리다",
   "claim": "",
   "components.AMPLWarning.amplFaq": "",
   "components.AMPLWarning.amplWarning": "",
@@ -925,7 +925,7 @@
   "modules.swap.SwapUsageAsCollateralModeConfirmation.boxDescriptionNotUse": "{currencySymbol}을/를 담보로 사용하지 않기 위해 제출해주세요",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.boxDescriptionUse": "{currencySymbol}을/를 담보로 사용하기 위해 제출해주세요",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.boxTitle": "담보로 사용",
-  "modules.swap.SwapUsageAsCollateralModeConfirmation.buttonTitle": "",
+  "modules.swap.SwapUsageAsCollateralModeConfirmation.buttonTitle": "제출하다",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.connectWallet": "지갑을 연결해 주시기 바랍니다",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.connectWalletDescription": "지갑을 감지하지 못하였습니다.",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.currentHealthFactor": "현재 건전 지수",

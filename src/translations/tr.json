@@ -925,7 +925,7 @@
   "modules.swap.SwapUsageAsCollateralModeConfirmation.boxDescriptionNotUse": "Lütfen teminat olarak {currencySymbol} kullanmamayı gönderin",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.boxDescriptionUse": "Lütfen teminat olarak {currencySymbol} kullanmak için gönderin",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.boxTitle": "Teminat olarak kullanım",
-  "modules.swap.SwapUsageAsCollateralModeConfirmation.buttonTitle": "",
+  "modules.swap.SwapUsageAsCollateralModeConfirmation.buttonTitle": "Sunmak",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.connectWallet": "Lütfen bir cüzdan bağlayın",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.connectWalletDescription": "Bir cüzdan tespit edemedik.",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.currentHealthFactor": "Mevcut Sağlık Faktörü:",

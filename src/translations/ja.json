@@ -925,7 +925,7 @@
   "modules.swap.SwapUsageAsCollateralModeConfirmation.boxDescriptionNotUse": "{currencySymbol}を担保として使用しないために提出してください。",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.boxDescriptionUse": "{currencySymbol}を担保として使用するために提出してください。",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.boxTitle": "担保としての利用",
-  "modules.swap.SwapUsageAsCollateralModeConfirmation.buttonTitle": "",
+  "modules.swap.SwapUsageAsCollateralModeConfirmation.buttonTitle": "参加する",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.connectWallet": "ウォレットを接続してください",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.connectWalletDescription": "ウォレットが見つかりませんでした。",
   "modules.swap.SwapUsageAsCollateralModeConfirmation.currentHealthFactor": "現在の健康指数：",
