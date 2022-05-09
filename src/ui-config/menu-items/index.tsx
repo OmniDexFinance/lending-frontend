@@ -9,7 +9,7 @@ export const moreMenuItems: Navigation[] = [
     absolute: true,
   },
   {
-    link: 'https://omnidex-1.gitbook.io/omnidex/',
+    link: 'https://docs.omnidex.finance/',
     title: messages.doc,
     absolute: true,
   },

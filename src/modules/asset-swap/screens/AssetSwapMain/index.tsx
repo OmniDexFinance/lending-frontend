@@ -217,7 +217,7 @@ export default function AssetSwapMain() {
             ),
             faq: (
               <Link
-                to="https://omnidex-1.gitbook.io/omnidex/" // TODO: need change link
+                to="https://docs.omnidex.finance/" // TODO: need change link
                 absolute={true}
                 inNewWindow={true}
                 title={intl.formatMessage(messages.faq)}
