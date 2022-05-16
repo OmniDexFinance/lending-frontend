@@ -11,8 +11,8 @@ import {
 } from './DashboardLeftTopLine';
 import { UnlockWalletExtraText as UnlockWalletExtraTextUI } from './UnlockWalletExtraText';
 
-import logo from './images/omnidexLogo.jpg';
-import logoDark from './images/omnidexLogoDark.jpg';
+import logo from './images/omnidexLogo.png';
+import logoDark from './images/omnidexLogoDark.png';
 import logoSmall from './images/omnidexLogoSmall.png';
 
 export const LOGO = logo;
