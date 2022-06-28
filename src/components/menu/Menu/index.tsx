@@ -49,17 +49,17 @@ export default function Menu({ title, active }: MenuProps) {
       <div className="Menu__container">
         <div className="Menu__left-inner">
           <div className="Menu__logo-inner">
-            <Link className="Menu__logo-link" to="/markets" onClick={() => goToTop()}>
               <h1 className={'hidden'}>Omnidex, borrow and loan on Telos</h1>
               {(isCurrentThemeDark && (
+                <a href = "https://omnidex.finance/">
                 <img
                   src={md ? LOGO_SMALL : LOGO_DARK}
                   alt={'Omnidex, first Telos lending protocol'}
                 />
+                </a>
               )) || (
                 <img src={md ? LOGO_SMALL : LOGO} alt={'Omnidex, first Telos lending protocol'} />
               )}
-            </Link>
           </div>
 
           <div>
