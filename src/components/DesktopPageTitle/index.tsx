@@ -22,7 +22,11 @@ export default function DesktopPageTitle({ title, subTitle, wide = false }: Desk
       <h2>
         <div>{title}</div>
       </h2>
-      <p className="DesktopPageTitle__subTitle">{subTitle}</p>
+      {/* <h3 className="DesktopPageTitle__subTitle">{subTitle}</h3> */}
+      <p className="DesktopPageTitle__subTitle">&nbsp; </p>
+      <p className="DesktopPageTitle__subTitle">
+        Notice: Karma pool has been switched to withdraw only due to low exchange liquidity.
+      </p>
 
       <style jsx={true} global={true}>
         {staticStyles}

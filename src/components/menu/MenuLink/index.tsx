@@ -55,8 +55,7 @@ export default function MenuLink({
       <style jsx={true} global={true}>{`
         .Menu__link-inner:hover {
           transition: 400ms background ease;
-          background: ${(isCurrentThemeDark && currentTheme.darkBlue.hex) ||
-          currentTheme.textDarkBlue.hex};
+          background: #353648;
           p {
             transition: 400ms color ease;
             color: ${currentTheme.white.hex} !important;

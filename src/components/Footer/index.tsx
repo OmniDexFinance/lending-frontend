@@ -11,7 +11,6 @@ interface FooterProps {
 export default function Footer({ inside }: FooterProps) {
   return (
     <footer className={classNames('Footer', { Footer__inside: inside })}>
-      <DarkModeSwitcher />
       <style jsx={true} global={true}>
         {staticStyles}
       </style>

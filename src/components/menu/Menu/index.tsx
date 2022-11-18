@@ -49,17 +49,17 @@ export default function Menu({ title, active }: MenuProps) {
       <div className="Menu__container">
         <div className="Menu__left-inner">
           <div className="Menu__logo-inner">
-              <h1 className={'hidden'}>Omnidex, borrow and loan on Telos</h1>
-              {(isCurrentThemeDark && (
-                <a href = "https://omnidex.finance/">
+            <h1 className={'hidden'}>Omnidex, borrow and loan on Telos</h1>
+            {(isCurrentThemeDark && (
+              <a href="https://omnidex.finance/">
                 <img
                   src={md ? LOGO_SMALL : LOGO_DARK}
                   alt={'Omnidex, first Telos lending protocol'}
                 />
-                </a>
-              )) || (
-                <img src={md ? LOGO_SMALL : LOGO} alt={'Omnidex, first Telos lending protocol'} />
-              )}
+              </a>
+            )) || (
+              <img src={md ? LOGO_SMALL : LOGO} alt={'Omnidex, first Telos lending protocol'} />
+            )}
           </div>
 
           <div>
@@ -106,7 +106,6 @@ export default function Menu({ title, active }: MenuProps) {
           <TokenInfo symbol="CHARM" />
           <div className="Menu__buttons-inner">
             <LangSwitcher />
-            <UserSettings />
             <AddressInfo />
           </div>
         </div>
@@ -124,6 +123,7 @@ export default function Menu({ title, active }: MenuProps) {
         }
         .Menu__navigation-inner ul li:last-child {
           padding-left: 15px;
+          padding-top: 60px;
         }
         .Menu h1 {
           display: none;

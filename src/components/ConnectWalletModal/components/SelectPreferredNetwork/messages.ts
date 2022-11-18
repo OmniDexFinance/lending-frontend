@@ -1,7 +1,7 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  title: 'Select preferred network',
+  title: ' ',
 
   mainnet: '{network}',
   testNetwork: '{network} Test Network',

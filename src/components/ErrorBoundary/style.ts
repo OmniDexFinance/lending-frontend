@@ -51,7 +51,7 @@ const staticStyles = css.global`
       span {
         font-size: $large;
         line-height: 0;
-        color: #383d51;
+        color: #ffffff;
         @include respond-to(xl) {
           font-size: $small;
         }

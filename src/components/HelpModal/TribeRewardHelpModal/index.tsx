@@ -21,7 +21,8 @@ export default function TribeRewardHelpModal({
   onWhiteBackground,
 }: HelpModalProps) {
   const intl = useIntl();
-  const { currentTheme, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme } = useThemeContext();
+  const isCurrentThemeDark = true;
 
   return (
     <>

@@ -1,12 +1,12 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  lending: 'Lending',
+  lending: 'Lend',
   doc: 'Docs',
   analytics: 'Analytics',
   navigation: 'Navigation',
   trade: 'Trade',
-  earn: 'Earn',
+  earn: 'Stake',
   borrow: 'Borrow',
   deposit: 'Deposit',
   markets: 'Markets',
@@ -16,5 +16,5 @@ export default defineMessages({
   karma: 'Karma',
   swap: 'Swap',
   addLiquidity: 'Add liquidity',
-  more: '...'
+  more: '...',
 });

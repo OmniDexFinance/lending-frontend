@@ -692,6 +692,7 @@
   "modules.markets.screens.Markets.pageTitle": "Piyasalar",
   "modules.markets.screens.Markets.rewardsInformation": "",
   "modules.markets.screens.Markets.selectMarket": "",
+  "modules.markets.screens.Markets.text": "",
   "modules.repay.components.RepayInfoPanel.increase": "artırmak",
   "modules.repay.components.RepayInfoPanel.text": "",
   "modules.repay.components.RepayScreenWrapper.loanToValue": "Kredi değer oranı",

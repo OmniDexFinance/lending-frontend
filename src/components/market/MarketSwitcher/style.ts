@@ -259,7 +259,7 @@ const staticStyles = css.global`
 
     &__kovan {
       background: #8f65ff;
-      color: #ffffff;
+      color: #000000;
       position: absolute;
       top: 2px;
       right: 2px;

@@ -692,6 +692,7 @@
   "modules.markets.screens.Markets.pageTitle": "Marchés",
   "modules.markets.screens.Markets.rewardsInformation": "",
   "modules.markets.screens.Markets.selectMarket": "",
+  "modules.markets.screens.Markets.text": "",
   "modules.repay.components.RepayInfoPanel.increase": "augmentera",
   "modules.repay.components.RepayInfoPanel.text": "Cette action {increase} votre facteur santé! Essayez de toujours maintenir un facteur santé suffisant pour éviter la liquidation.",
   "modules.repay.components.RepayScreenWrapper.loanToValue": "Ratio prêt-valeur",

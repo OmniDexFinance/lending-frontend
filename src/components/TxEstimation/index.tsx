@@ -20,7 +20,8 @@ interface TxEstimationProps {
 
 export default function TxEstimation({ getTransactionsData, amount }: TxEstimationProps) {
   const intl = useIntl();
-  const { currentTheme, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme } = useThemeContext();
+  const isCurrentThemeDark = true;
 
   const { marketRefPriceInUsd, userId, marketETHPriceInUsd } = useStaticPoolDataContext();
   const [estimatedTx, setEstimatedTx] = useState<string>('0');

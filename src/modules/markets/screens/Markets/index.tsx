@@ -33,51 +33,48 @@ export default function Markets() {
   const [sortName, setSortName] = useState('');
   const [sortDesc, setSortDesc] = useState(false);
   let totalLockedInUsd = valueToBigNumber('0');
-  let sortedData = reserves
-    .filter((res) => res.isActive && !res.isFrozen)
-    .map((reserve) => {
-      totalLockedInUsd = totalLockedInUsd.plus(
-        valueToBigNumber(reserve.totalLiquidity)
-          .multipliedBy(reserve.priceInMarketReferenceCurrency)
-          .multipliedBy(marketRefPriceInUsd)
-      );
-
-      const totalLiquidity = Number(reserve.totalLiquidity);
-      const totalLiquidityInUSD = valueToBigNumber(reserve.totalLiquidity)
+  let sortedData = reserves.map((reserve) => {
+    totalLockedInUsd = totalLockedInUsd.plus(
+      valueToBigNumber(reserve.totalLiquidity)
         .multipliedBy(reserve.priceInMarketReferenceCurrency)
         .multipliedBy(marketRefPriceInUsd)
-        .toNumber();
+    );
 
-      const totalBorrows = Number(reserve.totalDebt);
-      const totalBorrowsInUSD = valueToBigNumber(reserve.totalDebt)
-        .multipliedBy(reserve.priceInMarketReferenceCurrency)
-        .multipliedBy(marketRefPriceInUsd)
-        .toNumber();
-      const reserveIncentiveData = reserveIncentives[reserve.underlyingAsset.toLowerCase()];
-      return {
-        totalLiquidity,
-        totalLiquidityInUSD,
-        totalBorrows: reserve.borrowingEnabled ? totalBorrows : -1,
-        totalBorrowsInUSD: reserve.borrowingEnabled ? totalBorrowsInUSD : -1,
-        id: reserve.id,
-        underlyingAsset: reserve.underlyingAsset,
-        currencySymbol: reserve.symbol,
-        depositAPY: reserve.borrowingEnabled ? Number(reserve.supplyAPY) : -1,
-        avg30DaysLiquidityRate: Number(reserve.avg30DaysLiquidityRate),
-        stableBorrowRate:
-          reserve.stableBorrowRateEnabled && reserve.borrowingEnabled
-            ? Number(reserve.stableBorrowAPY)
-            : -1,
-        variableBorrowRate: reserve.borrowingEnabled ? Number(reserve.variableBorrowAPY) : -1,
-        avg30DaysVariableRate: Number(reserve.avg30DaysVariableBorrowRate),
-        borrowingEnabled: reserve.borrowingEnabled,
-        stableBorrowRateEnabled: reserve.stableBorrowRateEnabled,
-        isFreezed: reserve.isFrozen,
-        aincentivesAPR: reserveIncentiveData ? reserveIncentiveData.aIncentives.incentiveAPR : '0',
-        vincentivesAPR: reserveIncentiveData ? reserveIncentiveData.vIncentives.incentiveAPR : '0',
-        sincentivesAPR: reserveIncentiveData ? reserveIncentiveData.sIncentives.incentiveAPR : '0',
-      };
-    });
+    const totalLiquidity = Number(reserve.totalLiquidity);
+    const totalLiquidityInUSD = valueToBigNumber(reserve.totalLiquidity)
+      .multipliedBy(reserve.priceInMarketReferenceCurrency)
+      .multipliedBy(marketRefPriceInUsd)
+      .toNumber();
+
+    const totalBorrows = Number(reserve.totalDebt);
+    const totalBorrowsInUSD = valueToBigNumber(reserve.totalDebt)
+      .multipliedBy(reserve.priceInMarketReferenceCurrency)
+      .multipliedBy(marketRefPriceInUsd)
+      .toNumber();
+    const reserveIncentiveData = reserveIncentives[reserve.underlyingAsset.toLowerCase()];
+    return {
+      totalLiquidity,
+      totalLiquidityInUSD,
+      totalBorrows: reserve.borrowingEnabled ? totalBorrows : -1,
+      totalBorrowsInUSD: reserve.borrowingEnabled ? totalBorrowsInUSD : -1,
+      id: reserve.id,
+      underlyingAsset: reserve.underlyingAsset,
+      currencySymbol: reserve.symbol,
+      depositAPY: reserve.borrowingEnabled ? Number(reserve.supplyAPY) : -1,
+      avg30DaysLiquidityRate: Number(reserve.avg30DaysLiquidityRate),
+      stableBorrowRate:
+        reserve.stableBorrowRateEnabled && reserve.borrowingEnabled
+          ? Number(reserve.stableBorrowAPY)
+          : -1,
+      variableBorrowRate: reserve.borrowingEnabled ? Number(reserve.variableBorrowAPY) : -1,
+      avg30DaysVariableRate: Number(reserve.avg30DaysVariableBorrowRate),
+      borrowingEnabled: reserve.borrowingEnabled,
+      stableBorrowRateEnabled: reserve.stableBorrowRateEnabled,
+      aincentivesAPR: reserveIncentiveData ? reserveIncentiveData.aIncentives.incentiveAPR : '0',
+      vincentivesAPR: reserveIncentiveData ? reserveIncentiveData.vIncentives.incentiveAPR : '0',
+      sincentivesAPR: reserveIncentiveData ? reserveIncentiveData.sIncentives.incentiveAPR : '0',
+    };
+  });
 
   if (sortDesc) {
     if (sortName === 'currencySymbol') {
@@ -107,10 +104,7 @@ export default function Markets() {
     >
       <TopPanelWrapper isCollapse={true} withoutCollapseButton={true}>
         <div className="Markets__top-content">
-          <DesktopPageTitle
-            title={intl.formatMessage(messages.pageTitle)}
-            subTitle={intl.formatMessage(messages.pageSubtitle)}
-          />
+          <DesktopPageTitle title="" subTitle={intl.formatMessage(messages.pageSubtitle)} />
           <TotalMarketsSize value={totalLockedInUsd.toNumber()} />
         </div>
       </TopPanelWrapper>

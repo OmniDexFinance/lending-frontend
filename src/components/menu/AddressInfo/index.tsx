@@ -21,7 +21,8 @@ import useGetEnsName from '../../../libs/hooks/use-get-ens-name';
 
 export default function AddressInfo() {
   const intl = useIntl();
-  const { currentTheme, sm, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme, sm } = useThemeContext();
+  const isCurrentThemeDark = true;
   const { chainId } = useWeb3React();
   const {
     currentAccount,

@@ -36,7 +36,8 @@ export default function BorrowTableItem({
 }: BorrowTableItemProps) {
   const intl = useIntl();
   const history = useHistory();
-  const { currentTheme, xl, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme, xl } = useThemeContext();
+  const isCurrentThemeDark = true;
 
   const borrows =
     type === 'stable'

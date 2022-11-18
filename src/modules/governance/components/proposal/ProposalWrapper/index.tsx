@@ -38,7 +38,9 @@ export default function ProposalWrapper({
   isSidePanelVisibleOnMobile,
 }: ProposalWrapperProps) {
   const intl = useIntl();
-  const { currentTheme, sm, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme, sm } = useThemeContext();
+  const isCurrentThemeDark = true;
+
   const { userId } = useStaticPoolDataContext();
   const { governanceService } = useGovernanceDataContext();
   const location = useLocation();

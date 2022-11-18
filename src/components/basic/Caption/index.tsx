@@ -27,7 +27,6 @@ export default function Caption({
   onWhiteBackground,
 }: CaptionProps) {
   const { currentTheme, isCurrentThemeDark } = useThemeContext();
-
   return (
     <div
       className={classNames('Caption', `Caption__${color}`, className)}

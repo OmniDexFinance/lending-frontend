@@ -26,7 +26,8 @@ export default function LiquidityMiningAPYLine({
   tooltipId,
 }: LiquidityMiningAPYLineProps) {
   const intl = useIntl();
-  const { currentTheme, xl, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme, xl } = useThemeContext();
+  const isCurrentThemeDark = true;
   const { networkConfig } = useProtocolDataContext();
 
   const borderColor = rgba(`${currentTheme.lightBlue.rgb}, 0.2`);

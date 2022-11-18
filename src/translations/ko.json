@@ -692,6 +692,7 @@
   "modules.markets.screens.Markets.pageTitle": "마켓",
   "modules.markets.screens.Markets.rewardsInformation": "",
   "modules.markets.screens.Markets.selectMarket": "",
+  "modules.markets.screens.Markets.text": "",
   "modules.repay.components.RepayInfoPanel.increase": "늘다",
   "modules.repay.components.RepayInfoPanel.text": "이 행동은 건전 계수를 {increase} 할 것 입니다! 청산을 면하기 위해 항상 양성의 건전계수를 유지하세요.",
   "modules.repay.components.RepayScreenWrapper.loanToValue": "담보인정비율(LTV)",

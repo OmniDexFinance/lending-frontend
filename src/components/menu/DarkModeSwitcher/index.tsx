@@ -9,7 +9,6 @@ import messages from './messages';
 export default function DarkModeSwitcher() {
   const intl = useIntl();
   const { isCurrentThemeDark, changeTheme } = useThemeContext();
-
   return (
     <SwitcherWrapper
       title={intl.formatMessage(messages.darkMode)}

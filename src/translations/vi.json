@@ -692,6 +692,7 @@
   "modules.markets.screens.Markets.pageTitle": "Các thị trường",
   "modules.markets.screens.Markets.rewardsInformation": "",
   "modules.markets.screens.Markets.selectMarket": "",
+  "modules.markets.screens.Markets.text": "",
   "modules.repay.components.RepayInfoPanel.increase": "tăng",
   "modules.repay.components.RepayInfoPanel.text": "Hành động này sẽ {increase} chỉ số an toàn của bạn! Hãy duy trì chỉ số an toàn để tránh bị thanh lý.",
   "modules.repay.components.RepayScreenWrapper.loanToValue": "Tỷ lệ khoản vay so với giá trị",

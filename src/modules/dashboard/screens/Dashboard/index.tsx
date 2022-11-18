@@ -190,10 +190,7 @@ export default function Dashboard() {
 
   return (
     <div className="Dashboard">
-      <DesktopPageTitle
-        title={intl.formatMessage(messages.pageTitle)}
-        subTitle={intl.formatMessage(messages.pageSubTitle)}
-      />
+      <DesktopPageTitle title="" subTitle={intl.formatMessage(messages.pageSubTitle)} />
       <div
         className={classNames('Dashboard__mobileMigrate--inner', {
           Dashboard__mobileMigrateWithoutContent:

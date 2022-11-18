@@ -29,7 +29,8 @@ export default function ErrorPage({
 }: ErrorPageProps) {
   const intl = useIntl();
   const history = useHistory();
-  const { currentTheme, sm, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme, sm } = useThemeContext();
+  const isCurrentThemeDark = true;
 
   return (
     <div className="ErrorPage">

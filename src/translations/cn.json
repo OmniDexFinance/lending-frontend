@@ -692,6 +692,7 @@
   "modules.markets.screens.Markets.pageTitle": "市场",
   "modules.markets.screens.Markets.rewardsInformation": "",
   "modules.markets.screens.Markets.selectMarket": "",
+  "modules.markets.screens.Markets.text": "",
   "modules.repay.components.RepayInfoPanel.increase": "增加",
   "modules.repay.components.RepayInfoPanel.text": "此操作将{increase}你的健康系数，始终保持积极的健康系数，以避免清算",
   "modules.repay.components.RepayScreenWrapper.loanToValue": "贷款价值比",

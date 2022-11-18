@@ -30,7 +30,6 @@ export default function DefaultButton({
   onDarkBackground,
 }: DefaultButtonProps) {
   const { currentTheme, isCurrentThemeDark } = useThemeContext();
-
   const backgroundGradient = gradient(
     -90,
     `${currentTheme.primary.rgb}, 1`,

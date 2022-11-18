@@ -35,8 +35,8 @@ export default function TotalMarketsSize({ value }: TotalMarketsSizeProps) {
       <style jsx={true}>{`
         .TotalMarketsSize {
           border: 1px solid ${currentTheme.border.hex};
-          color: ${isCurrentThemeDark ? currentTheme.white.hex : currentTheme.textDarkBlue.hex};
-          background: ${isCurrentThemeDark ? currentTheme.darkBlue.hex : currentTheme.white.hex};
+          color: ${isCurrentThemeDark ? currentTheme.white.hex : currentTheme.mainBg.hex};
+          background: ${isCurrentThemeDark ? currentTheme.mainBg.hex : currentTheme.mainBg.hex};
           border: 1px solid ${currentTheme.border.hex};
         }
       `}</style>

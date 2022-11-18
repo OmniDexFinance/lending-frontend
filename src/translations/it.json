@@ -692,6 +692,7 @@
   "modules.markets.screens.Markets.pageTitle": "Mercati",
   "modules.markets.screens.Markets.rewardsInformation": "",
   "modules.markets.screens.Markets.selectMarket": "",
+  "modules.markets.screens.Markets.text": "",
   "modules.repay.components.RepayInfoPanel.increase": "aumentare",
   "modules.repay.components.RepayInfoPanel.text": "Questa azione {increase} il tuo fattore di salute! Cerca sempre di mantenere un fattore di salute positivo per evitare la liquidazione.",
   "modules.repay.components.RepayScreenWrapper.loanToValue": "Loan to value",
