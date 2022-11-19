@@ -3184,10 +3184,8 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@omnidex/omnidex-ui-kit@^0.3.2":
+"@omnidex/omnidex-ui-kit@file:./omnidex-ui-kit":
   version "0.3.2"
-  resolved "https://registry.yarnpkg.com/@omnidex/omnidex-ui-kit/-/omnidex-ui-kit-0.3.2.tgz#b2d011a45baa54ba5aee586738b2a58595f666ad"
-  integrity sha512-dsgWhUbwfQxU/CMgH7fb56eKrwSwDLwVIvjbL2rPlTf9xUFjBVUcHbP8A8w3SP/AljNyrsfEVrVKvhOGeJT4Zg==
   dependencies:
     "@react-hook/window-size" "^3.0.7"
     "@types/react-modal" "^3.10.6"

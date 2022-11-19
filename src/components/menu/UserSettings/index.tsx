@@ -36,7 +36,11 @@ export default function UserSettings() {
         onBackdropPress={() => setVisible(false)}
         withCloseButton={true}
         className={classNames('SettingsModal__modal')}
-      ></BasicModal>
+      >
+        <div className="SettingsModal__modal-inner">
+          <p>{intl.formatMessage(messages.settings)}</p>
+        </div>
+      </BasicModal>
       <style jsx={true} global={true}>
         {staticStyles}
       </style>
