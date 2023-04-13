@@ -17,7 +17,7 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       faucet: false,
       governance: false,
       staking: false,
-      incentives: false,
+      incentives: true,
     },
     addresses: {
       LENDING_POOL_ADDRESS_PROVIDER: '0x87F27B0DEE1Fd97A60dD5e5436c8068b805770E4'.toLowerCase(),
@@ -35,7 +35,7 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
       faucet: false,
       governance: false,
       staking: false,
-      incentives: false,
+      incentives: true,
     },
     addresses: {
       LENDING_POOL_ADDRESS_PROVIDER: '0x87F27B0DEE1Fd97A60dD5e5436c8068b805770E4'.toLowerCase(),

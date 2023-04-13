@@ -1,4 +1,5 @@
 import tlos from './tlos.svg';
+import stlos from './tlos.svg';
 
 interface Images {
   [name: string]: string;
@@ -6,4 +7,5 @@ interface Images {
 
 export default {
   tlos,
+  stlos,
 } as Images;

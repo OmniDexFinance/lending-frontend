@@ -34,6 +34,11 @@ const navigation: Navigation[] = [
     link: '/dashboard',
     title: messages.dashboard,
   },
+  {
+    link: 'https://omnidex.finance/Portfolio/',
+    absolute: true,
+    title: messages.portfolio,
+  },
 ];
 
 export const moreNavigation: Navigation[] = [...moreMenuItems, ...moreMenuExtraItems];

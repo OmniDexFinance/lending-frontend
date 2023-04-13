@@ -21,8 +21,8 @@ export function getRewardTokenSymbol(
     return 'TRIBE';
   } else if (rewardTokenAddress.toLowerCase() === '0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7') {
     return 'WAVAX';
-  } else if (rewardTokenAddress.toLowerCase() === '0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270') {
-    return 'WMATIC';
+  } else if (rewardTokenAddress.toLowerCase() === '0xD102cE6A4dB07D247fcc28F366A623Df0938CA9E') {
+    return 'WTLOS';
   } else {
     let rewardReserve = reserves.find(
       (reserve) => reserve.underlyingAsset.toLowerCase() === rewardTokenAddress.toLowerCase()

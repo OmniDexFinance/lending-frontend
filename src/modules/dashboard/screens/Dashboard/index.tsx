@@ -247,9 +247,7 @@ export default function Dashboard() {
                   symbol="USD"
                   tokenIcon={true}
                   withSmallDecimals={true}
-                  subValue={user.totalLiquidityMarketReferenceCurrency}
                   maximumSubValueDecimals={18}
-                  subSymbol="TLOS"
                   color={isCurrentThemeDark ? 'white' : 'dark'}
                 />
               ) : (

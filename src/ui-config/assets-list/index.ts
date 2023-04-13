@@ -66,6 +66,14 @@ export const assetsList: Asset[] = [
     icon: icons.usdt,
     aIcon: aIcons.ausdt,
   },
+  {
+    name: 'Staked TLOS',
+    symbol: 'STLOS',
+    formattedSymbol: 'STLOS',
+    color: '#9151b6',
+    icon: icons.stlos,
+    aIcon: aIcons.stlos,
+  },
 ];
 
 export const getAssetInfoFactory =

@@ -15,6 +15,7 @@ export default defineMessages({
   staking: 'Staking',
   karma: 'Karma',
   swap: 'Swap',
+  portfolio: 'portfolio',
   addLiquidity: 'Add liquidity',
   more: '...',
 });
