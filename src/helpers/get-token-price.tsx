@@ -17,7 +17,6 @@ export function getTokenPrice() {
   const fallbackProvider = new ethers.providers.JsonRpcProvider('https://mainnet.telos.net/evm')
   const web3Provider = provider ?? fallbackProvider
 
-
   const fetchCharmPriceInTlos = async (web3Provider:any) => {
     try {
       const lpcontractAddress = '0x933F83735f26e51c61955b4fCA88F13fbd423A0C' // this is the charm-telos lp contract address
