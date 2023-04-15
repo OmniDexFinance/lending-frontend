@@ -16,7 +16,8 @@ export default function TokenPriceInfo({ symbol }: TokenPriceInfoProps) {
   if (asset === '' || config === undefined) {
     return null;
   }
-  const priceData = getTokenPrice({ symbol: config.rewardTokenSymbol });
+  // const priceData = getTokenPrice({ symbol: config.rewardTokenSymbol });
+  const priceData = getTokenPrice()
   return (
     <>
       <a
@@ -26,7 +27,8 @@ export default function TokenPriceInfo({ symbol }: TokenPriceInfoProps) {
         className="TokenPriceInfo"
       >
         <img src={asset.icon} width={'24px'} alt={'CHARM token'} />
-        <span>${(priceData && priceData.market_data.current_price.usd.toFixed(3)) || 0}</span>
+        {/* <span>${(priceData && priceData.market_data.current_price.usd.toFixed(3)) || 0}</span> */}
+        <span>${(priceData && priceData.toFixed(3)) || 0}</span>
       </a>
       <style jsx={true} global={true}>
         {staticStyles}
