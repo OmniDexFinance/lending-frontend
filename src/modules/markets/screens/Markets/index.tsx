@@ -33,6 +33,7 @@ export default function Markets() {
   const [sortName, setSortName] = useState('');
   const [sortDesc, setSortDesc] = useState(false);
   let totalLockedInUsd = valueToBigNumber('0');
+
   let sortedData = reserves.map((reserve) => {
     totalLockedInUsd = totalLockedInUsd.plus(
       valueToBigNumber(reserve.totalLiquidity)

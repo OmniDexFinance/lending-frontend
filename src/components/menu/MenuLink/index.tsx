@@ -45,7 +45,6 @@ export default function MenuLink({
           <p>
             <b>{title}</b> <strong>{title}</strong>
           </p>
-          <i />
         </div>
       </Link>
       {children && <Submenu links={children} visible={isVisible} />}

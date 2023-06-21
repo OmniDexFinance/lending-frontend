@@ -13,9 +13,11 @@ interface SubmenuLinkProps {
   isActive: boolean;
   hidden?: boolean;
   absolute?: boolean;
+  firstItem?:boolean;
+  lastItem?:boolean;
 }
 
-export default function SubmenuLink({ to, title, isActive, hidden, absolute }: SubmenuLinkProps) {
+export default function SubmenuLink({ to, title, isActive, hidden, absolute, firstItem, lastItem }: SubmenuLinkProps) {
   const { currentTheme } = useThemeContext();
 
   const activeGradient = gradient(
@@ -27,6 +29,9 @@ export default function SubmenuLink({ to, title, isActive, hidden, absolute }: S
   );
 
   return (
+    <div className={classNames('SubmenuItem__container', 
+      {SubmenuItem__container__firstItem: (firstItem)},       
+      {SubmenuItem__container__lastItem: (lastItem)})}>
     <Link
       to={to}
       absolute={absolute}
@@ -38,9 +43,8 @@ export default function SubmenuLink({ to, title, isActive, hidden, absolute }: S
     >
       <div className="SubmenuLink__title">
         <p>
-          <b>{title}</b> <strong>{title}</strong>
+          <b>{title}</b>
         </p>
-        <i />
       </div>
 
       <style jsx={true} global={true}>
@@ -62,5 +66,6 @@ export default function SubmenuLink({ to, title, isActive, hidden, absolute }: S
         }
       `}</style>
     </Link>
+    </div>
   );
 }

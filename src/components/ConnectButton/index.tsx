@@ -29,7 +29,7 @@ export default function ConnectButton({ className, size = 'normal' }: ConnectBut
         closeMobileMenu();
       }}
     >
-      <div className="ConnectButton__inner">
+      <div className="ConnectButton__button">
         <span>{intl.formatMessage(sm ? messages.connectWallet : messages.connect)}</span>
       </div>
 
@@ -48,6 +48,10 @@ export default function ConnectButton({ className, size = 'normal' }: ConnectBut
           }
 
           &__inner {
+            background: ${currentTheme.primary.hex};
+            color: ${currentTheme.white.hex};
+          }
+          &__button {
             background: ${currentTheme.primary.hex};
             color: ${currentTheme.white.hex};
           }

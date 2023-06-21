@@ -124,6 +124,7 @@ const staticStyles = css.global`
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      align-items: flex-start;
       overflow: auto;
       transition: right 0.3s ease;
       opacity: 1;
@@ -153,6 +154,7 @@ const staticStyles = css.global`
       ul {
         .MobileContent__link-wrapper {
           margin-bottom: 20px;
+          padding: 0 15px;
           @include respond-to(sm) {
             margin-bottom: 10px;
           }
@@ -175,10 +177,9 @@ const staticStyles = css.global`
       -ms-user-select: none;
       user-select: none;
       font-weight: 300;
-      text-transform: uppercase;
       font-size: $regular;
       width: 100%;
-      text-align: center;
+      text-align: left;
       padding: 10px 0;
     }
     &__linkActive {

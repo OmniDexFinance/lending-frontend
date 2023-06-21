@@ -5,6 +5,29 @@ const staticStyles = css`
   @import 'src/_mixins/vars';
   @import 'src/_mixins/screen-size';
 
+  .mybutton {
+    width: 100px;
+    min-height: 24px;
+    max-height: 30px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+    @include respond-to(sm) {
+      width: 110px;
+      min-height: 24px;
+      padding: 0 10px;
+    }
+    span {
+      font-size: $extraSmall;
+      @include respond-to(sm) {
+        font-size: $regular;
+      }
+    }
+  }
   .ConnectButton {
     position: relative;
     &:hover {
@@ -44,17 +67,41 @@ const staticStyles = css`
 
     &__inner {
       width: 100px;
-      min-height: 32px;
+      min-height: 24px;
+      max-height: 30px;
       display: flex;
       align-items: center;
       justify-content: center;
       border: 1px solid transparent;
-      border-radius: 20px;
+      border-radius: 10px;
       position: relative;
       z-index: 2;
       @include respond-to(sm) {
         width: 110px;
-        min-height: 54px;
+        min-height: 24px;
+        padding: 0 10px;
+      }
+      span {
+        font-size: $extraSmall;
+        @include respond-to(sm) {
+          font-size: $regular;
+        }
+      }
+    }
+    &__button {
+      width: 100px;
+      min-height: 24px;
+      max-height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      position: relative;
+      z-index: 2;
+      @include respond-to(sm) {
+        width: 110px;
+        min-height: 32px;
         padding: 0 10px;
       }
       span {

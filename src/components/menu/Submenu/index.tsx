@@ -36,14 +36,13 @@ export default function Submenu({ links, index, classname, visible = false }: Su
       })}
     >
       <nav className="Submenu__navigation-inner">
-        <ul>
+        <div>
           {links.map((link, index) => (
-            <li
+            <div
               className={classNames('Submenu__link-inner', {
                 Submenu__linkHidden:
                   (!currentAccount && link.hiddenWithoutWallet) ||
-                  (link.isVisible && !link.isVisible(currentMarketData)),
-                Submenu__linkfirst: index === 0,
+                  (link.isVisible && !link.isVisible(currentMarketData)),        
               })}
               key={index}
             >
@@ -52,10 +51,12 @@ export default function Submenu({ links, index, classname, visible = false }: Su
                 title={intl.formatMessage(link.title)}
                 absolute={link.absolute}
                 isActive={isActive(link.link)}
+                firstItem ={index===0}
+                lastItem ={index===links.length-1}
               />
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </nav>
       <style jsx={true} global={true}>
         {staticStyles}

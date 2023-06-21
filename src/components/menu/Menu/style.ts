@@ -8,12 +8,12 @@ const staticStyles = css.global`
   .Menu {
     width: 100%;
     transform: translateY(-70px);
-    padding: 10px 15px;
+    padding: 5px 15px;
     z-index: 5;
     position: absolute;
     transition: 400ms transform ease, 400ms opacity ease;
     opacity: 0.4;
-    height: 80px;
+    height: 60px;
     &__active {
       transform: translateY(0px);
       opacity: 1;
